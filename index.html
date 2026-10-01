@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="utf-8">
   <title>HTML</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,37 @@
   <script src="script.js"></script> <!--Aquí podriamos cargar los scripts, también se puede en el <body>, y pasa lo mismo que con el css de antes, en verdad aquí no estamos cargando nada-->
 </head>
 
-<body>
-  <h1>Esto es un título de primer nivel.</h1>
+<body style="background-color: rgb(76, 74, 74);">
+  <!-- Titulo del juego y nombre del estudio -->
+  <h1>Mental BreakDown</h1>
+  <h2>Qingtian Games</h2>
+  <div  class="centrada">
+ <img src="images/Logo.png"><img>
+  </div>
+ 
   <div>
-    <h2 class=clase>Este es de 2º y hay más</h2>
+    <h2>¿En que consiste?</h2>
 
-    <p class=clase id="magico"> Esto es un párrafo. Y abajo aparece una imagen con un link a la UCM</p>
-    <a href="https://www.ucm.es/" target="_blank">
-      <img src="https://www.ucm.es/themes/ucm16/media/img/logo.png" alt="Si la imagen no se carga, se ve esto"><!--Modifica el atributo src y verás como se muestra el mensaje, pero el link (etiqueta <a>) seguirá funcionando al ser un hijo -->
-    </a>
-  </div>
-  <div>
-    <button onclick="alert(devuelveTextoDeAlerta())">Soy un botón de Alerta</button>
-  </div>
-  <div>
-    <button onclick="document.getElementById('magico').style.visibility='hidden'"> Desaparece!!! </button>
-    <button onclick="desaparece('magico')"> Desaparece!!! (pero usando una función) </button>
-  </div>
+    <p class=clase id="magico"> En el juego hay varias emociones que componen los personajes jugables del jugador. Cada emoción tiene diferentes ataques y efectos. Constarán de un ataque y una habilidad básica, y una definitiva.<br>
+El objetivo es derrotar enemigos usando las diferentes emociones. Los enemigos son los demonios internos que el personaje tiene dentro de su cabeza, ya que se encuentra luchando contra sus otras personalidades y pensamientos.<br>
+La elección de las emociones ocurre (dos por definir) antes de comenzar el combate. Pueden ser cambiadas en cualquier momento del combate pero no podrán efectuar ninguna acción el turno en el que salen. Al morir una emoción, el jugador podrá elegir la que va a sacar para sustituirla.<br>
+Tras los combates investigaremos las partes de nuestro cerebro y podremos encontrar distintas salas. Entre ellas la del sistema límbico (donde se originan las emociones): en esta sala podremos cultivar distintas emociones. Al cultivar se nos pedirá un requisito para que esa emoción gane fuerza y al completarse se mejorará dicha habilidad.<br>
+Durante los combates el jugador presentará una barra de locura que irá aumentando y decreciendo durante el transcurso de la partida, por usar habilidades y/o por decisiones en la exploración de mazmorras.<br>
+</p>
+    <h2>¿Quienes somos?</h2>
+ <p class=clase id="magico">Somos una pequeña desarrolladora que esta empezando en el mundo de los juegos indie.<br>Integrantes:<br>CHEN, ZIMIN<br>
+LADRÓN DE GUEVARA JIMÉNEZ, JORGE-GINÉS<br>
+OLTEAN, GABRIEL ADRIAN<br>
+SÁNCHEZ LÓPEZ, TRISTÁN<br>
+ Si quereis conocernos mejor no dudeis en seguirnos en redes</p>
+ <div class="logosRedes">
+<a href="https://www.instagram.com/gamesqingtian?stkn=MWZ0dHE4dzJhejlrMA%3D%3D">
+<img src = "https://static.vecteezy.com/system/resources/thumbnails/023/986/885/small/instagram-logo-instagram-logo-transparent-instagram-icon-transparent-free-free-png.png">
+</a>
+<a href="https://github.com/tristasaucm/Gp012-Pvli">
+<img src="https://img.loadlogo.com/github.com" />
+</a>
+
+ </div>
 </body>
-<!--2023-2024-->
 </html>

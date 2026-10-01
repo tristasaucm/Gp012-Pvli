@@ -1,7 +1,39 @@
 h1 {
-  color: darkblue;
+  color: black;
+}
+h2{
+  color: black;
 }
 
 .clase {
-  color: red;
+  color: white;
 }
+.logosRedes {
+  display: flex;          
+  justify-content: center; 
+  align-items: center;     
+  gap: 20px;              
+}
+.centrada{
+  display: block;       
+  margin-left: auto;    
+  margin-right: auto;
+  width: 300px;     
+  height: auto;
+}
+img {
+  width: 300px;     
+  height: auto;  
+}
+
+ h1{
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+    }
+    h2{
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+    }
+    p{
+      text-align: center;
+    }

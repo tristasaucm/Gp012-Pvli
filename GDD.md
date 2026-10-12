@@ -12,95 +12,54 @@ MENTAL BREAKDOWN
 
 * SÁNCHEZ LÓPEZ, TRISTÁN
 
-**Índice**
+## Índice
 
-[**1 Descripción general	3**](#descripción-general)
+- [1. Descripción general](#1-descripción-general)
+  - [Concepto](#11-concepto)
+  - [Género](#12-género)
+  - [Setting](#13-setting)
+  - [Características principales](#14-características-principales)
+- [2. Gameplay](#2-gameplay)
+  - [Objetivo del juego](#21-objetivo-del-juego)
+  - [Core loops](#22-core-loops)
+- [3. Personaje jugador](#3-personaje-jugador)
+  - [Controles](#31-controles)
+  - [Sprite del jugador](#32-sprite-del-jugador)
+- [4. Mecánicas](#4-mecánicas)
+  - [Barra locura](#41-barra-locura)
+  - [Barra de energía(prioridad)](#42-barra-de-energíaprioridad)
+  - [Exploración de mazmorras](#43-exploración-de-mazmorras)
+  - [Elección en las salas](#44-elección-en-las-salas)
+  - [Cultivo de emociones](#45-cultivo-de-emociones)
+  - [Mejoras de personajes](#46-mejoras-de-personajes)
+  - [Ataques](#47-ataques)
+  - [Definitivas](#48-definitivas)
+  - [Habilidades](#49-habilidades)
+  - [Debilidades](#410-debilidades)
+    - [Debilidad en emociones](#4101-debilidad-en-emociones)
+  - [Organización/gestión de equipo](#411-organizacióngestión-de-equipo)
+- [5. Mundo del juego](#5-mundo-del-juego)
+  - [Personajes](#51-personajes)
+  - [Enemigos](#52-enemigos)
+  - [Bosses](#53-bosses)
+  - [Obstáculos](#54-obstáculos)
+  - [Objetos](#55-objetos)
+  - [Niveles](#56-niveles)
+- [6. Interfaz](#6-interfaz)
+  - [Cámara](#61-cámara)
+  - [HUD Menús](#62-hud-menús)
+- [7. Experiencia de Juego](#7-experiencia-de-juego)
+  - [Trasfondo](#71-trasfondo)
+  - [Historia](#72-historia)
+- [8. Dinámicas](#8-dinámicas)
+- [9. Estética](#9-estética)
+  - [Arte](#91-arte)
+  - [Sonido](#92-sonido)
+- [10. Referencias](#10-referencias)
 
-[1.1 Concepto	3](#heading=)
+# 1. Descripción general
 
-[1.2 Género	3](#género)
-
-[1.3 Setting	3](#setting)
-
-[1.4 Características principales	3](#características-principales)
-
-[**2 Gameplay	4**](#gameplay)
-
-[2.1 Objetivo del juego	4](#objetivo-del-juego)
-
-[2.2 Core loops	4](#core-loops)
-
-[**3 Personaje jugador	4**](#personaje-jugador)
-
-[3.1 Controles	4](#controles)
-
-[3.2 Sprite del jugador	4](#sprite-del-jugador)
-
-[**4 Mecánicas	5**](#mecánicas)
-
-[4.1 Barra locura	5](#barra-locura)
-
-[4.2 Barra de energía(prioridad)	5](#barra-de-energía\(prioridad\))
-
-[4.3 Exploración de mazmorras	5](#exploración-de-mazmorras)
-
-[4.4 Elección en las salas	5](#elección-en-las-salas)
-
-[4.5 Cultivo de emociones	5](#cultivo-de-emociones)
-
-[4.6 Mejoras de personajes	6](#mejoras-de-personajes)
-
-[4.7 Ataques	8](#ataques)
-
-[4.8 Definitivas	8](#definitivas)
-
-[4.9 Habilidades	8](#habilidades)
-
-[4.10 Debilidades	9](#debilidades)
-
-[Debilidad en emociones	9](#debilidad-en-emociones)
-
-[4.11 Organización/gestión de equipo	9](#organización/gestión-de-equipo)
-
-[**5 Mundo del juego	10**](#mundo-del-juego)
-
-[5.1 Personajes	10](#personajes)
-
-[5.2 Enemigos	11](#enemigos)
-
-[5.3 Bosses	11](#bosses)
-
-[5.4 Obstáculos	12](#obstáculos)
-
-[5.5 Objetos	13](#objetos)
-
-[5.6 Niveles	13](#niveles)
-
-[**6 Interfaz	14**](#interfaz)
-
-[6.1 Cámara	14](#cámara)
-
-[6.2 HUD Menús	14](#hud-menús)
-
-[**7 Experiencia de Juego	15**](#experiencia-de-juego)
-
-[7.1 Trasfondo	15](#trasfondo)
-
-[7.2 Historia	15](#historia)
-
-[**8 Dinámicas	16**](#dinámicas)
-
-[**9 Estética	16**](#estética)
-
-[9.1 Arte	16](#arte)
-
-[9.2 Sonido	16](#sonido)
-
-[**10 Referencias	16**](#referencias)
-
-1. # **Descripción general** {#descripción-general}
-
-   1. ## **Concepto**
+## 1.1 Concepto
 
 En el juego hay varias emociones que componen los personajes jugables del jugador. Cada emoción tiene diferentes ataques y efectos. Constarán de un ataque y una habilidad básica, y una definitiva.
 
@@ -112,15 +71,15 @@ Tras los combates investigaremos las partes de nuestro cerebro y podremos encont
 
 Durante los combates el jugador presentará una barra de locura que irá aumentando y decreciendo durante el transcurso de la partida, por usar habilidades y/o por decisiones en la exploración de mazmorras.
 
-2. ## **Género** {#género}
+## 1.2 Género
 
 Exploración de mazmorras y combate por turnos. Estrategia y toma de decisiones. Roguelike clicker.
 
-3. ## **Setting** {#setting}
+## 1.3 Setting
 
 Eustaquio es un esclavo de sus pensamientos, que le comen la cabeza constantemente, lo que últimamente le está volviendo loco. Nos adentramos en su cerebro para averiguar cómo solucionar esto. Controlando las emociones de Eustaquio intentaremos sacar sus demonios afuera y devolverle a su estable origen. Dentro de su cerebro no seremos bienvenidos: al contrario, deberemos enfrentar a múltiples enemigos y combatir con su locura para intentar que no sea consumido a sí mismo.
 
-4. ## **Características principales** {#características-principales}
+## 1.4 Características principales
 
 El juego se resume en una exploración de mazmorras, en el que tu viajas por la mente de Eustaquio controlando sus emociones.Realizas combates contra enemigos quienes representan a las enfermedades mentales.
 
@@ -128,9 +87,9 @@ Los combates son por turnos estilo RPG. El orden de los ataques irá determinado 
 
 Durante la exploración de mazmorras no adentraremos dentro de un mundo generado proceduralmente, en este encontraremos diferentes salas que nos podrán proporcionar objetos o salas que no permitirán ganar mejoras. Podremos encontrarnos con distintos jefes a medida que avanzamos con los que ganaremos mejoras.
 
-2. # **Gameplay** {#gameplay}
+# 2. Gameplay
 
-   1. ## **Objetivo del juego** {#objetivo-del-juego}
+## 2.1 Objetivo del juego
 
 Perder significa que las emociones que están en el equipo lleguen todas a 0 de vida. O que la barra de locura llegue al máximo.
 
@@ -140,28 +99,27 @@ Al vencer al Boss final, el juego terminará y el jugador habrá ganado.
 
 Al morir en cualquier punto del juego, el juego se reiniciará y el jugador habrá perdido.
 
-2. ## **Core loops** {#core-loops}
+## 2.2 Core loops
 
 El core loop se basa en entrar a salas aleatoriamente explorar, recoger objetos y tomar decisiones al llegar a una sala de preparación sabremos que la siguiente es una de combate y repetir. Entre las salas se encuentra la del sistema límbico en la cual podemos gastar frascos para mejorar nuestros personajes. Cada ciertos combates entraremos a las sala de un Boss.Tanto los combates como los boses dan frascos que pueden ser usados para mejorar personajes/bufos temporales. La partida termina al morir. (O Tras derrotar a todos los bosses se termina la partida).
 
-![][image2] 
+![][image2]
 
-3. # **Personaje jugador** {#personaje-jugador}
+# 3. Personaje jugador
 
-   1. ## **Controles** {#controles}
+## 3.1 Controles
 
 | Acción | Tecla |
 | :---: | :---: |
 | Interactuar con menús/ todo | Click Ratón Izq |
 | Navegación por menús (En Teclado) | Flechas |
 
-   2. ## **Sprite del jugador** {#sprite-del-jugador}
+## 3.2 Sprite del jugador
 
-## 
 
-4. # **Mecánicas** {#mecánicas}
+# 4. Mecánicas
 
-   1. ## **Barra locura** {#barra-locura}
+## 4.1 Barra locura
 
 Durante los combates, existirá una barra de locura. Está comenzará vacía, y cada vez que se use una habilidad subirá en función del grado de dicha habilidad. Si la barra llega al máximo, los personajes se vuelven locos  y se perderá la partida. A medida que vaya subiendo la barra la probabilidad que las emociones se ataquen a sí mismas o a aliados irá aumentando.También puede ser afectada por decisiones durante la exploración de mazmorras.
 
@@ -169,19 +127,19 @@ Durante los combates, existirá una barra de locura. Está comenzará vacía, y cada
 | :---: | :---: | :---: |
 | Locura total | Nivel máximo de locura que se puede alcanzar | u |
 
-2. ## **Barra de energía(prioridad)** {#barra-de-energía(prioridad)}
+## 4.2 Barra de energía(prioridad)
 
 En los combates se lucha mediante prioridad que es una estadística concreta de cada enemigo.Cuanto mayor sea este número antes se realizará el ataque. La prioridad puede verse afectada por ataques durante el combate o por decisiones durante la exploración.
 
-3. ## **Exploración de mazmorras** {#exploración-de-mazmorras}
+## 4.3 Exploración de mazmorras
 
 El jugador avanza con su equipo por las distintas salas que hay en la mente, explorando y obteniendo beneficios para sus personajes. En las salas además de poder tomar decisiones también podemos recolectar objetos que nos otorgan beneficios.
 
-4. ## **Elección en las salas** {#elección-en-las-salas}
+## 4.4 Elección en las salas
 
 El jugador entra en una sala y puede elegir entre diferentes opciones dentro de esta. Se presentan distintos caminos por los que se puede viajar dependiendo del estilo de juego que tengamos elegiremos uno o otro tras elegir y pasar a la siguiente sala ya no se podrá volver a atrás.
 
-5. ## **Cultivo de emociones**  {#cultivo-de-emociones}
+## 4.5 Cultivo de emociones
 
 El cultivo de emociones se produce en las salas del sistema límbico. Al entrar a esta sala podremos hacer uso de los frascos de emociones que hemos recogido durante el camino. El cultivo de emociones se realiza mediante la elección de una emoción que queremos potenciar y el consumo de un frasco de emoción. De estos existen tres tipos permanentes, los cuales necesitan una pequeña condición para activar la mejora pero trascienden a través de las diferentes partidas. Los de un uso, que requieren condición más sencilla pero solo están activos en la misma partida. Y los temporales al usarlos mejoran al personaje elegido hasta que termine el siguiente combate sin ningún requisito.
 
@@ -193,24 +151,24 @@ La otra le añadirá algún efecto a una de estas funciones de dicha emoción (aplic
 
 En caso de que aceptar esta mejora suponga un desequilibrio emocional grande (x mejoras por encima del resto, o 2 por encima de las otras 2, o 3 por encima de la última, etc.); se podrá escoger una tercera mejora, generalmente con más impacto, cambiando el estilo de juego de la run actual (si alegría y tristeza están combatiendo, reciben un 30% de daño extra, si no, todas reciben un \-10%; cada 3 enemigos eliminados por ira, obtén un frasco para cultivar, etc.).
 
-6. ## **Mejoras de personajes** {#mejoras-de-personajes}
+## 4.6 Mejoras de personajes
 
-* **Miedo:**  
-  * Las cargas de valentía reducen el fallo en un 33%  
-  * Al acertar con valentía haces un 10% más de daño  
-  * Si fallas con 1 carga de valentía tú próximo ataque hace un 50% más de daño  
-  * El enemigo que esté en el centro del radio de daño recibe un 50% más de daño?  
+* **Miedo:**
+  * Las cargas de valentía reducen el fallo en un 33%
+  * Al acertar con valentía haces un 10% más de daño
+  * Si fallas con 1 carga de valentía tú próximo ataque hace un 50% más de daño
+  * El enemigo que esté en el centro del radio de daño recibe un 50% más de daño?
   * Cada 2 usos de definitiva (aplica para el próximo), en caso de que se ejecute sin 2 cargas de valentía, recibe 3 (stackeables hasta 4\)
 
 **Mejora fuerte:** al principio de cada combate, Miedo puede asignar a una emoción (que no sea el) la propiedad de, automáticamente, infundir miedo a un tipo de enemigo. Esto causa que, mientras dicha emoción esté en combate, este tipo de enemigo actuará siempre último y hará un 15% menos de daño.
 
 Sin embargo, si la emoción asignada muere, estos enemigos siempre actuarán primero (hasta el final del combate), haciendo también un 15% más de daño.
 
-* **Tristeza:**  
-  * Los enemigos con depresión hacen un 5% menos de daño y reciben un 5% más   
-  * Los enemigos pueden stackear hasta 4 turnos de **depresión**  
-  * (Si se cambia la mecánica actual) Cada vez que se le aplica la depresión a un enemigo, se le suman 2 turnos en vez de 1 (Max default sigue en 3\)  
-  * El enemigo que esté en el centro del radio de daño recibe un 50% más de daño  
+* **Tristeza:**
+  * Los enemigos con depresión hacen un 5% menos de daño y reciben un 5% más
+  * Los enemigos pueden stackear hasta 4 turnos de **depresión**
+  * (Si se cambia la mecánica actual) Cada vez que se le aplica la depresión a un enemigo, se le suman 2 turnos en vez de 1 (Max default sigue en 3\)
+  * El enemigo que esté en el centro del radio de daño recibe un 50% más de daño
   * Cada 2 ultis, se aplica en daño en área del ataque básico a aquellos enemigos que ya tengan **depresión**
 
 **Mejora fuerte:** Desde el principio del combate, Tristeza puede elegir a **un enemigo** que no tenga **depresión** y le asigna una bomba (**depresión severa**), y tiene un 50% de probabilidades de aplicarle **depresión** permanentemente. Si al cabo de 2 turnos, dicho enemigo y los 2 de sus lados (es decir, solo los más cercanos) tienen **depresión**, dicho enemigo abandona el campo y cualquier otro que se ponga en su posición lo hará también, automáticamente.
@@ -219,21 +177,21 @@ Además, cuando este primer asignado abandone, se le asigna una bomba a los 2 de 
 
 Sin embargo, si la primera bomba falla, todos los enemigos que tuviesen **depresión** se la quitan, y se curan el daño que les haría un ataque básico de depresión. Lo mismo aplica para el resto de bombas, pero sin la cura de vida.
 
-* **Alegría:**  
-  * Cura un 15% más a sus aliados y un 10% a si mismo, q se alterna cada turno  
-  * Puede curar a 2 aliados  
-  * La mitad de la vida que cura es devuelta como daño al enemigo en frente del curado  
-  * Aplica daño en área  
-  * Cada 2 ultis, puede volver a hacer una acción en ese mismo turno  
+* **Alegría:**
+  * Cura un 15% más a sus aliados y un 10% a si mismo, q se alterna cada turno
+  * Puede curar a 2 aliados
+  * La mitad de la vida que cura es devuelta como daño al enemigo en frente del curado
+  * Aplica daño en área
+  * Cada 2 ultis, puede volver a hacer una acción en ese mismo turno
   * La habilidad, además de curar tiene opción de boostear el daño del aliado en un 10% durante los próximos 2 turnos
 
-**Mejora fuerte:**  una vez por combate, desde el principio, Alegría puede revivir a un aliado caído (menos ella misma); dejándolo al 50% de su vida total. Sin embargo, cada enemigo caído tiene una probabilidad del 20% de revivir (también al 50% de su vida). 
+**Mejora fuerte:**  una vez por combate, desde el principio, Alegría puede revivir a un aliado caído (menos ella misma); dejándolo al 50% de su vida total. Sin embargo, cada enemigo caído tiene una probabilidad del 20% de revivir (también al 50% de su vida).
 
-* **Ira:**    
-* La **invocación** hace un 7% más de daño por cada turno que lleve en combate  
-* El rango de daño en área se incrementa de 3 enemigos a 5  
-* La invocación puede atacar a cualquier enemigo a rango del ataque básico de ira (en vez de al mismo enemigo que la emoción a la que apoya)  
-* Los enemigos que estén en los bordes del radio de ataque, reciben un 50% más de daño  
+* **Ira:**
+* La **invocación** hace un 7% más de daño por cada turno que lleve en combate
+* El rango de daño en área se incrementa de 3 enemigos a 5
+* La invocación puede atacar a cualquier enemigo a rango del ataque básico de ira (en vez de al mismo enemigo que la emoción a la que apoya)
+* Los enemigos que estén en los bordes del radio de ataque, reciben un 50% más de daño
 * Cada 2 ultis, la prolongación de turnos de la **invocación** cambia de establecerse en 5 a sumar 5\. Además, el próximo ataque de esta **invocación** hace daño a **TODOS** los enemigos y cura a la emoción aliada en un 10% del daño infligido
 
 **Mejora fuerte:**: Ira entra en modo raid Boss durante 4 turnos, creciendo en tamaño.
@@ -265,7 +223,7 @@ Al llegar a 6 stacks (18 frascos), la locura comienza a afectar también a los en
 | Permanencia | Pueden ser o no permanentes para el personaje | Si/No |
 | Máximo mejora por sala | El número máximo de mejoras que se pueden gastar en una sala( puede variar) | u |
 
-7. ## **Ataques** {#ataques}
+## 4.7 Ataques
 
 Forma parte de las acciones que son realizables durante el combate. Este ataque es el básico que realiza la emoción durante el combate. Por tanto no tiene cooldown y es usable una vez por turno.
 
@@ -273,7 +231,7 @@ Forma parte de las acciones que son realizables durante el combate. Este ataque 
 | :---: | :---: | :---: |
 | Daño | El daño que recibe el enemigo | u |
 
-8. ## **Definitivas** {#definitivas}
+## 4.8 Definitivas
 
 Compone una de las acciones que son realizables durante el combate. La definitiva de personaje, que es cargada tras varios ataques. Genera un ataque más poderoso de lo normal y puede añadir un beneficio a los aliados o una debilidad al rival.
 
@@ -282,7 +240,7 @@ Compone una de las acciones que son realizables durante el combate. La definitiv
 | Daño | El daño que recibe el enemigo | u |
 | Carga | El número de ataque que necesita para poder usarse | u |
 
-9. ## **Habilidades**  {#habilidades}
+## 4.9 Habilidades
 
 Se trata de una de las acciones que son realizables durante el combate. Su funcionalidad es gastar un turno para obtener un beneficio. Tras ser usada en un turno deberemos esperar un número determinado de turnos para que vuelva a poderse usar
 
@@ -291,13 +249,12 @@ Se trata de una de las acciones que son realizables durante el combate. Su funci
 | Beneficio | El beneficio que recibe el personaje | u |
 | Cooldown | Turnos necesarios para que pueda volver a ser usado | u |
 
-## 
 
-10. ## **Debilidades** {#debilidades}
+## 4.10 Debilidades
 
 Para usar más eficientemente los ataques de nuestros personajes podemos usar las debilidades esto se mostrará en el ataque si estamos atacando a un enemigo que nos tiene debilidad.Y el daño se multiplica x1,5.Esta es la tabla de debilidades para ambos lados pueden ser usados por el jugador para hacer más daño y evitar recibir tanto daño
 
-## **Debilidad en emociones** {#debilidad-en-emociones}
+### 4.10.1 Debilidad en emociones
 
 |  | Bipolaridad | Psicosis | Anorexia | Estrés | Esquizofrenia | TOC |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -321,13 +278,13 @@ Para usar más eficientemente los ataques de nuestros personajes podemos usar las
 | Esquizofrenia | 1,5 | 1 | 1 | 1 |
 | TOC | 1 | 1,5 | 1 | 1 |
 
-11. ## **Organización/gestión de equipo** {#organización/gestión-de-equipo}
+## 4.11 Organización/gestión de equipo
 
 Antes de empezar cada combate podremos elegir los personajes con los que saldremos de primeras. Durante nuestro turno tenemos un botón para cambiar de personajes, y dentro de este podemos visualizar las estadísticas y movimientos de nuestro equipo; así como cambiar aquellos que deseemos. Sin embargo, los que entren al combate no podrán atacar en su turno de entrada.Explicado en la navegación por menús.
 
-5. # **Mundo del juego** {#mundo-del-juego}
+# 5. Mundo del juego
 
-   1. ## **Personajes** {#personajes}
+## 5.1 Personajes
 
 Los personajes tendrán 1 ataque básico, 1  habilidad, 1 definitiva y 1 pasiva(por decidir) durante el juego. La definitiva se carga cuando los aliados reciben daño o usan habilidades.
 
@@ -337,112 +294,112 @@ Al iniciar una partida comenzaremos con Alegría y podemos ir encontrando a las o
 
 * Personaje principal con el que empezará el jugador.
 
-* **Ataque básico:** Tiene un 50% de probabilidades de fallar el ataque y un 50% de probabilidades de ejecutar un ataque en área. Si el personaje tiene cargas de “**valentía**” se gasta 1 carga cada vez. (Baja la barra de “**locura**”)
+* **Ataque básico:** Tiene un 50% de probabilidades de fallar el ataque y un 50% de probabilidades de ejecutar un ataque en área. Si el personaje tiene cargas de ?**valentía**? se gasta 1 carga cada vez. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Gasta un turno para ganar 1 carga de “**valentía**” hasta un máximo de 2 cargas. Cada carga de “**valentía**” baja las probabilidades de fallar el ataque básico un 25% y aumenta el daño infligido de esta. (Sube la barra de “locura”)
+* **Habilidad:** Gasta un turno para ganar 1 carga de ?**valentía**? hasta un máximo de 2 cargas. Cada carga de ?**valentía**? baja las probabilidades de fallar el ataque básico un 25% y aumenta el daño infligido de esta. (Sube la barra de ?locura?)
 
-* **Definitiva:** Si tiene 2 cargas de “**valentía**” ejecuta un ataque en área que aplica aturdimiento durante 2 turnos a los enemigos. En caso contrario sus cargas de “**valentía**” aumentan hasta 2 y ejecuta un ataque básico con 100% de probabilidades de acertar.  (Sube la barra de “**locura**”)
+* **Definitiva:** Si tiene 2 cargas de ?**valentía**? ejecuta un ataque en área que aplica aturdimiento durante 2 turnos a los enemigos. En caso contrario sus cargas de ?**valentía**? aumentan hasta 2 y ejecuta un ataque básico con 100% de probabilidades de acertar.  (Sube la barra de ?**locura**?)
 
   2. ### **Tristeza**
 
-* **Ataque básico:** Inflige daño a un enemigo, si el enemigo tiene “**depresión**” inflige daño en área. (Baja la barra de “**locura**”)
+* **Ataque básico:** Inflige daño a un enemigo, si el enemigo tiene ?**depresión**? inflige daño en área. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Aplica “**depresión**” a un enemigo durante 3 turnos. Este reduce el daño que inflige el enemigo y aumenta el daño que recibe. Si el enemigo ya tiene “**depresión**” le aumenta la duración hasta 3 turnos. (Sube la barra de “**locura**”)
+* **Habilidad:** Aplica ?**depresión**? a un enemigo durante 3 turnos. Este reduce el daño que inflige el enemigo y aumenta el daño que recibe. Si el enemigo ya tiene ?**depresión**? le aumenta la duración hasta 3 turnos. (Sube la barra de ?**locura**?)
 
-* **Definitiva:** Inflige daño a todos los enemigos aplicando “**depresión**” durante 2 turnos. (Sube la barra de “**locura**”) aplica depresión a los enemigos que no la tienen y hace el doble de daño a los que ya la tienen
+* **Definitiva:** Inflige daño a todos los enemigos aplicando ?**depresión**? durante 2 turnos. (Sube la barra de ?**locura**?) aplica depresión a los enemigos que no la tienen y hace el doble de daño a los que ya la tienen
 
   3. ### **Alegría**
 
-* **Ataque básico:** Inflige daño a un enemigo. (Baja la barra de “**locura**”)
+* **Ataque básico:** Inflige daño a un enemigo. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Cura a un aliado y elimina los estados negativos que tenga. (Sube la barra de “**locura**”)
+* **Habilidad:** Cura a un aliado y elimina los estados negativos que tenga. (Sube la barra de ?**locura**?)
 
-* **Definitiva:** Adelanta la acción de todos los aliados y les aplica “**felicidad**” aumentando el daño que hacen.  (Sube la barra de “**locura**”)
+* **Definitiva:** Adelanta la acción de todos los aliados y les aplica ?**felicidad**? aumentando el daño que hacen.  (Sube la barra de ?**locura**?)
 
   4. ### **Ira**
 
-* **Ataque básico:** Inflige daño en área a los enemigos. (Baja la barra de “**locura**”)
+* **Ataque básico:** Inflige daño en área a los enemigos. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Crea una invocación que ataca de forma coordinada con los ataques de los aliados durante 3 turnos. (Sube la barra de “**locura**”)
+* **Habilidad:** Crea una invocación que ataca de forma coordinada con los ataques de los aliados durante 3 turnos. (Sube la barra de ?**locura**?)
 
-* **Definitiva:** Mejora la invocación: Los ataques se vuelven en área y prolonga la duración de la invocación a 5 turnos. (Sube la barra de “**locura**”)
+* **Definitiva:** Mejora la invocación: Los ataques se vuelven en área y prolonga la duración de la invocación a 5 turnos. (Sube la barra de ?**locura**?)
 
-  2. ## **Enemigos** {#enemigos}
+## 5.2 Enemigos
 
-* **Estrés** :  
-  * **Ataque**: Ataca a un enemigo con un 80% de posibilidades de acertar  
-* **Aura visual:**  
-  * **Ataque**: Ataca a varios enemigo con un 60% de posibilidades de acertar  
-* **Ansiedad**:  
-  *  **Ataque**: Cura a sus aliados un 30% de la vida.  
-* **Trauma:**   
-  * **Ataque**: inflige **“veneno”** a los enemigos que hace un 10% por turno( si ya lo tienes hace 10% de daño al atacarte)  
-* **Pesadilla:**  
-  * **Ataque**: aplica **“sueño”** y hace inutil al enemigo durante un turno.
+* **Estrés** :
+  * **Ataque**: Ataca a un enemigo con un 80% de posibilidades de acertar
+* **Aura visual:**
+  * **Ataque**: Ataca a varios enemigo con un 60% de posibilidades de acertar
+* **Ansiedad**:
+  *  **Ataque**: Cura a sus aliados un 30% de la vida.
+* **Trauma:**
+  * **Ataque**: inflige **?veneno?** a los enemigos que hace un 10% por turno( si ya lo tienes hace 10% de daño al atacarte)
+* **Pesadilla:**
+  * **Ataque**: aplica **?sueño?** y hace inutil al enemigo durante un turno.
 
-  3. ## **Bosses** {#bosses}
+## 5.3 Bosses
 
 Aparecen en las salas de bosses.
 
 * Bipolaridad
 
-  * **Ataque básico:** Tiene un 70% de probabilidades de fallar el ataque y un 30% de probabilidades de ejecutar un ataque preciso( daño alto). Se gasta 1 carga de “**personalidad**”.   
+  * **Ataque básico:** Tiene un 70% de probabilidades de fallar el ataque y un 30% de probabilidades de ejecutar un ataque preciso( daño alto). Se gasta 1 carga de ?**personalidad**?.
 
-  * **Habilidad:** Gasta un turno para ganar 1 carga de “**personalidad**” hasta un máximo de 3 cargas. Cada carga de “**personalidad**” sube el ataque básico un 25% y aumenta el daño infligido de esta.
+  * **Habilidad:** Gasta un turno para ganar 1 carga de ?**personalidad**? hasta un máximo de 3 cargas. Cada carga de ?**personalidad**? sube el ataque básico un 25% y aumenta el daño infligido de esta.
 
-  * **Definitiva:** Si tiene 2 cargas de “**personalidad**” ejecuta un cambio de forma durante 2 turnos e invierte los porcentajes del ataque principal . En caso contrario sus cargas de “**personalidad**” aumentan hasta 2 y ejecuta un ataque básico con 100% de probabilidades de acertar y 50% de daño.
+  * **Definitiva:** Si tiene 2 cargas de ?**personalidad**? ejecuta un cambio de forma durante 2 turnos e invierte los porcentajes del ataque principal . En caso contrario sus cargas de ?**personalidad**? aumentan hasta 2 y ejecuta un ataque básico con 100% de probabilidades de acertar y 50% de daño.
 
 * Psicosis
 
-  * **Ataque básico:** aplica 1 carga de “**efecto psicótico**” a una emoción, lo que reduce en un 25% la probabilidad de que pueda efectuar acciones en su próximo turno. Hasta 3 cargas acumulables que se van de una en una al realizar cualquier acción con éxito (2 si es la definitiva).
+  * **Ataque básico:** aplica 1 carga de ?**efecto psicótico**? a una emoción, lo que reduce en un 25% la probabilidad de que pueda efectuar acciones en su próximo turno. Hasta 3 cargas acumulables que se van de una en una al realizar cualquier acción con éxito (2 si es la definitiva).
 
-    Si golpea a un enemigo con 3 cargas le aplica “**psicosis**”. 
+    Si golpea a un enemigo con 3 cargas le aplica ?**psicosis**?.
 
-  * **Habilidad:** todo aliado o enemigo tiene un 50% de quedar inutilizado durante su próximo turno en caso de que no haya realizado ninguna acción con éxito en la anterior; o si tiene “**psicosis**”.
+  * **Habilidad:** todo aliado o enemigo tiene un 50% de quedar inutilizado durante su próximo turno en caso de que no haya realizado ninguna acción con éxito en la anterior; o si tiene ?**psicosis**?.
 
-  * **Definitiva:** durante los próximos 2 turnos, todas las emociones ganan 1 carga de “**efecto psicótico**”, y ven sus posibilidades de realizar cualquier acción exitosamente reducidas un 50% aplicado al porcentaje que tuviesen previamente.
+  * **Definitiva:** durante los próximos 2 turnos, todas las emociones ganan 1 carga de ?**efecto psicótico**?, y ven sus posibilidades de realizar cualquier acción exitosamente reducidas un 50% aplicado al porcentaje que tuviesen previamente.
 
 * Anorexia
 
   * **Ataque básico:** Inflige daño a un enemigo y recibe un 20% del daño aplicado.
 
-  * **Habilidad:** Cura a un aliado y elimina los estados negativos que tenga. 
+  * **Habilidad:** Cura a un aliado y elimina los estados negativos que tenga.
 
-  * **Definitiva:** Adelanta la acción de todos los aliados y les aplica “**vómito**” protegiendolos de todos los efectos negativos por 1 turno. 
+  * **Definitiva:** Adelanta la acción de todos los aliados y les aplica ?**vómito**? protegiendolos de todos los efectos negativos por 1 turno.
 
-    
 
-    
 
-    
 
-     
+
+
+
+
 
 * Estrés postraumático
 
-  * **Ataque básico:** Inflige daño, si el enemigo tiene “**estrés**”, el siguiente ataque del enemigo hace un 15% menos.
+  * **Ataque básico:** Inflige daño, si el enemigo tiene ?**estrés**?, el siguiente ataque del enemigo hace un 15% menos.
 
-  * **Habilidad:** Aplica “**estrés**” a un enemigo durante 3 turnos. Esto genera que el personaje afectado sea el último en atacar. Si el enemigo ya tiene “**estrés**” le aumenta la duración hasta 3 turnos.
+  * **Habilidad:** Aplica ?**estrés**? a un enemigo durante 3 turnos. Esto genera que el personaje afectado sea el último en atacar. Si el enemigo ya tiene ?**estrés**? le aumenta la duración hasta 3 turnos.
 
-  * **Definitiva:** Inflige daño a todos los enemigos aplicando “**estrés**” a todos  durante el siguiente turno. Hace el doble de daño a los que tengan “**estrés**” en el siguiente turno. Pero el estado de “**estrés**” se borra al finalizar el turno.
+  * **Definitiva:** Inflige daño a todos los enemigos aplicando ?**estrés**? a todos  durante el siguiente turno. Hace el doble de daño a los que tengan ?**estrés**? en el siguiente turno. Pero el estado de ?**estrés**? se borra al finalizar el turno.
 
 * Esquizofrenia
 
-  * **Ataque básico:** Inflige daño a un enemigo y aplica “**confusión**” 3 turnos.
+  * **Ataque básico:** Inflige daño a un enemigo y aplica ?**confusión**? 3 turnos.
 
-  * **Habilidad:** Mueve la barra de “**locura**” y la sube un 10% durante un turno. Si la “**locura**” es superior al 70% gana una mejora de daño en el ataque principal.
+  * **Habilidad:** Mueve la barra de ?**locura**? y la sube un 10% durante un turno. Si la ?**locura**? es superior al 70% gana una mejora de daño en el ataque principal.
 
-  * **Definitiva:** Resetea la barra de “**locura**” al 10% pero el próximo turno se atacan a sí mismos o a aliados. Si tienen “**confusión**” se pueden aplicar sus efectos negativos a sí mismos.
+  * **Definitiva:** Resetea la barra de ?**locura**? al 10% pero el próximo turno se atacan a sí mismos o a aliados. Si tienen ?**confusión**? se pueden aplicar sus efectos negativos a sí mismos.
 
-* TOC  
+* TOC
 
-  * **Ataque básico:** Inflige daño en área a los enemigos. 
+  * **Ataque básico:** Inflige daño en área a los enemigos.
 
   * **Habilidad:** Crea un orden, de forma que los efectos que tienen los enemigos se reparten igual para todos, pero en este turno no son afectados por ellos.Dura 2 turnos.
 
   * **Definitiva:** Mejora el orden: Los ataques duplican el daño en los que tienen más de dos efectos y prolonga la duración del efecto a 5 turnos. Pierde un 50% de su vida.
 
-  4. ## **Obstáculos** {#obstáculos}
+## 5.4 Obstáculos
 
 Durante la exploración de los niveles se presentarán distintos tipos de salas que contienen diferentes obstáculos o decisiones para el jugador
 
@@ -476,16 +433,16 @@ En esta sala podemos introducir un cultivo de emociones al entrar nos dan un núm
 
 En esta sala encontramos a uno de los bosses puede ser cualquiera y su orden es completamente aleatorio. Pero durante la misma partida el mismo boss no podrá volver a aparecer.
 
-5. ## **Objetos** {#objetos}
+## 5.5 Objetos
 
 El único objeto que se puede recoger solo serán acumulables hasta un total de 5\.
 
-* **Frascos de emociones:** se usan para el cultivo de emociones y se dividen en 3 tipos:  
-* **Permanentes**: Necesitan una pequeña condición para activar la mejora pero trascienden a través de las diferentes partidas.  
-* **Los de un uso**: Tienen condición más sencilla pero solo están activos en la misma partida.  
+* **Frascos de emociones:** se usan para el cultivo de emociones y se dividen en 3 tipos:
+* **Permanentes**: Necesitan una pequeña condición para activar la mejora pero trascienden a través de las diferentes partidas.
+* **Los de un uso**: Tienen condición más sencilla pero solo están activos en la misma partida.
 * **Temporales:** al usarlos mejoran al personaje elegido hasta que termine el siguiente combate sin ningún requisito.
 
-  6. ## **Niveles** {#niveles}
+## 5.6 Niveles
 
 El juego transcurre en un único nivel en el cual vas poco a poco liberandote de tus demonios y adquiriendo recuerdos de tu vida y termina cuando liberas al último demonio interior y accedes a la escena final
 
@@ -495,28 +452,26 @@ La dificultad irá aumentando a medida que se activen más mejoras a las emociones
 
 ![][image3]
 
-# 
 
-6. # **Interfaz**  {#interfaz}
+# 6. Interfaz
 
-   1. ##  **Cámara** {#cámara}
+## 6.1 Cámara
 
 La cámara será fija y en vista lateral.
 
 (Explicar un poco mejor)
 
-2. ##  **HUD Menús** {#hud-menús}
+## 6.2 HUD Menús
 
 | Salas combates ![][image4] | Salas elección ![][image5] |
 | :---- | :---- |
 | **Salas trampa** ![][image6] | **Salas de recuperación** ![][image7] |
 | **Salas sistema límbico** ![][image8] | **Salas bifurcación** ![][image9] |
 
-# 
 
-7. # **Experiencia de Juego** {#experiencia-de-juego}
+# 7. Experiencia de Juego
 
-   1. ##  **Trasfondo**  {#trasfondo}
+## 7.1 Trasfondo
 
 Eustaquio es un chaval de 19 años, que por circunstancias de la vida lleva 12 meses en un estado mental bloqueante. Ha desarrollado un gran **MIEDO** a sentir emociones por el daño que estas le han hecho injustamente desde que era un niño pequeño. Sin embargo, también niega sufrir este rechazo, y se ha convencido a sí mismo de que nada le importa, auto-bloqueando entre otras cosas el acceso a sus propios recuerdos, buenos y malos.
 
@@ -526,7 +481,7 @@ No obstante, estás emociones están atrapadas en sus recuerdos, golpeándole de ve
 
 Cada noche, algo dentro de él despierta para tratar de liberarle de su cárcel: sus propias emociones intentando salir, desadormecidas por el enorme **MIEDO** que él mismo desmiente tener.
 
-2. ##  **Historia** {#historia}
+## 7.2 Historia
 
 Madrugada del 1 de enero de 1967, Eustaquio ha salido a escondidas de la cena familiar de Nochevieja y se dirige en bici al primer bar del barrio más cercano.
 
@@ -534,7 +489,8 @@ De camino, su cabeza es incapaz de recordar una y otra vez sus traumas familiare
 
 Como irse a dormir, pero con el miedo más presente que nunca, más que en una pesadilla; y, junto a él, como siempre: alegría, tristeza e ira, que, por primera vez, no duermen.
 
-No obstante, no están solos: junto a ellos están todas las enfermedades mentales con las que Eustaquio ha coqueteado mínimamente, destrozando el cerebro por dentro: rompiendo conexiones neuronales, arrancando trozos de las paredes…
+No obstante, no están solos: junto a ellos están todas las enfermedades mentales con las que Eustaquio ha coqueteado mínimamente, destrozando el cerebro por dentro: rompiendo conexiones neuronales, arrancando trozos de las paredes
+
 
 Al ver esto, deciden recorrer juntos el cerebro de Eustaquio para acabar con todos estas enfermedades, a la vez que intentan recuperarse a ellos mismos así como su relación.
 
@@ -546,9 +502,10 @@ Según los vayan superando, las emociones irán recuperando su naturaleza real, y 
 
 Así, todos juntos, recuperarán al Eustaquio de verdad.
 
-Migraña con aura: mientras las emociones avanzan por el cerebro de Eustaquio, este está siendo transportado desde el bar en el que se desmaya hasta el hospital más cercano, pasando por los pasillos del hospital; en los que le suben a una camilla, oye gritos, ve luces parpadeantes en el techo, intenta hablar pero no puede…
+Migraña con aura: mientras las emociones avanzan por el cerebro de Eustaquio, este está siendo transportado desde el bar en el que se desmaya hasta el hospital más cercano, pasando por los pasillos del hospital; en los que le suben a una camilla, oye gritos, ve luces parpadeantes en el techo, intenta hablar pero no puede
 
-8. # **Dinámicas**  {#dinámicas}
+
+# 8. Dinámicas
 
 Desde el comienzo de la experiencia, el jugador se encuentra en una exploración constante y en búsqueda de lo desconocido. El hecho de tener distintas elecciones y posibles salas hacen que no sepa qué le depara. Durante el juego uno siente que puede intentar conseguir una mejora más o subir un poco más su barra sin morir de locura llevando a este a asumir más riesgo.
 
@@ -560,17 +517,17 @@ Con todos estos detalles conseguimos que el jugador pase toda la experiencia muy
 
 Esto deriva en una experiencia de juego en la que el jugador se mantiene animado y emocionado durante todas sus partidas. Al ver nuevas mejoras el jugador se verá más poderoso y creerá que puede pasar por encima de los enemigos pero estos le mantienen al borde de perder.
 
-9. # **Estética**  {#estética}
+# 9. Estética
 
-   1. ## **Arte** {#arte}
+## 9.1 Arte
 
      **TRISTE(cambiar)               MIEDO                          IRA                       ALEGRÍA**
 
 ![][image10]![][image11]![][image12]![][image13]
 
-2. ## **Sonido** {#sonido}
+## 9.2 Sonido
 
-10. # **Referencias** {#referencias}
+# 10. Referencias
 
 **Legend of Keepers([Goblinz Studio](https://www.google.com/search?client=firefox-b-d&hs=MO3V&sca_esv=a6b539e48a8c50fd&sxsrf=APpeQnsKdyRDZkdfna5HM2rzo16PyZ4AuQ:1790664102321&q=Goblinz+Studio&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0Rll6DmKnn_znhwu2ouAp3Hdfs6aMs_Kc9z5pociAZ37Oxz4_mveyWMmMgkLjctJgf5X7ZYRKGURqdRez-_ITuBRkWDVQvPcuDfxxnt0zqYsVhKxkAdDwzpO7XiYp9jwbJz9cFS_gQuaythSd1rI1Bznh0fOtr8wdgTlOHyHU6BpbPruIA%3D%3D&sa=X&ved=2ahUKEwio5-vNl5OXAxWThP0HHc5NHcYQmxN6BAgOEAI) , 2020):**
 

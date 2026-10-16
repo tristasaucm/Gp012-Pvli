@@ -6,6 +6,7 @@ import Orc from './Orc.js';
  */
 export default class Village extends Phaser.Scene {
 	constructor() {
+		//id de la escena unico
 		super({ key: 'village' }); //seteamos el nobmre de la escena para el SceneManager
 	}
 	

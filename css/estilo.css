@@ -1,39 +1,171 @@
-h1 {
-  color: black;
-}
-h2{
-  color: black;
+/* === VARIABLES COLORES === */
+:root {
+  --fondo: #0b0a12;
+  --titulo: #f2eef7;
+  --titulo2: #8762b5;
+  --subtitulo: #8762b5;
+  --textoGeneral: #ff5478;
+  --morado: #b58aff;
+  --rojo: #ff5478;
 }
 
-.clase {
-  color: white;
+/* === TITULO === */
+
+h1{
+  color: var(--titulo);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1.5cm;
+  text-align: center;
+  height: 0.8cm;
 }
-.logosRedes {
-  display: flex;          
-  justify-content: center; 
-  align-items: center;     
-  gap: 20px;              
+h1 span{
+  background: linear-gradient(180deg, #b58aff, #ff5478);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
-.centrada{
+
+/* === SUBTITULO === */
+
+.subtitulo{
+  color: var(--subtitulo);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 0.5cm;
+  text-align: center;
+  height: 0.1cm;
+}
+
+/* Fondo cabecera */
+.cabecera{
+  background-color: #1d1628;
+}
+
+/* === EQUIPO === */
+
+h2{
+  color: var(--morado);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1cm;
+  text-align: center;
+  height: 1.8cm;
+}
+
+/* Organizacion */
+
+.presentacion {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+/* === LOGO === */
+
+.logo{
   display: block;       
   margin-left: auto;    
   margin-right: auto;
   width: 300px;     
   height: auto;
 }
+
 img {
   width: 300px;     
   height: auto;  
 }
 
- h1{
-      font-family: 'Comic Sans MS', cursive;
-      text-align: center;
-    }
-    h2{
-      text-align: center;
-      font-family: 'Comic Sans MS', cursive;
-    }
-    p{
-      text-align: center;
-    }
+/* === DESCRIPCIONES === */
+
+.descripcion1{
+  width: 700px;
+  height: 250px;
+
+  margin: 20px auto;
+  padding: 20px;
+
+  border: 1px solid #9a64f7;
+  border-width: 0.1cm;
+  border-radius: 15px;
+
+  background-color: #63409f;
+  color: #fff0f0;
+  font-size: 0.5cm;
+
+  overflow-y: auto;
+}
+
+.descripcion2{
+  width: 700px;
+  height: 150px;
+
+  margin: 20px auto;
+  padding: 20px;
+
+  border: 1px solid #9a64f7;
+  border-width: 0.1cm;
+  border-radius: 15px;
+
+  background-color: #63409f;
+  color: #fff0f0;
+  font-size: 0.5cm;
+}
+
+
+/* Barra de deslizar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0a12;
+    border-radius: 10px;
+}
+/* Parte que arrastras */
+::-webkit-scrollbar-thumb {
+    background: #311f4f;
+    border-radius: 10px;
+}
+/* Color al pasar el ratón */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff5478;
+}
+
+/* === REDES === */
+
+.logosRedes {
+  width: 700px;
+  height: 150px;
+
+  margin: 20px auto;
+  padding: 20px;
+
+  border: 1px solid #9a64f7;
+  border-width: 0.1cm;
+  border-radius: 15px;
+
+  background-color: #63409f;
+  color: #fff0f0;
+  display: flex;          
+  justify-content: center; 
+  align-items: center;     
+  gap: 20px;              
+}
+
+.logosRedes img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+p
+{
+  text-align: center;
+}
+
+/* === FONDO === */
+body
+{
+  background:radial-gradient(circle at 50% 0%, #402457, #0d0612 100%);
+  color: var(--texto);
+  font-family: Arial, sans-serif;
+}

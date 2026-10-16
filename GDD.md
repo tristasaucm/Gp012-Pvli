@@ -1,35 +1,35 @@
 MENTAL BREAKDOWN
 
-![][image1]
+<img src="https://tristasaucm.github.io/Gp012-Pvli/images/Logo.png" alt="Logo del juego" width="300">
 
 **Equipo de desarrollo: Qingtian Games**
 
 * CHEN, ZIMIN
 
-* LADR”N DE GUEVARA JIM…NEZ, JORGE-GIN…S
+* LADR√ìN DE GUEVARA JIM√âNEZ, JORGE-GIN√âS
 
 * OLTEAN, GABRIEL ADRIAN
 
-* S¡NCHEZ L”PEZ, TRIST¡N
+* S√ÅNCHEZ L√ìPEZ, TRIST√ÅN
 
-## Õndice
+## √çndice
 
-- [1. DescripciÛn general](#1-descripciÛn-general)
+- [1. Descripci√≥n general](#1-descripci√≥n-general)
   - [Concepto](#11-concepto)
-  - [GÈnero](#12-gÈnero)
+  - [G√©nero](#12-g√©nero)
   - [Setting](#13-setting)
-  - [CaracterÌsticas principales](#14-caracterÌsticas-principales)
+  - [Caracter√≠sticas principales](#14-caracter√≠sticas-principales)
 - [2. Gameplay](#2-gameplay)
   - [Objetivo del juego](#21-objetivo-del-juego)
   - [Core loops](#22-core-loops)
 - [3. Personaje jugador](#3-personaje-jugador)
   - [Controles](#31-controles)
   - [Sprite del jugador](#32-sprite-del-jugador)
-- [4. Mec·nicas](#4-mec·nicas)
+- [4. Mec√°nicas](#4-mec√°nicas)
   - [Barra locura](#41-barra-locura)
-  - [Barra de energÌa(prioridad)](#42-barra-de-energÌaprioridad)
-  - [ExploraciÛn de mazmorras](#43-exploraciÛn-de-mazmorras)
-  - [ElecciÛn en las salas](#44-elecciÛn-en-las-salas)
+  - [Barra de energ√≠a(prioridad)](#42-barra-de-energ√≠aprioridad)
+  - [Exploraci√≥n de mazmorras](#43-exploraci√≥n-de-mazmorras)
+  - [Elecci√≥n en las salas](#44-elecci√≥n-en-las-salas)
   - [Cultivo de emociones](#45-cultivo-de-emociones)
   - [Mejoras de personajes](#46-mejoras-de-personajes)
   - [Ataques](#47-ataques)
@@ -37,71 +37,71 @@ MENTAL BREAKDOWN
   - [Habilidades](#49-habilidades)
   - [Debilidades](#410-debilidades)
     - [Debilidad en emociones](#4101-debilidad-en-emociones)
-  - [OrganizaciÛn/gestiÛn de equipo](#411-organizaciÛngestiÛn-de-equipo)
+  - [Organizaci√≥n/gesti√≥n de equipo](#411-organizaci√≥ngesti√≥n-de-equipo)
 - [5. Mundo del juego](#5-mundo-del-juego)
   - [Personajes](#51-personajes)
   - [Enemigos](#52-enemigos)
   - [Bosses](#53-bosses)
-  - [Obst·culos](#54-obst·culos)
+  - [Obst√°culos](#54-obst√°culos)
   - [Objetos](#55-objetos)
   - [Niveles](#56-niveles)
 - [6. Interfaz](#6-interfaz)
-  - [C·mara](#61-c·mara)
-  - [HUD Men˙s](#62-hud-men˙s)
+  - [C√°mara](#61-c√°mara)
+  - [HUD Men√∫s](#62-hud-men√∫s)
 - [7. Experiencia de Juego](#7-experiencia-de-juego)
   - [Trasfondo](#71-trasfondo)
   - [Historia](#72-historia)
-- [8. Din·micas](#8-din·micas)
-- [9. EstÈtica](#9-estÈtica)
+- [8. Din√°micas](#8-din√°micas)
+- [9. Est√©tica](#9-est√©tica)
   - [Arte](#91-arte)
   - [Sonido](#92-sonido)
 - [10. Referencias](#10-referencias)
 
-# 1. DescripciÛn general
+# 1. Descripci√≥n general
 
 ## 1.1 Concepto
 
-En el juego hay varias emociones que componen los personajes jugables del jugador. Cada emociÛn tiene diferentes ataques y efectos. Constar·n de un ataque y una habilidad b·sica, y una definitiva.
+En el juego hay varias emociones que componen los personajes jugables del jugador. Cada emoci√≥n tiene diferentes ataques y efectos. Constar√°n de un ataque y una habilidad b√°sica, y una definitiva.
 
 El objetivo es derrotar enemigos usando las diferentes emociones. Los enemigos son los demonios internos que el personaje tiene dentro de su cabeza, ya que se encuentra luchando contra sus otras personalidades y pensamientos.
 
-La elecciÛn de las emociones ocurre (dos por definir) antes de comenzar el combate. Pueden ser cambiadas en cualquier momento del combate pero no podr·n efectuar ninguna acciÛn el turno en el que salen. Al morir una emociÛn, el jugador podr· elegir la que va a sacar para sustituirla.
+La elecci√≥n de las emociones ocurre (dos por definir) antes de comenzar el combate. Pueden ser cambiadas en cualquier momento del combate pero no podr√°n efectuar ninguna acci√≥n el turno en el que salen. Al morir una emoci√≥n, el jugador podr√° elegir la que va a sacar para sustituirla.
 
-Tras los combates investigaremos las partes de nuestro cerebro y podremos encontrar distintas salas. Entre ellas la del sistema lÌmbico (donde se originan las emociones): en esta sala podremos cultivar distintas emociones. Al cultivar se nos pedir· un requisito para que esa emociÛn gane fuerza y al completarse se mejorar· dicha habilidad.
+Tras los combates investigaremos las partes de nuestro cerebro y podremos encontrar distintas salas. Entre ellas la del sistema l√≠mbico (donde se originan las emociones): en esta sala podremos cultivar distintas emociones. Al cultivar se nos pedir√° un requisito para que esa emoci√≥n gane fuerza y al completarse se mejorar√° dicha habilidad.
 
-Durante los combates el jugador presentar· una barra de locura que ir· aumentando y decreciendo durante el transcurso de la partida, por usar habilidades y/o por decisiones en la exploraciÛn de mazmorras.
+Durante los combates el jugador presentar√° una barra de locura que ir√° aumentando y decreciendo durante el transcurso de la partida, por usar habilidades y/o por decisiones en la exploraci√≥n de mazmorras.
 
-## 1.2 GÈnero
+## 1.2 G√©nero
 
-ExploraciÛn de mazmorras y combate por turnos. Estrategia y toma de decisiones. Roguelike clicker.
+Exploraci√≥n de mazmorras y combate por turnos. Estrategia y toma de decisiones. Roguelike clicker.
 
 ## 1.3 Setting
 
-Eustaquio es un esclavo de sus pensamientos, que le comen la cabeza constantemente, lo que ˙ltimamente le est· volviendo loco. Nos adentramos en su cerebro para averiguar cÛmo solucionar esto. Controlando las emociones de Eustaquio intentaremos sacar sus demonios afuera y devolverle a su estable origen. Dentro de su cerebro no seremos bienvenidos: al contrario, deberemos enfrentar a m˙ltiples enemigos y combatir con su locura para intentar que no sea consumido a sÌ mismo.
+Eustaquio es un esclavo de sus pensamientos, que le comen la cabeza constantemente, lo que √∫ltimamente le est√° volviendo loco. Nos adentramos en su cerebro para averiguar c√≥mo solucionar esto. Controlando las emociones de Eustaquio intentaremos sacar sus demonios afuera y devolverle a su estable origen. Dentro de su cerebro no seremos bienvenidos: al contrario, deberemos enfrentar a m√∫ltiples enemigos y combatir con su locura para intentar que no sea consumido a s√≠ mismo.
 
-## 1.4 CaracterÌsticas principales
+## 1.4 Caracter√≠sticas principales
 
-El juego se resume en una exploraciÛn de mazmorras, en el que tu viajas por la mente de Eustaquio controlando sus emociones.Realizas combates contra enemigos quienes representan a las enfermedades mentales.
+El juego se resume en una exploraci√≥n de mazmorras, en el que tu viajas por la mente de Eustaquio controlando sus emociones.Realizas combates contra enemigos quienes representan a las enfermedades mentales.
 
-Los combates son por turnos estilo RPG. El orden de los ataques ir· determinado por la prioridad de cada personaje.(m·s prioridad antes ataca)
+Los combates son por turnos estilo RPG. El orden de los ataques ir√° determinado por la prioridad de cada personaje.(m√°s prioridad antes ataca)
 
-Durante la exploraciÛn de mazmorras no adentraremos dentro de un mundo generado proceduralmente, en este encontraremos diferentes salas que nos podr·n proporcionar objetos o salas que no permitir·n ganar mejoras. Podremos encontrarnos con distintos jefes a medida que avanzamos con los que ganaremos mejoras.
+Durante la exploraci√≥n de mazmorras no adentraremos dentro de un mundo generado proceduralmente, en este encontraremos diferentes salas que nos podr√°n proporcionar objetos o salas que no permitir√°n ganar mejoras. Podremos encontrarnos con distintos jefes a medida que avanzamos con los que ganaremos mejoras.
 
 # 2. Gameplay
 
 ## 2.1 Objetivo del juego
 
-Perder significa que las emociones que est·n en el equipo lleguen todas a 0 de vida. O que la barra de locura llegue al m·ximo.
+Perder significa que las emociones que est√°n en el equipo lleguen todas a 0 de vida. O que la barra de locura llegue al m√°ximo.
 
-Para ganar, el jugador deber· avanzar por las distintas salas ganando sus combates y realizando otras tareas de exploraciÛn y mejora de personajes(cultivar, derrotar a todos los enemigos/boss y/o sobrevivir).
+Para ganar, el jugador deber√° avanzar por las distintas salas ganando sus combates y realizando otras tareas de exploraci√≥n y mejora de personajes(cultivar, derrotar a todos los enemigos/boss y/o sobrevivir).
 
-Al vencer al Boss final, el juego terminar· y el jugador habr· ganado.
+Al vencer al Boss final, el juego terminar√° y el jugador habr√° ganado.
 
-Al morir en cualquier punto del juego, el juego se reiniciar· y el jugador habr· perdido.
+Al morir en cualquier punto del juego, el juego se reiniciar√° y el jugador habr√° perdido.
 
 ## 2.2 Core loops
 
-El core loop se basa en entrar a salas aleatoriamente explorar, recoger objetos y tomar decisiones al llegar a una sala de preparaciÛn sabremos que la siguiente es una de combate y repetir. Entre las salas se encuentra la del sistema lÌmbico en la cual podemos gastar frascos para mejorar nuestros personajes. Cada ciertos combates entraremos a las sala de un Boss.Tanto los combates como los boses dan frascos que pueden ser usados para mejorar personajes/bufos temporales. La partida termina al morir. (O Tras derrotar a todos los bosses se termina la partida).
+El core loop se basa en entrar a salas aleatoriamente explorar, recoger objetos y tomar decisiones al llegar a una sala de preparaci√≥n sabremos que la siguiente es una de combate y repetir. Entre las salas se encuentra la del sistema l√≠mbico en la cual podemos gastar frascos para mejorar nuestros personajes. Cada ciertos combates entraremos a las sala de un Boss.Tanto los combates como los boses dan frascos que pueden ser usados para mejorar personajes/bufos temporales. La partida termina al morir. (O Tras derrotar a todos los bosses se termina la partida).
 
 ![][image2]
 
@@ -109,142 +109,142 @@ El core loop se basa en entrar a salas aleatoriamente explorar, recoger objetos 
 
 ## 3.1 Controles
 
-| AcciÛn | Tecla |
+| Acci√≥n | Tecla |
 | :---: | :---: |
-| Interactuar con men˙s/ todo | Click RatÛn Izq |
-| NavegaciÛn por men˙s (En Teclado) | Flechas |
+| Interactuar con men√∫s/ todo | Click Rat√≥n Izq |
+| Navegaci√≥n por men√∫s (En Teclado) | Flechas |
 
 ## 3.2 Sprite del jugador
 
 
-# 4. Mec·nicas
+# 4. Mec√°nicas
 
 ## 4.1 Barra locura
 
-Durante los combates, existir· una barra de locura. Est· comenzar· vacÌa, y cada vez que se use una habilidad subir· en funciÛn del grado de dicha habilidad. Si la barra llega al m·ximo, los personajes se vuelven locos  y se perder· la partida. A medida que vaya subiendo la barra la probabilidad que las emociones se ataquen a sÌ mismas o a aliados ir· aumentando.TambiÈn puede ser afectada por decisiones durante la exploraciÛn de mazmorras.
+Durante los combates, existir√° una barra de locura. Est√° comenzar√° vac√≠a, y cada vez que se use una habilidad subir√° en funci√≥n del grado de dicha habilidad. Si la barra llega al m√°ximo, los personajes se vuelven locos  y se perder√° la partida. A medida que vaya subiendo la barra la probabilidad que las emociones se ataquen a s√≠ mismas o a aliados ir√° aumentando.Tambi√©n puede ser afectada por decisiones durante la exploraci√≥n de mazmorras.
 
-| Par·metro | DescripciÛn | Unidades |
+| Par√°metro | Descripci√≥n | Unidades |
 | :---: | :---: | :---: |
-| Locura total | Nivel m·ximo de locura que se puede alcanzar | u |
+| Locura total | Nivel m√°ximo de locura que se puede alcanzar | u |
 
-## 4.2 Barra de energÌa(prioridad)
+## 4.2 Barra de energ√≠a(prioridad)
 
-En los combates se lucha mediante prioridad que es una estadÌstica concreta de cada enemigo.Cuanto mayor sea este n˙mero antes se realizar· el ataque. La prioridad puede verse afectada por ataques durante el combate o por decisiones durante la exploraciÛn.
+En los combates se lucha mediante prioridad que es una estad√≠stica concreta de cada enemigo.Cuanto mayor sea este n√∫mero antes se realizar√° el ataque. La prioridad puede verse afectada por ataques durante el combate o por decisiones durante la exploraci√≥n.
 
-## 4.3 ExploraciÛn de mazmorras
+## 4.3 Exploraci√≥n de mazmorras
 
-El jugador avanza con su equipo por las distintas salas que hay en la mente, explorando y obteniendo beneficios para sus personajes. En las salas adem·s de poder tomar decisiones tambiÈn podemos recolectar objetos que nos otorgan beneficios.
+El jugador avanza con su equipo por las distintas salas que hay en la mente, explorando y obteniendo beneficios para sus personajes. En las salas adem√°s de poder tomar decisiones tambi√©n podemos recolectar objetos que nos otorgan beneficios.
 
-## 4.4 ElecciÛn en las salas
+## 4.4 Elecci√≥n en las salas
 
-El jugador entra en una sala y puede elegir entre diferentes opciones dentro de esta. Se presentan distintos caminos por los que se puede viajar dependiendo del estilo de juego que tengamos elegiremos uno o otro tras elegir y pasar a la siguiente sala ya no se podr· volver a atr·s.
+El jugador entra en una sala y puede elegir entre diferentes opciones dentro de esta. Se presentan distintos caminos por los que se puede viajar dependiendo del estilo de juego que tengamos elegiremos uno o otro tras elegir y pasar a la siguiente sala ya no se podr√° volver a atr√°s.
 
 ## 4.5 Cultivo de emociones
 
-El cultivo de emociones se produce en las salas del sistema lÌmbico. Al entrar a esta sala podremos hacer uso de los frascos de emociones que hemos recogido durante el camino. El cultivo de emociones se realiza mediante la elecciÛn de una emociÛn que queremos potenciar y el consumo de un frasco de emociÛn. De estos existen tres tipos permanentes, los cuales necesitan una pequeÒa condiciÛn para activar la mejora pero trascienden a travÈs de las diferentes partidas. Los de un uso, que requieren condiciÛn m·s sencilla pero solo est·n activos en la misma partida. Y los temporales al usarlos mejoran al personaje elegido hasta que termine el siguiente combate sin ning˙n requisito.
+El cultivo de emociones se produce en las salas del sistema l√≠mbico. Al entrar a esta sala podremos hacer uso de los frascos de emociones que hemos recogido durante el camino. El cultivo de emociones se realiza mediante la elecci√≥n de una emoci√≥n que queremos potenciar y el consumo de un frasco de emoci√≥n. De estos existen tres tipos permanentes, los cuales necesitan una peque√±a condici√≥n para activar la mejora pero trascienden a trav√©s de las diferentes partidas. Los de un uso, que requieren condici√≥n m√°s sencilla pero solo est√°n activos en la misma partida. Y los temporales al usarlos mejoran al personaje elegido hasta que termine el siguiente combate sin ning√∫n requisito.
 
-Cada vez que el jugador cultiva una emociÛn, se le da a elegir entre varias mejoras (generalmente 2, a no ser que se encuentre en un estado de desequilibrio o locura) que beneficiar·n a la emociÛn protagonista de la sala, desequilibrando la balanza a su favor.
+Cada vez que el jugador cultiva una emoci√≥n, se le da a elegir entre varias mejoras (generalmente 2, a no ser que se encuentre en un estado de desequilibrio o locura) que beneficiar√°n a la emoci√≥n protagonista de la sala, desequilibrando la balanza a su favor.
 
-Una de estas mejoras siempre ser· un ligero modificador positivo a cualquiera de los ataques/ habilidades y atributos b·sicos de la emociÛn (+daÒo, prioridad, etc.)
+Una de estas mejoras siempre ser√° un ligero modificador positivo a cualquiera de los ataques/ habilidades y atributos b√°sicos de la emoci√≥n (+da√±o, prioridad, etc.)
 
-La otra le aÒadir· alg˙n efecto a una de estas funciones de dicha emociÛn (aplica una nueva desventaja a los enemigos, modifica la barra de locura, etc.)
+La otra le a√±adir√° alg√∫n efecto a una de estas funciones de dicha emoci√≥n (aplica una nueva desventaja a los enemigos, modifica la barra de locura, etc.)
 
-En caso de que aceptar esta mejora suponga un desequilibrio emocional grande (x mejoras por encima del resto, o 2 por encima de las otras 2, o 3 por encima de la ˙ltima, etc.); se podr· escoger una tercera mejora, generalmente con m·s impacto, cambiando el estilo de juego de la run actual (si alegrÌa y tristeza est·n combatiendo, reciben un 30% de daÒo extra, si no, todas reciben un \-10%; cada 3 enemigos eliminados por ira, obtÈn un frasco para cultivar, etc.).
+En caso de que aceptar esta mejora suponga un desequilibrio emocional grande (x mejoras por encima del resto, o 2 por encima de las otras 2, o 3 por encima de la √∫ltima, etc.); se podr√° escoger una tercera mejora, generalmente con m√°s impacto, cambiando el estilo de juego de la run actual (si alegr√≠a y tristeza est√°n combatiendo, reciben un 30% de da√±o extra, si no, todas reciben un \-10%; cada 3 enemigos eliminados por ira, obt√©n un frasco para cultivar, etc.).
 
 ## 4.6 Mejoras de personajes
 
 * **Miedo:**
-  * Las cargas de valentÌa reducen el fallo en un 33%
-  * Al acertar con valentÌa haces un 10% m·s de daÒo
-  * Si fallas con 1 carga de valentÌa t˙ prÛximo ataque hace un 50% m·s de daÒo
-  * El enemigo que estÈ en el centro del radio de daÒo recibe un 50% m·s de daÒo?
-  * Cada 2 usos de definitiva (aplica para el prÛximo), en caso de que se ejecute sin 2 cargas de valentÌa, recibe 3 (stackeables hasta 4\)
+  * Las cargas de valent√≠a reducen el fallo en un 33%
+  * Al acertar con valent√≠a haces un 10% m√°s de da√±o
+  * Si fallas con 1 carga de valent√≠a t√∫ pr√≥ximo ataque hace un 50% m√°s de da√±o
+  * El enemigo que est√© en el centro del radio de da√±o recibe un 50% m√°s de da√±o?
+  * Cada 2 usos de definitiva (aplica para el pr√≥ximo), en caso de que se ejecute sin 2 cargas de valent√≠a, recibe 3 (stackeables hasta 4\)
 
-**Mejora fuerte:** al principio de cada combate, Miedo puede asignar a una emociÛn (que no sea el) la propiedad de, autom·ticamente, infundir miedo a un tipo de enemigo. Esto causa que, mientras dicha emociÛn estÈ en combate, este tipo de enemigo actuar· siempre ˙ltimo y har· un 15% menos de daÒo.
+**Mejora fuerte:** al principio de cada combate, Miedo puede asignar a una emoci√≥n (que no sea el) la propiedad de, autom√°ticamente, infundir miedo a un tipo de enemigo. Esto causa que, mientras dicha emoci√≥n est√© en combate, este tipo de enemigo actuar√° siempre √∫ltimo y har√° un 15% menos de da√±o.
 
-Sin embargo, si la emociÛn asignada muere, estos enemigos siempre actuar·n primero (hasta el final del combate), haciendo tambiÈn un 15% m·s de daÒo.
+Sin embargo, si la emoci√≥n asignada muere, estos enemigos siempre actuar√°n primero (hasta el final del combate), haciendo tambi√©n un 15% m√°s de da√±o.
 
 * **Tristeza:**
-  * Los enemigos con depresiÛn hacen un 5% menos de daÒo y reciben un 5% m·s
-  * Los enemigos pueden stackear hasta 4 turnos de **depresiÛn**
-  * (Si se cambia la mec·nica actual) Cada vez que se le aplica la depresiÛn a un enemigo, se le suman 2 turnos en vez de 1 (Max default sigue en 3\)
-  * El enemigo que estÈ en el centro del radio de daÒo recibe un 50% m·s de daÒo
-  * Cada 2 ultis, se aplica en daÒo en ·rea del ataque b·sico a aquellos enemigos que ya tengan **depresiÛn**
+  * Los enemigos con depresi√≥n hacen un 5% menos de da√±o y reciben un 5% m√°s
+  * Los enemigos pueden stackear hasta 4 turnos de **depresi√≥n**
+  * (Si se cambia la mec√°nica actual) Cada vez que se le aplica la depresi√≥n a un enemigo, se le suman 2 turnos en vez de 1 (Max default sigue en 3\)
+  * El enemigo que est√© en el centro del radio de da√±o recibe un 50% m√°s de da√±o
+  * Cada 2 ultis, se aplica en da√±o en √°rea del ataque b√°sico a aquellos enemigos que ya tengan **depresi√≥n**
 
-**Mejora fuerte:** Desde el principio del combate, Tristeza puede elegir a **un enemigo** que no tenga **depresiÛn** y le asigna una bomba (**depresiÛn severa**), y tiene un 50% de probabilidades de aplicarle **depresiÛn** permanentemente. Si al cabo de 2 turnos, dicho enemigo y los 2 de sus lados (es decir, solo los m·s cercanos) tienen **depresiÛn**, dicho enemigo abandona el campo y cualquier otro que se ponga en su posiciÛn lo har· tambiÈn, autom·ticamente.
+**Mejora fuerte:** Desde el principio del combate, Tristeza puede elegir a **un enemigo** que no tenga **depresi√≥n** y le asigna una bomba (**depresi√≥n severa**), y tiene un 50% de probabilidades de aplicarle **depresi√≥n** permanentemente. Si al cabo de 2 turnos, dicho enemigo y los 2 de sus lados (es decir, solo los m√°s cercanos) tienen **depresi√≥n**, dicho enemigo abandona el campo y cualquier otro que se ponga en su posici√≥n lo har√° tambi√©n, autom√°ticamente.
 
-Adem·s, cuando este primer asignado abandone, se le asigna una bomba a los 2 de los lados, con el mismo funcionamiento pero teniendo que esperar 1 turno m·s hasta explotar.
+Adem√°s, cuando este primer asignado abandone, se le asigna una bomba a los 2 de los lados, con el mismo funcionamiento pero teniendo que esperar 1 turno m√°s hasta explotar.
 
-Sin embargo, si la primera bomba falla, todos los enemigos que tuviesen **depresiÛn** se la quitan, y se curan el daÒo que les harÌa un ataque b·sico de depresiÛn. Lo mismo aplica para el resto de bombas, pero sin la cura de vida.
+Sin embargo, si la primera bomba falla, todos los enemigos que tuviesen **depresi√≥n** se la quitan, y se curan el da√±o que les har√≠a un ataque b√°sico de depresi√≥n. Lo mismo aplica para el resto de bombas, pero sin la cura de vida.
 
-* **AlegrÌa:**
-  * Cura un 15% m·s a sus aliados y un 10% a si mismo, q se alterna cada turno
+* **Alegr√≠a:**
+  * Cura un 15% m√°s a sus aliados y un 10% a si mismo, q se alterna cada turno
   * Puede curar a 2 aliados
-  * La mitad de la vida que cura es devuelta como daÒo al enemigo en frente del curado
-  * Aplica daÒo en ·rea
-  * Cada 2 ultis, puede volver a hacer una acciÛn en ese mismo turno
-  * La habilidad, adem·s de curar tiene opciÛn de boostear el daÒo del aliado en un 10% durante los prÛximos 2 turnos
+  * La mitad de la vida que cura es devuelta como da√±o al enemigo en frente del curado
+  * Aplica da√±o en √°rea
+  * Cada 2 ultis, puede volver a hacer una acci√≥n en ese mismo turno
+  * La habilidad, adem√°s de curar tiene opci√≥n de boostear el da√±o del aliado en un 10% durante los pr√≥ximos 2 turnos
 
-**Mejora fuerte:**  una vez por combate, desde el principio, AlegrÌa puede revivir a un aliado caÌdo (menos ella misma); dej·ndolo al 50% de su vida total. Sin embargo, cada enemigo caÌdo tiene una probabilidad del 20% de revivir (tambiÈn al 50% de su vida).
+**Mejora fuerte:**  una vez por combate, desde el principio, Alegr√≠a puede revivir a un aliado ca√≠do (menos ella misma); dej√°ndolo al 50% de su vida total. Sin embargo, cada enemigo ca√≠do tiene una probabilidad del 20% de revivir (tambi√©n al 50% de su vida).
 
 * **Ira:**
-* La **invocaciÛn** hace un 7% m·s de daÒo por cada turno que lleve en combate
-* El rango de daÒo en ·rea se incrementa de 3 enemigos a 5
-* La invocaciÛn puede atacar a cualquier enemigo a rango del ataque b·sico de ira (en vez de al mismo enemigo que la emociÛn a la que apoya)
-* Los enemigos que estÈn en los bordes del radio de ataque, reciben un 50% m·s de daÒo
-* Cada 2 ultis, la prolongaciÛn de turnos de la **invocaciÛn** cambia de establecerse en 5 a sumar 5\. Adem·s, el prÛximo ataque de esta **invocaciÛn** hace daÒo a **TODOS** los enemigos y cura a la emociÛn aliada en un 10% del daÒo infligido
+* La **invocaci√≥n** hace un 7% m√°s de da√±o por cada turno que lleve en combate
+* El rango de da√±o en √°rea se incrementa de 3 enemigos a 5
+* La invocaci√≥n puede atacar a cualquier enemigo a rango del ataque b√°sico de ira (en vez de al mismo enemigo que la emoci√≥n a la que apoya)
+* Los enemigos que est√©n en los bordes del radio de ataque, reciben un 50% m√°s de da√±o
+* Cada 2 ultis, la prolongaci√≥n de turnos de la **invocaci√≥n** cambia de establecerse en 5 a sumar 5\. Adem√°s, el pr√≥ximo ataque de esta **invocaci√≥n** hace da√±o a **TODOS** los enemigos y cura a la emoci√≥n aliada en un 10% del da√±o infligido
 
-**Mejora fuerte:**: Ira entra en modo raid Boss durante 4 turnos, creciendo en tamaÒo.
+**Mejora fuerte:**: Ira entra en modo raid Boss durante 4 turnos, creciendo en tama√±o.
 
-Gana un 50% de vida m·xima (que se le suma a la actual), un 20% de daÒo y amplÌa en 1 su rango de ataques en ·rea. Sin embargo, pierde 2 de prioridad (ya que es algo m·s lento).
+Gana un 50% de vida m√°xima (que se le suma a la actual), un 20% de da√±o y ampl√≠a en 1 su rango de ataques en √°rea. Sin embargo, pierde 2 de prioridad (ya que es algo m√°s lento).
 
-Adem·s, cuando se acabe el efecto, recibe los mismos modificadores solo que opuestos y a la mitad, durante 2 turnos.
+Adem√°s, cuando se acabe el efecto, recibe los mismos modificadores solo que opuestos y a la mitad, durante 2 turnos.
 
-Mejora com˙n de LOCURA: este personaje afecta a la barra de locura un 20% m·s (Max 2 personajes). 10% de aparecer.
+Mejora com√∫n de LOCURA: este personaje afecta a la barra de locura un 20% m√°s (Max 2 personajes). 10% de aparecer.
 
-(En funciÛn de los enemigos que dejemos y los q pongamos pues se pueden meter mejoras que interact˙en con sus mec·nicas, pero por ahora lo ignoro hasta q sepamos q enemigos vamos a tener exactamente)
+(En funci√≥n de los enemigos que dejemos y los q pongamos pues se pueden meter mejoras que interact√∫en con sus mec√°nicas, pero por ahora lo ignoro hasta q sepamos q enemigos vamos a tener exactamente)
 
 **Mejoras compartidas:**
 
-**Nostalgia:** cuando alegrÌa y tristeza est·n en el campo de batalla, hacen un 15% m·s de daÒo, y se ven afectados un 15% por los modificadores enemigos negativos.
+**Nostalgia:** cuando alegr√≠a y tristeza est√°n en el campo de batalla, hacen un 15% m√°s de da√±o, y se ven afectados un 15% por los modificadores enemigos negativos.
 
-Le ocurre lo contrario a todas las emociones cuando no est·n las 2 en el campo.
+Le ocurre lo contrario a todas las emociones cuando no est√°n las 2 en el campo.
 
-**Paranoia:** cuando miedo e ira est·n en el campo de batalla y reciben el castigo de la barra de locura, estas atacan a **TODOS** los dem·s personajes que estÈn activos en combate, no solo se atacan entre ellos. Sin embargo, reciben el doble de daÒo de los ataques de su compaÒero.
+**Paranoia:** cuando miedo e ira est√°n en el campo de batalla y reciben el castigo de la barra de locura, estas atacan a **TODOS** los dem√°s personajes que est√©n activos en combate, no solo se atacan entre ellos. Sin embargo, reciben el doble de da√±o de los ataques de su compa√±ero.
 
-**Mejora fuerte para TODOS**: cuando est·n 3 frascos o m·s por debajo de todos esta mejora desaparece y no puede volver a aparecer cuando se reduce de 9 (con mÌnimo 3 cada una) la diferencia de frascos que tienen las otras 3 emociones con la que posee la mejora: por cada 3 frascos de diferencia con el resto, esta mejora ve incrementados todos sus bonificadores positivos en un 7%. Sin embargo, tambiÈn hace 5% daÒo de extra (al que se le suma el 7% por stack) a sus aliados durante las rondas de locura.
+**Mejora fuerte para TODOS**: cuando est√°n 3 frascos o m√°s por debajo de todos esta mejora desaparece y no puede volver a aparecer cuando se reduce de 9 (con m√≠nimo 3 cada una) la diferencia de frascos que tienen las otras 3 emociones con la que posee la mejora: por cada 3 frascos de diferencia con el resto, esta mejora ve incrementados todos sus bonificadores positivos en un 7%. Sin embargo, tambi√©n hace 5% da√±o de extra (al que se le suma el 7% por stack) a sus aliados durante las rondas de locura.
 
-Al llegar a 6 stacks (18 frascos), la locura comienza a afectar tambiÈn a los enemigos.
+Al llegar a 6 stacks (18 frascos), la locura comienza a afectar tambi√©n a los enemigos.
 
-| Par·metro | DescripciÛn | Unidades |
+| Par√°metro | Descripci√≥n | Unidades |
 | :---: | :---: | :---: |
-| M·ximo mejora | El n˙mero m·ximo de mejoras que puede tener un personaje | u |
+| M√°ximo mejora | El n√∫mero m√°ximo de mejoras que puede tener un personaje | u |
 | Beneficio | El porcentaje de mejora al personaje que sea aplicado | % |
 | Permanencia | Pueden ser o no permanentes para el personaje | Si/No |
-| M·ximo mejora por sala | El n˙mero m·ximo de mejoras que se pueden gastar en una sala( puede variar) | u |
+| M√°ximo mejora por sala | El n√∫mero m√°ximo de mejoras que se pueden gastar en una sala( puede variar) | u |
 
 ## 4.7 Ataques
 
-Forma parte de las acciones que son realizables durante el combate. Este ataque es el b·sico que realiza la emociÛn durante el combate. Por tanto no tiene cooldown y es usable una vez por turno.
+Forma parte de las acciones que son realizables durante el combate. Este ataque es el b√°sico que realiza la emoci√≥n durante el combate. Por tanto no tiene cooldown y es usable una vez por turno.
 
-| Par·metro | DescripciÛn | Unidades |
+| Par√°metro | Descripci√≥n | Unidades |
 | :---: | :---: | :---: |
-| DaÒo | El daÒo que recibe el enemigo | u |
+| Da√±o | El da√±o que recibe el enemigo | u |
 
 ## 4.8 Definitivas
 
-Compone una de las acciones que son realizables durante el combate. La definitiva de personaje, que es cargada tras varios ataques. Genera un ataque m·s poderoso de lo normal y puede aÒadir un beneficio a los aliados o una debilidad al rival.
+Compone una de las acciones que son realizables durante el combate. La definitiva de personaje, que es cargada tras varios ataques. Genera un ataque m√°s poderoso de lo normal y puede a√±adir un beneficio a los aliados o una debilidad al rival.
 
-| Par·metro | DescripciÛn | Unidades |
+| Par√°metro | Descripci√≥n | Unidades |
 | :---: | :---: | :---: |
-| DaÒo | El daÒo que recibe el enemigo | u |
-| Carga | El n˙mero de ataque que necesita para poder usarse | u |
+| Da√±o | El da√±o que recibe el enemigo | u |
+| Carga | El n√∫mero de ataque que necesita para poder usarse | u |
 
 ## 4.9 Habilidades
 
-Se trata de una de las acciones que son realizables durante el combate. Su funcionalidad es gastar un turno para obtener un beneficio. Tras ser usada en un turno deberemos esperar un n˙mero determinado de turnos para que vuelva a poderse usar
+Se trata de una de las acciones que son realizables durante el combate. Su funcionalidad es gastar un turno para obtener un beneficio. Tras ser usada en un turno deberemos esperar un n√∫mero determinado de turnos para que vuelva a poderse usar
 
-| Par·metro | DescripciÛn | Unidades |
+| Par√°metro | Descripci√≥n | Unidades |
 | :---: | :---: | :---: |
 | Beneficio | El beneficio que recibe el personaje | u |
 | Cooldown | Turnos necesarios para que pueda volver a ser usado | u |
@@ -252,90 +252,90 @@ Se trata de una de las acciones que son realizables durante el combate. Su funci
 
 ## 4.10 Debilidades
 
-Para usar m·s eficientemente los ataques de nuestros personajes podemos usar las debilidades esto se mostrar· en el ataque si estamos atacando a un enemigo que nos tiene debilidad.Y el daÒo se multiplica x1,5.Esta es la tabla de debilidades para ambos lados pueden ser usados por el jugador para hacer m·s daÒo y evitar recibir tanto daÒo
+Para usar m√°s eficientemente los ataques de nuestros personajes podemos usar las debilidades esto se mostrar√° en el ataque si estamos atacando a un enemigo que nos tiene debilidad.Y el da√±o se multiplica x1,5.Esta es la tabla de debilidades para ambos lados pueden ser usados por el jugador para hacer m√°s da√±o y evitar recibir tanto da√±o
 
 ### 4.10.1 Debilidad en emociones
 
-|  | Bipolaridad | Psicosis | Anorexia | EstrÈs | Esquizofrenia | TOC |
+|  | Bipolaridad | Psicosis | Anorexia | Estr√©s | Esquizofrenia | TOC |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Miedo | 1,5 | 1 | 1,5 | 1,5 | 1 | 1 |
 | Tristeza | 1 | 1,5 | 1 | 1,5 | 1 | 1,5 |
-| AlegrÌa | 1,5 | 1 | 1,5 | 1 | 1,5 | 1 |
+| Alegr√≠a | 1,5 | 1 | 1,5 | 1 | 1,5 | 1 |
 | Ira | 1 | 1,5 | 1 | 1 | 1,5 | 1,5 |
 
 **Debilidad en enemigos**
 
-|  | Miedo | Tristeza | AlegrÌa | Ira |
+|  | Miedo | Tristeza | Alegr√≠a | Ira |
 | :---: | :---: | :---: | :---: | :---: |
 | Miedo | 1 | 1 | 1,5 | 1 |
 | Tristeza | 1 | 1 | 1 | 1.5 |
-| AlegrÌa | 1 | 1,5 | 1 | 1 |
+| Alegr√≠a | 1 | 1,5 | 1 | 1 |
 | Ira | 1,5 | 1 | 1 | 1 |
 | Bipolaridad | 1 | 1,5 | 1 | 1,5 |
 | Psicosis | 1 | 1 | 1,5 | 1 |
 | Anorexia | 1,5 | 1 | 1 | 1 |
-| EstrÈs | 1 | 1 | 1,5 | 1,5 |
+| Estr√©s | 1 | 1 | 1,5 | 1,5 |
 | Esquizofrenia | 1,5 | 1 | 1 | 1 |
 | TOC | 1 | 1,5 | 1 | 1 |
 
-## 4.11 OrganizaciÛn/gestiÛn de equipo
+## 4.11 Organizaci√≥n/gesti√≥n de equipo
 
-Antes de empezar cada combate podremos elegir los personajes con los que saldremos de primeras. Durante nuestro turno tenemos un botÛn para cambiar de personajes, y dentro de este podemos visualizar las estadÌsticas y movimientos de nuestro equipo; asÌ como cambiar aquellos que deseemos. Sin embargo, los que entren al combate no podr·n atacar en su turno de entrada.Explicado en la navegaciÛn por men˙s.
+Antes de empezar cada combate podremos elegir los personajes con los que saldremos de primeras. Durante nuestro turno tenemos un bot√≥n para cambiar de personajes, y dentro de este podemos visualizar las estad√≠sticas y movimientos de nuestro equipo; as√≠ como cambiar aquellos que deseemos. Sin embargo, los que entren al combate no podr√°n atacar en su turno de entrada.Explicado en la navegaci√≥n por men√∫s.
 
 # 5. Mundo del juego
 
 ## 5.1 Personajes
 
-Los personajes tendr·n 1 ataque b·sico, 1  habilidad, 1 definitiva y 1 pasiva(por decidir) durante el juego. La definitiva se carga cuando los aliados reciben daÒo o usan habilidades.
+Los personajes tendr√°n 1 ataque b√°sico, 1  habilidad, 1 definitiva y 1 pasiva(por decidir) durante el juego. La definitiva se carga cuando los aliados reciben da√±o o usan habilidades.
 
-Al iniciar una partida comenzaremos con AlegrÌa y podemos ir encontrando a las otras emociones a medida que avanzamos. Al ir encontrar a las dem·s las podemos incluir en nuestro equipo para tener distintas habilidades. Si tenemos m·s de tres emociones en los combates solo podremos usar dos al mismo tiempo y la otra es intercambiable gastando un turno de juego.
+Al iniciar una partida comenzaremos con Alegr√≠a y podemos ir encontrando a las otras emociones a medida que avanzamos. Al ir encontrar a las dem√°s las podemos incluir en nuestro equipo para tener distintas habilidades. Si tenemos m√°s de tres emociones en los combates solo podremos usar dos al mismo tiempo y la otra es intercambiable gastando un turno de juego.
 
 1. ### **Miedo**
 
-* Personaje principal con el que empezar· el jugador.
+* Personaje principal con el que empezar√° el jugador.
 
-* **Ataque b·sico:** Tiene un 50% de probabilidades de fallar el ataque y un 50% de probabilidades de ejecutar un ataque en ·rea. Si el personaje tiene cargas de ?**valentÌa**? se gasta 1 carga cada vez. (Baja la barra de ?**locura**?)
+* **Ataque b√°sico:** Tiene un 50% de probabilidades de fallar el ataque y un 50% de probabilidades de ejecutar un ataque en √°rea. Si el personaje tiene cargas de ?**valent√≠a**? se gasta 1 carga cada vez. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Gasta un turno para ganar 1 carga de ?**valentÌa**? hasta un m·ximo de 2 cargas. Cada carga de ?**valentÌa**? baja las probabilidades de fallar el ataque b·sico un 25% y aumenta el daÒo infligido de esta. (Sube la barra de ?locura?)
+* **Habilidad:** Gasta un turno para ganar 1 carga de ?**valent√≠a**? hasta un m√°ximo de 2 cargas. Cada carga de ?**valent√≠a**? baja las probabilidades de fallar el ataque b√°sico un 25% y aumenta el da√±o infligido de esta. (Sube la barra de ?locura?)
 
-* **Definitiva:** Si tiene 2 cargas de ?**valentÌa**? ejecuta un ataque en ·rea que aplica aturdimiento durante 2 turnos a los enemigos. En caso contrario sus cargas de ?**valentÌa**? aumentan hasta 2 y ejecuta un ataque b·sico con 100% de probabilidades de acertar.  (Sube la barra de ?**locura**?)
+* **Definitiva:** Si tiene 2 cargas de ?**valent√≠a**? ejecuta un ataque en √°rea que aplica aturdimiento durante 2 turnos a los enemigos. En caso contrario sus cargas de ?**valent√≠a**? aumentan hasta 2 y ejecuta un ataque b√°sico con 100% de probabilidades de acertar.  (Sube la barra de ?**locura**?)
 
   2. ### **Tristeza**
 
-* **Ataque b·sico:** Inflige daÒo a un enemigo, si el enemigo tiene ?**depresiÛn**? inflige daÒo en ·rea. (Baja la barra de ?**locura**?)
+* **Ataque b√°sico:** Inflige da√±o a un enemigo, si el enemigo tiene ?**depresi√≥n**? inflige da√±o en √°rea. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Aplica ?**depresiÛn**? a un enemigo durante 3 turnos. Este reduce el daÒo que inflige el enemigo y aumenta el daÒo que recibe. Si el enemigo ya tiene ?**depresiÛn**? le aumenta la duraciÛn hasta 3 turnos. (Sube la barra de ?**locura**?)
+* **Habilidad:** Aplica ?**depresi√≥n**? a un enemigo durante 3 turnos. Este reduce el da√±o que inflige el enemigo y aumenta el da√±o que recibe. Si el enemigo ya tiene ?**depresi√≥n**? le aumenta la duraci√≥n hasta 3 turnos. (Sube la barra de ?**locura**?)
 
-* **Definitiva:** Inflige daÒo a todos los enemigos aplicando ?**depresiÛn**? durante 2 turnos. (Sube la barra de ?**locura**?) aplica depresiÛn a los enemigos que no la tienen y hace el doble de daÒo a los que ya la tienen
+* **Definitiva:** Inflige da√±o a todos los enemigos aplicando ?**depresi√≥n**? durante 2 turnos. (Sube la barra de ?**locura**?) aplica depresi√≥n a los enemigos que no la tienen y hace el doble de da√±o a los que ya la tienen
 
-  3. ### **AlegrÌa**
+  3. ### **Alegr√≠a**
 
-* **Ataque b·sico:** Inflige daÒo a un enemigo. (Baja la barra de ?**locura**?)
+* **Ataque b√°sico:** Inflige da√±o a un enemigo. (Baja la barra de ?**locura**?)
 
 * **Habilidad:** Cura a un aliado y elimina los estados negativos que tenga. (Sube la barra de ?**locura**?)
 
-* **Definitiva:** Adelanta la acciÛn de todos los aliados y les aplica ?**felicidad**? aumentando el daÒo que hacen.  (Sube la barra de ?**locura**?)
+* **Definitiva:** Adelanta la acci√≥n de todos los aliados y les aplica ?**felicidad**? aumentando el da√±o que hacen.  (Sube la barra de ?**locura**?)
 
   4. ### **Ira**
 
-* **Ataque b·sico:** Inflige daÒo en ·rea a los enemigos. (Baja la barra de ?**locura**?)
+* **Ataque b√°sico:** Inflige da√±o en √°rea a los enemigos. (Baja la barra de ?**locura**?)
 
-* **Habilidad:** Crea una invocaciÛn que ataca de forma coordinada con los ataques de los aliados durante 3 turnos. (Sube la barra de ?**locura**?)
+* **Habilidad:** Crea una invocaci√≥n que ataca de forma coordinada con los ataques de los aliados durante 3 turnos. (Sube la barra de ?**locura**?)
 
-* **Definitiva:** Mejora la invocaciÛn: Los ataques se vuelven en ·rea y prolonga la duraciÛn de la invocaciÛn a 5 turnos. (Sube la barra de ?**locura**?)
+* **Definitiva:** Mejora la invocaci√≥n: Los ataques se vuelven en √°rea y prolonga la duraci√≥n de la invocaci√≥n a 5 turnos. (Sube la barra de ?**locura**?)
 
 ## 5.2 Enemigos
 
-* **EstrÈs** :
+* **Estr√©s** :
   * **Ataque**: Ataca a un enemigo con un 80% de posibilidades de acertar
 * **Aura visual:**
   * **Ataque**: Ataca a varios enemigo con un 60% de posibilidades de acertar
 * **Ansiedad**:
   *  **Ataque**: Cura a sus aliados un 30% de la vida.
 * **Trauma:**
-  * **Ataque**: inflige **?veneno?** a los enemigos que hace un 10% por turno( si ya lo tienes hace 10% de daÒo al atacarte)
+  * **Ataque**: inflige **?veneno?** a los enemigos que hace un 10% por turno( si ya lo tienes hace 10% de da√±o al atacarte)
 * **Pesadilla:**
-  * **Ataque**: aplica **?sueÒo?** y hace inutil al enemigo durante un turno.
+  * **Ataque**: aplica **?sue√±o?** y hace inutil al enemigo durante un turno.
 
 ## 5.3 Bosses
 
@@ -343,29 +343,29 @@ Aparecen en las salas de bosses.
 
 * Bipolaridad
 
-  * **Ataque b·sico:** Tiene un 70% de probabilidades de fallar el ataque y un 30% de probabilidades de ejecutar un ataque preciso( daÒo alto). Se gasta 1 carga de ?**personalidad**?.
+  * **Ataque b√°sico:** Tiene un 70% de probabilidades de fallar el ataque y un 30% de probabilidades de ejecutar un ataque preciso( da√±o alto). Se gasta 1 carga de ?**personalidad**?.
 
-  * **Habilidad:** Gasta un turno para ganar 1 carga de ?**personalidad**? hasta un m·ximo de 3 cargas. Cada carga de ?**personalidad**? sube el ataque b·sico un 25% y aumenta el daÒo infligido de esta.
+  * **Habilidad:** Gasta un turno para ganar 1 carga de ?**personalidad**? hasta un m√°ximo de 3 cargas. Cada carga de ?**personalidad**? sube el ataque b√°sico un 25% y aumenta el da√±o infligido de esta.
 
-  * **Definitiva:** Si tiene 2 cargas de ?**personalidad**? ejecuta un cambio de forma durante 2 turnos e invierte los porcentajes del ataque principal . En caso contrario sus cargas de ?**personalidad**? aumentan hasta 2 y ejecuta un ataque b·sico con 100% de probabilidades de acertar y 50% de daÒo.
+  * **Definitiva:** Si tiene 2 cargas de ?**personalidad**? ejecuta un cambio de forma durante 2 turnos e invierte los porcentajes del ataque principal . En caso contrario sus cargas de ?**personalidad**? aumentan hasta 2 y ejecuta un ataque b√°sico con 100% de probabilidades de acertar y 50% de da√±o.
 
 * Psicosis
 
-  * **Ataque b·sico:** aplica 1 carga de ?**efecto psicÛtico**? a una emociÛn, lo que reduce en un 25% la probabilidad de que pueda efectuar acciones en su prÛximo turno. Hasta 3 cargas acumulables que se van de una en una al realizar cualquier acciÛn con Èxito (2 si es la definitiva).
+  * **Ataque b√°sico:** aplica 1 carga de ?**efecto psic√≥tico**? a una emoci√≥n, lo que reduce en un 25% la probabilidad de que pueda efectuar acciones en su pr√≥ximo turno. Hasta 3 cargas acumulables que se van de una en una al realizar cualquier acci√≥n con √©xito (2 si es la definitiva).
 
     Si golpea a un enemigo con 3 cargas le aplica ?**psicosis**?.
 
-  * **Habilidad:** todo aliado o enemigo tiene un 50% de quedar inutilizado durante su prÛximo turno en caso de que no haya realizado ninguna acciÛn con Èxito en la anterior; o si tiene ?**psicosis**?.
+  * **Habilidad:** todo aliado o enemigo tiene un 50% de quedar inutilizado durante su pr√≥ximo turno en caso de que no haya realizado ninguna acci√≥n con √©xito en la anterior; o si tiene ?**psicosis**?.
 
-  * **Definitiva:** durante los prÛximos 2 turnos, todas las emociones ganan 1 carga de ?**efecto psicÛtico**?, y ven sus posibilidades de realizar cualquier acciÛn exitosamente reducidas un 50% aplicado al porcentaje que tuviesen previamente.
+  * **Definitiva:** durante los pr√≥ximos 2 turnos, todas las emociones ganan 1 carga de ?**efecto psic√≥tico**?, y ven sus posibilidades de realizar cualquier acci√≥n exitosamente reducidas un 50% aplicado al porcentaje que tuviesen previamente.
 
 * Anorexia
 
-  * **Ataque b·sico:** Inflige daÒo a un enemigo y recibe un 20% del daÒo aplicado.
+  * **Ataque b√°sico:** Inflige da√±o a un enemigo y recibe un 20% del da√±o aplicado.
 
   * **Habilidad:** Cura a un aliado y elimina los estados negativos que tenga.
 
-  * **Definitiva:** Adelanta la acciÛn de todos los aliados y les aplica ?**vÛmito**? protegiendolos de todos los efectos negativos por 1 turno.
+  * **Definitiva:** Adelanta la acci√≥n de todos los aliados y les aplica ?**v√≥mito**? protegiendolos de todos los efectos negativos por 1 turno.
 
 
 
@@ -375,153 +375,153 @@ Aparecen en las salas de bosses.
 
 
 
-* EstrÈs postraum·tico
+* Estr√©s postraum√°tico
 
-  * **Ataque b·sico:** Inflige daÒo, si el enemigo tiene ?**estrÈs**?, el siguiente ataque del enemigo hace un 15% menos.
+  * **Ataque b√°sico:** Inflige da√±o, si el enemigo tiene ?**estr√©s**?, el siguiente ataque del enemigo hace un 15% menos.
 
-  * **Habilidad:** Aplica ?**estrÈs**? a un enemigo durante 3 turnos. Esto genera que el personaje afectado sea el ˙ltimo en atacar. Si el enemigo ya tiene ?**estrÈs**? le aumenta la duraciÛn hasta 3 turnos.
+  * **Habilidad:** Aplica ?**estr√©s**? a un enemigo durante 3 turnos. Esto genera que el personaje afectado sea el √∫ltimo en atacar. Si el enemigo ya tiene ?**estr√©s**? le aumenta la duraci√≥n hasta 3 turnos.
 
-  * **Definitiva:** Inflige daÒo a todos los enemigos aplicando ?**estrÈs**? a todos  durante el siguiente turno. Hace el doble de daÒo a los que tengan ?**estrÈs**? en el siguiente turno. Pero el estado de ?**estrÈs**? se borra al finalizar el turno.
+  * **Definitiva:** Inflige da√±o a todos los enemigos aplicando ?**estr√©s**? a todos  durante el siguiente turno. Hace el doble de da√±o a los que tengan ?**estr√©s**? en el siguiente turno. Pero el estado de ?**estr√©s**? se borra al finalizar el turno.
 
 * Esquizofrenia
 
-  * **Ataque b·sico:** Inflige daÒo a un enemigo y aplica ?**confusiÛn**? 3 turnos.
+  * **Ataque b√°sico:** Inflige da√±o a un enemigo y aplica ?**confusi√≥n**? 3 turnos.
 
-  * **Habilidad:** Mueve la barra de ?**locura**? y la sube un 10% durante un turno. Si la ?**locura**? es superior al 70% gana una mejora de daÒo en el ataque principal.
+  * **Habilidad:** Mueve la barra de ?**locura**? y la sube un 10% durante un turno. Si la ?**locura**? es superior al 70% gana una mejora de da√±o en el ataque principal.
 
-  * **Definitiva:** Resetea la barra de ?**locura**? al 10% pero el prÛximo turno se atacan a sÌ mismos o a aliados. Si tienen ?**confusiÛn**? se pueden aplicar sus efectos negativos a sÌ mismos.
+  * **Definitiva:** Resetea la barra de ?**locura**? al 10% pero el pr√≥ximo turno se atacan a s√≠ mismos o a aliados. Si tienen ?**confusi√≥n**? se pueden aplicar sus efectos negativos a s√≠ mismos.
 
 * TOC
 
-  * **Ataque b·sico:** Inflige daÒo en ·rea a los enemigos.
+  * **Ataque b√°sico:** Inflige da√±o en √°rea a los enemigos.
 
   * **Habilidad:** Crea un orden, de forma que los efectos que tienen los enemigos se reparten igual para todos, pero en este turno no son afectados por ellos.Dura 2 turnos.
 
-  * **Definitiva:** Mejora el orden: Los ataques duplican el daÒo en los que tienen m·s de dos efectos y prolonga la duraciÛn del efecto a 5 turnos. Pierde un 50% de su vida.
+  * **Definitiva:** Mejora el orden: Los ataques duplican el da√±o en los que tienen m√°s de dos efectos y prolonga la duraci√≥n del efecto a 5 turnos. Pierde un 50% de su vida.
 
-## 5.4 Obst·culos
+## 5.4 Obst√°culos
 
-Durante la exploraciÛn de los niveles se presentar·n distintos tipos de salas que contienen diferentes obst·culos o decisiones para el jugador
+Durante la exploraci√≥n de los niveles se presentar√°n distintos tipos de salas que contienen diferentes obst√°culos o decisiones para el jugador
 
 1. ### **Sala de combate**
 
-En esta sala se encontrar·n los enemigos pueden ser entre 1 y 5 enemigos en caso de que sean m·s de 3 los dos siguientes no se encontraran en batalla hasta que uno de los del campo muera,entonces lo sustituyen.
+En esta sala se encontrar√°n los enemigos pueden ser entre 1 y 5 enemigos en caso de que sean m√°s de 3 los dos siguientes no se encontraran en batalla hasta que uno de los del campo muera,entonces lo sustituyen.
 
-2. ### **Sala de elecciÛn**
+2. ### **Sala de elecci√≥n**
 
-En esta sala el jugador entra y puede decidir entre dos opciones. Estas opciones pueden ser ambas beneficiosas o ambas negativas e incluso una de cada pero la buena tendr· una posibilidad de no cumplirse.
+En esta sala el jugador entra y puede decidir entre dos opciones. Estas opciones pueden ser ambas beneficiosas o ambas negativas e incluso una de cada pero la buena tendr√° una posibilidad de no cumplirse.
 
-Son salas en las que Eustaquio recuerda algo que le hizo sentir alguna emociÛn, y el jugador tiene que combatir contra una serie de enemigos (enfermedades mentales) para intentar liberar dicho recuerdo y con Èl, la emociÛn que sintiÛ Eustaquio en ese momento (al vencer, el jugador elige entre 2 posibles mejoras para dicha emociÛn).
+Son salas en las que Eustaquio recuerda algo que le hizo sentir alguna emoci√≥n, y el jugador tiene que combatir contra una serie de enemigos (enfermedades mentales) para intentar liberar dicho recuerdo y con √©l, la emoci√≥n que sinti√≥ Eustaquio en ese momento (al vencer, el jugador elige entre 2 posibles mejoras para dicha emoci√≥n).
 
 3. ### **Sala trampa**
 
-La sala al pasar nos atrapa y debemos tomar el riesgo de daÒar a un aliado o a otro de nuestras emociones
+La sala al pasar nos atrapa y debemos tomar el riesgo de da√±ar a un aliado o a otro de nuestras emociones
 
-4. ### **Sala de bifurcaciÛn**
+4. ### **Sala de bifurcaci√≥n**
 
-En esta sala se encontrar·n dos caminos o quiz· tres en los que el jugador podr· decidir entre quÈ rutas quiere tomar.
+En esta sala se encontrar√°n dos caminos o quiz√° tres en los que el jugador podr√° decidir entre qu√© rutas quiere tomar.
 
-5. ### **Sala de recuperaciÛn**
+5. ### **Sala de recuperaci√≥n**
 
 Sirve para curar las emociones subiendo un poco la barra de locura.
 
-6. ### **Sala del sistema lÌmbico**
+6. ### **Sala del sistema l√≠mbico**
 
-En esta sala podemos introducir un cultivo de emociones al entrar nos dan un n˙mero m·ximo de cultivo para nuestras emociones y las podemos utilizar para potenciar una de nuestras emociones los cultivos pueden ser permanentes o de solo un combate. Y necesitar·n unos requisitos para activarse normalmente un mÌnimo de ataques realizados.
+En esta sala podemos introducir un cultivo de emociones al entrar nos dan un n√∫mero m√°ximo de cultivo para nuestras emociones y las podemos utilizar para potenciar una de nuestras emociones los cultivos pueden ser permanentes o de solo un combate. Y necesitar√°n unos requisitos para activarse normalmente un m√≠nimo de ataques realizados.
 
 7. ### **Sala del Boss**
 
-En esta sala encontramos a uno de los bosses puede ser cualquiera y su orden es completamente aleatorio. Pero durante la misma partida el mismo boss no podr· volver a aparecer.
+En esta sala encontramos a uno de los bosses puede ser cualquiera y su orden es completamente aleatorio. Pero durante la misma partida el mismo boss no podr√° volver a aparecer.
 
 ## 5.5 Objetos
 
-El ˙nico objeto que se puede recoger solo ser·n acumulables hasta un total de 5\.
+El √∫nico objeto que se puede recoger solo ser√°n acumulables hasta un total de 5\.
 
 * **Frascos de emociones:** se usan para el cultivo de emociones y se dividen en 3 tipos:
-* **Permanentes**: Necesitan una pequeÒa condiciÛn para activar la mejora pero trascienden a travÈs de las diferentes partidas.
-* **Los de un uso**: Tienen condiciÛn m·s sencilla pero solo est·n activos en la misma partida.
-* **Temporales:** al usarlos mejoran al personaje elegido hasta que termine el siguiente combate sin ning˙n requisito.
+* **Permanentes**: Necesitan una peque√±a condici√≥n para activar la mejora pero trascienden a trav√©s de las diferentes partidas.
+* **Los de un uso**: Tienen condici√≥n m√°s sencilla pero solo est√°n activos en la misma partida.
+* **Temporales:** al usarlos mejoran al personaje elegido hasta que termine el siguiente combate sin ning√∫n requisito.
 
 ## 5.6 Niveles
 
-El juego transcurre en un ˙nico nivel en el cual vas poco a poco liberandote de tus demonios y adquiriendo recuerdos de tu vida y termina cuando liberas al ˙ltimo demonio interior y accedes a la escena final
+El juego transcurre en un √∫nico nivel en el cual vas poco a poco liberandote de tus demonios y adquiriendo recuerdos de tu vida y termina cuando liberas al √∫ltimo demonio interior y accedes a la escena final
 
-Al tratarse de un roguelite los niveles ser·n generados aleatoriamente. Pero siguen una estructura com˙n.El nivel es lineal y consta de salas aleatorias del apartado de obst·culos antes del combate.Seguidos a la sala justo anterior al combate es una sala sin nada en la cual el jugador puede organizar a su equipo para combatir. TambiÈn encontraremos distintos caminos entre los que podemos escoger dependiendo de si queremos m·s exploraciÛn o combate.
+Al tratarse de un roguelite los niveles ser√°n generados aleatoriamente. Pero siguen una estructura com√∫n.El nivel es lineal y consta de salas aleatorias del apartado de obst√°culos antes del combate.Seguidos a la sala justo anterior al combate es una sala sin nada en la cual el jugador puede organizar a su equipo para combatir. Tambi√©n encontraremos distintos caminos entre los que podemos escoger dependiendo de si queremos m√°s exploraci√≥n o combate.
 
-La dificultad ir· aumentando a medida que se activen m·s mejoras a las emociones. Los cambios de dificultad afectar·n a enemigos y salas.Los enemigos aumentar·n su daÒo y algunas estadÌsticas( prioridad). Las salas proporcionar·n objetos mejores pero a la vez mayores castigos.
+La dificultad ir√° aumentando a medida que se activen m√°s mejoras a las emociones. Los cambios de dificultad afectar√°n a enemigos y salas.Los enemigos aumentar√°n su da√±o y algunas estad√≠sticas( prioridad). Las salas proporcionar√°n objetos mejores pero a la vez mayores castigos.
 
 ![][image3]
 
 
 # 6. Interfaz
 
-## 6.1 C·mara
+## 6.1 C√°mara
 
-La c·mara ser· fija y en vista lateral.
+La c√°mara ser√° fija y en vista lateral.
 
 (Explicar un poco mejor)
 
-## 6.2 HUD Men˙s
+## 6.2 HUD Men√∫s
 
-| Salas combates ![][image4] | Salas elecciÛn ![][image5] |
+| Salas combates ![][image4] | Salas elecci√≥n ![][image5] |
 | :---- | :---- |
-| **Salas trampa** ![][image6] | **Salas de recuperaciÛn** ![][image7] |
-| **Salas sistema lÌmbico** ![][image8] | **Salas bifurcaciÛn** ![][image9] |
+| **Salas trampa** ![][image6] | **Salas de recuperaci√≥n** ![][image7] |
+| **Salas sistema l√≠mbico** ![][image8] | **Salas bifurcaci√≥n** ![][image9] |
 
 
 # 7. Experiencia de Juego
 
 ## 7.1 Trasfondo
 
-Eustaquio es un chaval de 19 aÒos, que por circunstancias de la vida lleva 12 meses en un estado mental bloqueante. Ha desarrollado un gran **MIEDO** a sentir emociones por el daÒo que estas le han hecho injustamente desde que era un niÒo pequeÒo. Sin embargo, tambiÈn niega sufrir este rechazo, y se ha convencido a sÌ mismo de que nada le importa, auto-bloqueando entre otras cosas el acceso a sus propios recuerdos, buenos y malos.
+Eustaquio es un chaval de 19 a√±os, que por circunstancias de la vida lleva 12 meses en un estado mental bloqueante. Ha desarrollado un gran **MIEDO** a sentir emociones por el da√±o que estas le han hecho injustamente desde que era un ni√±o peque√±o. Sin embargo, tambi√©n niega sufrir este rechazo, y se ha convencido a s√≠ mismo de que nada le importa, auto-bloqueando entre otras cosas el acceso a sus propios recuerdos, buenos y malos.
 
-Hay gente que intenta ayudarle, pero nadie ha sido capaz de dar con la clave, nadie excepto Èl mismo: (para llegar al punto de miedo extremo y encerrona en el que est· ahora, ha tenido que pasar por muchas etapas, llegando a desarrollar pequeÒos ·pices y sÌntomas de diversas enfermedades mentales, que, en el fondo; le mantienen con vida al hacerle dudar de si lo que est· haciendo realmente est· bien.
+Hay gente que intenta ayudarle, pero nadie ha sido capaz de dar con la clave, nadie excepto √©l mismo: (para llegar al punto de miedo extremo y encerrona en el que est√° ahora, ha tenido que pasar por muchas etapas, llegando a desarrollar peque√±os √°pices y s√≠ntomas de diversas enfermedades mentales, que, en el fondo; le mantienen con vida al hacerle dudar de si lo que est√° haciendo realmente est√° bien.
 
-No obstante, est·s emociones est·n atrapadas en sus recuerdos, golpe·ndole de vez en cuando como un bebÈ golpea la panza de su madre desde dentro)
+No obstante, est√°s emociones est√°n atrapadas en sus recuerdos, golpe√°ndole de vez en cuando como un beb√© golpea la panza de su madre desde dentro)
 
-Cada noche, algo dentro de Èl despierta para tratar de liberarle de su c·rcel: sus propias emociones intentando salir, desadormecidas por el enorme **MIEDO** que Èl mismo desmiente tener.
+Cada noche, algo dentro de √©l despierta para tratar de liberarle de su c√°rcel: sus propias emociones intentando salir, desadormecidas por el enorme **MIEDO** que √©l mismo desmiente tener.
 
 ## 7.2 Historia
 
-Madrugada del 1 de enero de 1967, Eustaquio ha salido a escondidas de la cena familiar de Nochevieja y se dirige en bici al primer bar del barrio m·s cercano.
+Madrugada del 1 de enero de 1967, Eustaquio ha salido a escondidas de la cena familiar de Nochevieja y se dirige en bici al primer bar del barrio m√°s cercano.
 
-De camino, su cabeza es incapaz de recordar una y otra vez sus traumas familiares, que derivan en sus traumas escolares, que derivan en que empiece a beber sin parar nada m·s llegar al bar. Sin embargo, esto no evita que sufra de un ataque de ansiedad, que junto con el alcohol, causan que Eustaquio se desmaye en el suelo del bar.
+De camino, su cabeza es incapaz de recordar una y otra vez sus traumas familiares, que derivan en sus traumas escolares, que derivan en que empiece a beber sin parar nada m√°s llegar al bar. Sin embargo, esto no evita que sufra de un ataque de ansiedad, que junto con el alcohol, causan que Eustaquio se desmaye en el suelo del bar.
 
-Como irse a dormir, pero con el miedo m·s presente que nunca, m·s que en una pesadilla; y, junto a Èl, como siempre: alegrÌa, tristeza e ira, que, por primera vez, no duermen.
+Como irse a dormir, pero con el miedo m√°s presente que nunca, m√°s que en una pesadilla; y, junto a √©l, como siempre: alegr√≠a, tristeza e ira, que, por primera vez, no duermen.
 
-No obstante, no est·n solos: junto a ellos est·n todas las enfermedades mentales con las que Eustaquio ha coqueteado mÌnimamente, destrozando el cerebro por dentro: rompiendo conexiones neuronales, arrancando trozos de las paredes
-
-
-Al ver esto, deciden recorrer juntos el cerebro de Eustaquio para acabar con todos estas enfermedades, a la vez que intentan recuperarse a ellos mismos asÌ como su relaciÛn.
-
-Como consecuencia, Eustaquio se irÌa deshaciendo de su bloqueo mental.
-
-Con todo, las enfermedades no ser·n su ˙nico problema, ya que a estas se unir·n los recuerdos que Eustaquio no es capaz de aceptar.
-
-Seg˙n los vayan superando, las emociones ir·n recuperando su naturaleza real, y el cerebro se ir· reconstruyendo solo hasta volver a un estado en el que Eustaquio tendr· que poner su granito de arena, una vez salga de su desmayo.
-
-AsÌ, todos juntos, recuperar·n al Eustaquio de verdad.
-
-MigraÒa con aura: mientras las emociones avanzan por el cerebro de Eustaquio, este est· siendo transportado desde el bar en el que se desmaya hasta el hospital m·s cercano, pasando por los pasillos del hospital; en los que le suben a una camilla, oye gritos, ve luces parpadeantes en el techo, intenta hablar pero no puede
+No obstante, no est√°n solos: junto a ellos est√°n todas las enfermedades mentales con las que Eustaquio ha coqueteado m√≠nimamente, destrozando el cerebro por dentro: rompiendo conexiones neuronales, arrancando trozos de las paredes
 
 
-# 8. Din·micas
+Al ver esto, deciden recorrer juntos el cerebro de Eustaquio para acabar con todos estas enfermedades, a la vez que intentan recuperarse a ellos mismos as√≠ como su relaci√≥n.
 
-Desde el comienzo de la experiencia, el jugador se encuentra en una exploraciÛn constante y en b˙squeda de lo desconocido. El hecho de tener distintas elecciones y posibles salas hacen que no sepa quÈ le depara. Durante el juego uno siente que puede intentar conseguir una mejora m·s o subir un poco m·s su barra sin morir de locura llevando a este a asumir m·s riesgo.
+Como consecuencia, Eustaquio se ir√≠a deshaciendo de su bloqueo mental.
 
-A la vez que tiene que gestionar la estrategia para intentar no sufrir mucho daÒo por los enemigos en combate. TambiÈn debe gestionar sus mejoras para que se activen. Intentar generar combos y sinergias entre sus personajes.
+Con todo, las enfermedades no ser√°n su √∫nico problema, ya que a estas se unir√°n los recuerdos que Eustaquio no es capaz de aceptar.
+
+Seg√∫n los vayan superando, las emociones ir√°n recuperando su naturaleza real, y el cerebro se ir√° reconstruyendo solo hasta volver a un estado en el que Eustaquio tendr√° que poner su granito de arena, una vez salga de su desmayo.
+
+As√≠, todos juntos, recuperar√°n al Eustaquio de verdad.
+
+Migra√±a con aura: mientras las emociones avanzan por el cerebro de Eustaquio, este est√° siendo transportado desde el bar en el que se desmaya hasta el hospital m√°s cercano, pasando por los pasillos del hospital; en los que le suben a una camilla, oye gritos, ve luces parpadeantes en el techo, intenta hablar pero no puede
+
+
+# 8. Din√°micas
+
+Desde el comienzo de la experiencia, el jugador se encuentra en una exploraci√≥n constante y en b√∫squeda de lo desconocido. El hecho de tener distintas elecciones y posibles salas hacen que no sepa qu√© le depara. Durante el juego uno siente que puede intentar conseguir una mejora m√°s o subir un poco m√°s su barra sin morir de locura llevando a este a asumir m√°s riesgo.
+
+A la vez que tiene que gestionar la estrategia para intentar no sufrir mucho da√±o por los enemigos en combate. Tambi√©n debe gestionar sus mejoras para que se activen. Intentar generar combos y sinergias entre sus personajes.
 
 Durante toda la experiencia de juego jugaremos alrededor de una experiencia rejugable por tanto se castigan mucho los errores. Haciendo al jugador sentir que estaba cerca pero que no lo suficiente enfocando lo en intentarlo de nuevo.
 
 Con todos estos detalles conseguimos que el jugador pase toda la experiencia muy atento a la pantalla para no equivocarse y eligiendo bien que va a hacer.
 
-Esto deriva en una experiencia de juego en la que el jugador se mantiene animado y emocionado durante todas sus partidas. Al ver nuevas mejoras el jugador se ver· m·s poderoso y creer· que puede pasar por encima de los enemigos pero estos le mantienen al borde de perder.
+Esto deriva en una experiencia de juego en la que el jugador se mantiene animado y emocionado durante todas sus partidas. Al ver nuevas mejoras el jugador se ver√° m√°s poderoso y creer√° que puede pasar por encima de los enemigos pero estos le mantienen al borde de perder.
 
-# 9. EstÈtica
+# 9. Est√©tica
 
 ## 9.1 Arte
 
-     **TRISTE(cambiar)               MIEDO                          IRA                       ALEGRÕA**
+     **TRISTE(cambiar)               MIEDO                          IRA                       ALEGR√çA**
 
 ![][image10]![][image11]![][image12]![][image13]
 

@@ -1,6 +1,6 @@
 # MENTAL BREAKDOWN
 
-![Logo del juego](MENTAL_BREAKDOWN_imagenes/logo_cerebro.jpg)
+![Logo del juego](images/Logo.png)
 
 **Equipo de desarrollo: Qingtian Games**
 
@@ -107,7 +107,7 @@ El bucle principal se basa en entrar aleatoriamente en salas, explorar, recoger 
 Entre las salas se encuentra la del sistema límbico, en la que podemos gastar frascos para mejorar a nuestros personajes. Cada cierto número de combates entraremos a una sala de jefe. Tanto los combates como los jefes proporcionan frascos que se pueden usar para mejorar a los personajes. La partida termina al morir o tras derrotar a todos los jefes.
 
 
-![Bucle principal](MENTAL_BREAKDOWN_imagenes/bucle_principal.png)
+![Bucle principal](images/bucle_principal.png)
 
 # 3. Personaje jugador
 
@@ -454,7 +454,7 @@ Al tratarse de un roguelite los niveles serán generados aleatoriamente. Pero si
 
 La dificultad irá aumentando a medida que se activen más mejoras a las emociones. Los cambios de dificultad afectarán a enemigos y salas. Los enemigos aumentarán su daño y algunas estadísticas (prioridad). Las salas proporcionarán mejores objetos, pero también mayores castigos.
 
-![Mapa del nivel](MENTAL_BREAKDOWN_imagenes/mapa_nivel.png)
+![Mapa del nivel](images/mapa_nivel.png)
 
 
 # 6. Interfaz
@@ -469,8 +469,8 @@ La cámara será fija y en vista lateral.
 
 | Salas combates ![Sala de combate](MENTAL_BREAKDOWN_imagenes/sala_combate.png) | Salas elección ![Sala de elección](MENTAL_BREAKDOWN_imagenes/sala_eleccion.png) |
 | :---- | :---- |
-| **Salas trampa** ![Sala trampa](MENTAL_BREAKDOWN_imagenes/sala_trampa.png) | **Salas de recuperación** ![Sala de recuperación](MENTAL_BREAKDOWN_imagenes/sala_recuperacion.png) |
-| **Salas sistema límbico** ![Sala del sistema límbico](MENTAL_BREAKDOWN_imagenes/sala_sistema_limbico.png) | **Salas bifurcación** ![Sala de bifurcación](MENTAL_BREAKDOWN_imagenes/sala_bifurcacion.png) |
+| **Salas trampa** ![Sala trampa](images/sala_trampa.png) | **Salas de recuperación** ![Sala de recuperación](images/sala_recuperacion.png) |
+| **Salas sistema límbico** ![Sala del sistema límbico](images/sala_sistema_limbico.png) | **Salas bifurcación** ![Sala de bifurcación](images/sala_bifurcacion.png) |
 
 
 # 7. Experiencia de Juego
@@ -527,7 +527,7 @@ Esto da lugar a una experiencia en la que el jugador se mantiene animado y emoci
 
      **TRISTE(cambiar)               MIEDO                          IRA                       ALEGRÍA**
 
-![Arte de Tristeza](MENTAL_BREAKDOWN_imagenes/arte_tristeza.png)![Arte de Miedo](MENTAL_BREAKDOWN_imagenes/arte_miedo.png)![Arte de Ira](MENTAL_BREAKDOWN_imagenes/arte_ira.png)![Arte de Alegría](MENTAL_BREAKDOWN_imagenes/arte_alegria.png)
+![Arte de Tristeza](images/arte_tristeza.png)![Arte de Miedo](images/arte_miedo.png)![Arte de Ira](images/arte_ira.png)![Arte de Alegría](images/arte_alegria.png)
 
 ## 9.2 Sonido
 

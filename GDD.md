@@ -467,7 +467,7 @@ La cámara será fija y en vista lateral.
 
 ## 6.2 HUD Menús
 
-| Salas combates ![Sala de combate](MENTAL_BREAKDOWN_imagenes/sala_combate.png) | Salas elección ![Sala de elección](MENTAL_BREAKDOWN_imagenes/sala_eleccion.png) |
+| Salas combates ![Sala de combate](images/sala_combate.png) | Salas elección ![Sala de elección](images/sala_eleccion.png) |
 | :---- | :---- |
 | **Salas trampa** ![Sala trampa](images/sala_trampa.png) | **Salas de recuperación** ![Sala de recuperación](images/sala_recuperacion.png) |
 | **Salas sistema límbico** ![Sala del sistema límbico](images/sala_sistema_limbico.png) | **Salas bifurcación** ![Sala de bifurcación](images/sala_bifurcacion.png) |

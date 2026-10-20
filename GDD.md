@@ -527,7 +527,22 @@ Esto da lugar a una experiencia en la que el jugador se mantiene animado y emoci
 
      **TRISTE(cambiar)               MIEDO                          IRA                       ALEGRÍA**
 
-![Arte de Tristeza](images/arte_tristeza.png)![Arte de Miedo](images/arte_miedo.png)![Arte de Ira](images/arte_ira.png)![Arte de Alegría](images/arte_alegria.png)
+<table>
+    <tr>
+    <td>
+      <img src="images/arte_tristeza.png" alt="Arte de Tristeza" width="150">
+    </td>
+    <td>
+      <img src="images/arte_miedo.png" alt="Arte de Miedo" width="200">
+    </td>
+    <td>
+      <img src="images/arte_ira.png" alt="Arte de Ira" width="200">
+    </td>
+    <td>
+      <img src="images/arte_alegria.png" alt="Arte de Alegría" width="150">
+    </td>
+  </tr>
+</table>
 
 ## 9.2 Sonido
 

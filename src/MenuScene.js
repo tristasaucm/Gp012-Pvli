@@ -64,7 +64,7 @@ export default class Menu extends Phaser.Scene {
 
         // Al pulsar el botón
         botonJugar.on("pointerdown", () => {
-            this.scene.start("Juego");
+            this.scene.start("village");
         });
 
 		const botonCreditos = this.add.text(200, 400, "CREDITOS", {
@@ -89,7 +89,7 @@ export default class Menu extends Phaser.Scene {
 
         // Al pulsar el botón
         botonCreditos.on("pointerdown", () => {
-            this.scene.start("Creditos");
+            this.scene.start("credits");
         });
 	}
 

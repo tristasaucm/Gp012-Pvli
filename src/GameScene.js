@@ -10,15 +10,16 @@ constructor(){
 }
 preload(){
     //Cargamos el fondo y el personaje
-    this.load.image('fondo','assets/fondo.jpg');
-    this.load.image('personaje','assets/orc.png');
+    this.load.image('fondo','assets/background/fondo.jpg');
+    this.load.image('personaje','assets/caracters/orc.png');
+    this.load.image('punto','assets/objects/punto.png');
    
 }
 create(){
     this.pointer = this.input.activePointer;
     this.add.image(0,0,'fondo').setOrigin(0,0);
     //Tener en cuenta que con el let la variable solo se puede usar en el create si queremos usarla en mas sitios usar el this.player
-     let player = new Player(this, 300,300,200,'personaje',0,this.pointer);
+     let player = new Player(this, 300,300,200,'personaje',0,this.pointer,'punto');
      this.cameras.main.startFollow(player); // hace que la camara siga al objeto indicado
 
 }

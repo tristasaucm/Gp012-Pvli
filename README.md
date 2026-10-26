@@ -4,7 +4,7 @@
 
 ## Qingtian Games
 
-<img src="https://tristasaucm.github.io/Gp012-Pvli/images/Logo.png" alt="Logo del juego" width="300">
+<img src="https://tristasaucm.github.io/Gp012-Pvli/images/logos/Logo.png" alt="Logo del juego" width="300">
 
 Este proyecto es un trabajo universitario para el grado de Desarrollo de Videojuegos (UCM) realizado por:
 

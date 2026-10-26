@@ -10,8 +10,8 @@ export default class Credits extends Phaser.Scene{
 	* Carga de los recursos que vamos a necesitar en la escena
 	*/
 	preload(){
-		this.load.image('fondo', 'assets/fondo.jpg');
-		this.load.image('logo', 'assets/Logo.png');
+		this.load.image('fondo', 'assets/background/fondo.jpg');
+		this.load.image('logo', 'assets/background/Logo.png');
          
 	}
     create() {

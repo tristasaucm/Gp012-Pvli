@@ -2,9 +2,9 @@
  * Clase que representa un enemigo
  * @extends Phaser.GameObjects.Sprite
  */
-export default class Enemy extends Phaser.GameObjects.Sprite {
+export default class Player extends Phaser.GameObjects.Sprite {
 /**
-	 * Constructor de Enemy
+	 * Constructor de Player
 	 * @param {Scene} scene Escena en la que aparecerá el player
 	 * @param {number} x - coordenada X
 	 * @param {number} y - coordenada Y
@@ -60,8 +60,8 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
     preUpdate()
     {
         //Actualiza el punto hacia el que se dirige y establece la velocidad
-        let xdir = this.pointx -this.body.x;
-        let ydir = this.pointy -this.body.y;
+        let xdir = this.pointx -this.body.center.x;
+        let ydir = this.pointy -this.body.center.y;
         let mag = Math.sqrt(ydir*ydir +xdir*xdir);
         this.body.setVelocity((xdir/mag) * this.speed ,(ydir/mag)*this.speed);
         

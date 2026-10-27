@@ -1,23 +1,22 @@
 <div align="center">
-
+  
 # MENTAL BREAKDOWN
 
 ## Qingtian Games
+<img src="https://tristasaucm.github.io/Gp012-Pvli/assets/logos/Logo.png" alt="Logo del juego" width="250">
 
-<img src="https://tristasaucm.github.io/Gp012-Pvli/images/logos/Logo.png" alt="Logo del juego" width="300">
+Trabajo universitario para el grado de Desarrollo de Videojuegos (UCM) realizado por:
 
-Este proyecto es un trabajo universitario para el grado de Desarrollo de Videojuegos (UCM) realizado por:
+· CHEN, ZIMIN
 
-CHEN, ZIMIN
+· LADRÓN DE GUEVARA JIMÉNEZ, JORGE-GINÉS
 
-LADRÓN DE GUEVARA JIMÉNEZ, JORGE-GINÉS
+· OLTEAN, GABRIEL ADRIAN
 
-OLTEAN, GABRIEL ADRIAN
-
-SÁNCHEZ LÓPEZ, TRISTÁN
-</div>
+· SÁNCHEZ LÓPEZ, TRISTÁN
 
 ## Descripción del proyecto
+</div>
 Mental Breakdown es un juego en el que hay varias emociones que componen los personajes jugables del jugador.
 Cada emoción tiene diferentes ataques y efectos. Constarán de un ataque y una habilidad básica, y una definitiva.
 El objetivo es derrotar enemigos usando las diferentes emociones. 
@@ -30,6 +29,15 @@ Al cultivar se nos pedirá un requisito para que esa emoción gane fuerza y al c
 Durante los combates el jugador presentará una barra de locura que irá aumentando y decreciendo durante el transcurso de la partida, por usar habilidades y/o por decisiones en la exploración de mazmorras.
 Los géneros del juego son: Exploración de mazmorras, combate por turnos, estrategia y toma de decisiones y roguelike clicker.
 
-## Capturas del juego
+<div align="center">
 
 ## Enlace a la página web
+[Juego](https://tristasaucm.github.io/Gp012-Pvli/)
+
+## Redes sociales
+[Instagram](https://www.instagram.com/gamesqingtian?stkn=MWZ0dHE4dzJhejlrMA%3D%3D)
+
+[Tiktok](https://www.tiktok.com/@qingtiangames)
+
+[Youtube](https://www.youtube.com/@QingtianGames)
+</div>

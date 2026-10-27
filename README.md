@@ -5,7 +5,7 @@
 ## Qingtian Games
 <img src="https://tristasaucm.github.io/Gp012-Pvli/assets/logos/Logo.png" alt="Logo del juego" width="250">
 
-Trabajo universitario para el grado de Desarrollo de Videojuegos (UCM) realizado por:
+## Trabajo universitario para el grado de Desarrollo de Videojuegos (UCM) realizado por:
 
 · CHEN, ZIMIN
 
@@ -35,9 +35,14 @@ Los géneros del juego son: Exploración de mazmorras, combate por turnos, estra
 [Juego](https://tristasaucm.github.io/Gp012-Pvli/)
 
 ## Redes sociales
-[Instagram](https://www.instagram.com/gamesqingtian?stkn=MWZ0dHE4dzJhejlrMA%3D%3D)
 
-[Tiktok](https://www.tiktok.com/@qingtiangames)
+ <div class="logosRedes">
+   <a href="https://www.instagram.com/gamesqingtian?stkn=MWZ0dHE4dzJhejlrMA%3D%3D">
+   <img src = "./assets/logos/instagram.png" alt="Logo del juego" width="100"></a>
+   <a href="https://www.youtube.com/@QingtianGames">
+   <img src="./assets/logos/youtube.png" alt="Logo del juego" width="100"></a> 
+   <a href="https://www.tiktok.com/@qingtiangames">
+   <img src="./assets/logos/tiktok.png" alt="Logo del juego" width="100"></a> 
+ </div>
 
-[Youtube](https://www.youtube.com/@QingtianGames)
 </div>

@@ -12,8 +12,8 @@ export default class Menu extends Phaser.Scene {
 	* Carga de los recursos que vamos a necesitar en la escena
 	*/
 	preload(){
-		this.load.image('fondo', 'assets/fondo.jpg');
-		this.load.image('logo', 'assets/Logo.png');
+		this.load.image('fondo', 'assets/background/fondo.jpg');
+		this.load.image('logo', 'assets/logos/Logo.png');
 	}
 	
 	/**
@@ -55,16 +55,18 @@ export default class Menu extends Phaser.Scene {
         // Al pasar el ratón por encima
         botonJugar.on("pointerover", () => {
             botonJugar.setStyle({ backgroundColor: "#4488dd" });
+            botonJugar.setScale(1.2);
         });
 
         // Al retirar el ratón
         botonJugar.on("pointerout", () => {
             botonJugar.setStyle({ backgroundColor: "#2266aa" });
+            botonJugar.setScale(1);
         });
 
         // Al pulsar el botón
         botonJugar.on("pointerdown", () => {
-            this.scene.start("Juego");
+            this.scene.start("game");
         });
 
 		const botonCreditos = this.add.text(200, 400, "CREDITOS", {
@@ -80,16 +82,18 @@ export default class Menu extends Phaser.Scene {
         // Al pasar el ratón por encima
         botonCreditos.on("pointerover", () => {
             botonCreditos.setStyle({ backgroundColor: "#4488dd" });
+            botonCreditos.setScale(1.2);
         });
 
         // Al retirar el ratón
         botonCreditos.on("pointerout", () => {
             botonCreditos.setStyle({ backgroundColor: "#2266aa" });
+            botonCreditos.setScale(1);
         });
 
         // Al pulsar el botón
         botonCreditos.on("pointerdown", () => {
-            this.scene.start("Creditos");
+            this.scene.start("credits");
         });
 	}
 

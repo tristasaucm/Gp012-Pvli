@@ -14,9 +14,9 @@ export default class Village extends Phaser.Scene {
 	* Carga de los recursos que vamos a necesitar en la escena
 	*/
 	preload(){
-		this.load.image('village', 'assets/village.webp');
-		this.load.image('orc', 'assets/orc.png');
-		this.load.image('goblin', 'assets/goblin.png');
+		this.load.image('village', 'assets/background/village.webp');
+		this.load.image('orc', 'assets/caracters/orc.png');
+		this.load.image('goblin','assets/caracters/goblin.png');
 	}
 	
 	/**

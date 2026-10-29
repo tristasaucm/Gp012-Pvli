@@ -1,4 +1,5 @@
 import Player from './Player.js';
+import Ansiedad from './Ansiedad.js';
 /**
  * Escena principal.
  * @extends Phaser.Scene
@@ -10,17 +11,29 @@ constructor(){
 }
 preload(){
     //Cargamos el fondo y el personaje
-    this.load.image('fondo','assets/background/fondo.jpg');
-    this.load.image('personaje','assets/caracters/orc.png');
+    this.load.image('fondojuego','assets/Background/Fondos-2/Combate/ARENA.png');
+    this.load.image('personaje','assets/Characters/Alegria/Alegria.png');
     this.load.image('punto','assets/objects/punto.png');
-   
+    this.load.spritesheet('ansiedad', 'assets/Enemies/Ansiedad/slime-Sheet.png',
+                         { frameWidth: 32, frameHeight: 25 });
 }
 create(){
     this.pointer = this.input.activePointer;
-    this.add.image(0,0,'fondo').setOrigin(0,0);
+    this.add.image(0,0,'fondojuego').setOrigin(0,0);
     //Tener en cuenta que con el let la variable solo se puede usar en el create si queremos usarla en mas sitios usar el this.player
-    let player = new Player(this, 300,300,200,'personaje',0,this.pointer,'punto');
+    let player = new Player(this, 300,500,200,'personaje',0,this.pointer,'punto');
     this.cameras.main.startFollow(player); // hace que la camara siga al objeto indicado
+
+    this.anims.create({
+        	key: 'ansiedad_idle',
+        	frames: this.anims.generateFrameNumbers('ansiedad', { start: 0, end: 2 }),
+        	frameRate: 1.75,
+        	repeat: -1,
+			yoyo: true
+    	});
+
+    let ansiedad = new Ansiedad(this, 750, 525);
+    
     //botón de vuelta al menu
     let botonBackMenu = this.add.text(720, 40 ,"MENU", 
     {

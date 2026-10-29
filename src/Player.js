@@ -78,9 +78,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
         } 
         //Rotacion del sprite del personaje
         if(xdir>0){
-            this.flipX = true;
+            this.flipX = false;
         }else if (xdir<0){
-             this.flipX = false;
+             this.flipX = true;
         }
 
     }

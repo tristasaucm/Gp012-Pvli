@@ -12,7 +12,7 @@ export default class Menu extends Phaser.Scene {
 	* Carga de los recursos que vamos a necesitar en la escena
 	*/
 	preload(){
-		this.load.image('fondo', 'assets/background/fondo.jpg');
+		this.load.image('fondomenu', 'assets/background/fondo.jpg');
 		this.load.image('logo', 'assets/logos/Logo.png');
 	}
 	
@@ -22,7 +22,7 @@ export default class Menu extends Phaser.Scene {
 	create() {
 
 		//Imagen de fondo
-		this.add.image(0, 0, 'fondo').setOrigin(0, 0);
+		this.add.image(0, 0, 'fondomenu').setOrigin(0, 0);
 
 		//Logo del juego
 		const logoImagen = this.add.image(450, 150, 'logo').setOrigin(0, 0);

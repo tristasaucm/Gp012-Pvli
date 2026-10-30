@@ -17,6 +17,7 @@ export default class Ansiedad extends Enemy
 		this.setDisplaySize(45, 45); // asignamos el tamaño con el que queremos que se vea su imagen
 		
 		this.play('ansiedad_idle');
-		this.scaleX = -this.scaleX;
+		
+        this.flipX = false;
 	}
 }

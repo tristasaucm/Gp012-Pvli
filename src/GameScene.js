@@ -10,6 +10,13 @@ export default class Game extends Phaser.Scene{
 constructor(){
     super({key: 'game'});
 }
+init({posmazX = 100,posmazY = 300}){
+    this.posmazX = posmazX;
+    this.posmazY = posmazY;
+    console.log(this.posmazX);
+    console.log(this.posmazY);
+
+}
 preload(){
     //Cargamos el fondo y el personaje
     this.load.image('fondojuego','assets/Background/Fondos-2/Combate/ARENA.png');
@@ -41,7 +48,7 @@ create(){
 			yoyo: true
     	});
     //botón de vuelta al menu
-    let botonBackMenu = this.add.text(650, 30 ,"MENU", 
+    let botonBackMenu = this.add.text(650, 30 ,"MAZMORRA", 
     {
         fontSize: "32px",
         color: "#ffffff",
@@ -62,13 +69,12 @@ create(){
         botonBackMenu.setStyle({ backgroundColor: "#2266aa" });
     });
     botonBackMenu.on("pointerdown",()=>{
-        this.scene.start("menu");
+        this.scene.start("Dungeon",{posX: this.posmazX,posY: this.posmazY});
     });
 
     let hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'barraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
 
-    let ansiedad = new Ansiedad(this, 750, 525);
-    
+    //let ansiedad = new Ansiedad(this, 750, 525);
     
 }
 preUpdate(){

@@ -72,6 +72,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocity(0, 0);
             xdir = 0;
             ydir = 0;
+            //para saber la posicion para los muros
+            //console.log(this.x);
+            //console.log(this.y);
             //Desactivamos el punto hacia el que viajamos para que no se vea
             this.cursor.setVisible(false);
             

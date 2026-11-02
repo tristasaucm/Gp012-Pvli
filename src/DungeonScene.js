@@ -20,7 +20,7 @@ export default class Selection extends Phaser.Scene {
     }
     preload()
     {
-        this.load.image('fondomazmorra','assets/background/Fondos-2/Salas/Arena de piedra en una caverna orgánica.png');
+        this.load.image('fondomazmorra','assets/background/Fondos-2/Salas/Arenadepiedraenunacavernaorgánica.png');
         this.load.image('personaje','assets/Characters/Alegria/Alegria.png');
         this.load.image('punto','assets/objects/punto.png');
         this.load.spritesheet('ansiedad', 'assets/Enemies/Ansiedad/slime-Sheet.png', { frameWidth: 32, frameHeight: 25 });

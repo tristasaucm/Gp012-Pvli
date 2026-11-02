@@ -1,6 +1,6 @@
-import Player from './Player.js';
-import Ansiedad from './Ansiedad.js';
-import Hud from './Hud.js'
+import Player from '../Player.js';
+import Ansiedad from '../Ansiedad.js';
+import Hud from '../Hud.js'
 /**
  * Escena principal.
  * @extends Phaser.Scene

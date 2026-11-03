@@ -1,5 +1,5 @@
-import Goblin from './Goblin.js';
-import Orc from './Orc.js';
+import Goblin from '../Goblin.js';
+import Orc from '../Orc.js';
 /**
  * Escena principal.
  * @extends Phaser.Scene

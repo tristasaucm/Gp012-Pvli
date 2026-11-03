@@ -1,9 +1,9 @@
-import Menu from './MenuScene.js';
-import Village from './VillageScene.js';
-import Credits from './CreditsScene.js';
-import Game from './GameScene.js';
-import Selection from "./SelectionScene.js";
-import Dungeon from "./DungeonScene.js";
+import Menu from './Scenes/MenuScene.js';
+import Village from './Scenes/VillageScene.js';
+import Credits from './Scenes/CreditsScene.js';
+import Game from './Scenes/GameScene.js';
+import Selection from "./Scenes/SelectionScene.js";
+import Dungeon from "./Scenes/DungeonScene.js";
 /**
  * Inicio del juego en Phaser. Creamos el archivo de configuración del juego y creamos
  * la clase Game de Phaser, encargada de crear e iniciar el juego.

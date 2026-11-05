@@ -25,7 +25,7 @@ export default class load extends Phaser.Scene {
         //Carga de imagenes
         //---Imagenes de Menus---
 
-        this.load.image('fondomenu', 'assets/Background/fondo.jpg');
+        this.load.image('fondomenu', 'assets/background/fondo.jpg');
         this.load.image('logo', 'assets/logos/Logo.png');
         //---Backgrounds---
 

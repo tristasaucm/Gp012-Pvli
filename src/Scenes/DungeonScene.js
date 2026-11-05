@@ -14,16 +14,14 @@ export default class Selection extends Phaser.Scene {
     init({posX=300,posY=500}){
         this.posX = posX;
         this.posY = posY;
-        console.log(this.posX);
-        console.log(this.posY);
+        //console.log(this.posX);
+        //console.log(this.posY);
 
     }
     preload()
     {
-        this.load.image('fondomazmorra','assets/background/Fondos-2/Salas/Arenadepiedraenunacavernaorgánica.png');
-        this.load.image('personaje','assets/Characters/Alegria/Alegria.png');
-        this.load.image('punto','assets/objects/punto.png');
-        this.load.spritesheet('ansiedad', 'assets/Enemies/Ansiedad/slime-Sheet.png', { frameWidth: 32, frameHeight: 25 });
+       
+       
     }
     create(){
         this.pointer = this.input.activePointer;

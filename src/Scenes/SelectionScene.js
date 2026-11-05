@@ -8,8 +8,6 @@ export default class Selection extends Phaser.Scene {
 		super({ key: 'Selection' }); //seteamos el nobmre de la escena para el SceneManager
 	}
 	preload(){
-		this.load.image('fondomenu', 'assets/background/fondo.jpg');
-		
 	}
     create() {
 

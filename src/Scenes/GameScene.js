@@ -28,19 +28,7 @@ init({posmazX = 100,posmazY = 300}){
     this.rndPerc = new Phaser.Math.RandomDataGenerator();  // Generador de números aleatorios de Phaser
 }
 preload(){
-    //Cargamos el fondo y el personaje
-    this.load.image('fondojuego','assets/Background/Fondos-2/Combate/ARENA.png');
-    this.load.image('personaje','assets/Characters/Alegria/Alegria.png');
-    this.load.image('punto','assets/objects/punto.png');
-    this.load.spritesheet('ansiedad', 'assets/Enemies/Ansiedad/slime-Sheet.png', { frameWidth: 32, frameHeight: 25 });
-    this.load.image('fondoBarra','assets/hud/Barras/FondoBarras.png');
-    this.load.image('barraAlegria','assets/hud/Barras/BarraAlegria.png');
-    this.load.image('barraAnsiedad','assets/hud/Barras/BarraAnsiedad.png');
-    this.load.image('barraLocura','assets/hud/Barras/BarraLocura.png');
-    this.load.image('botonCambio','assets/hud/BotonCambio.png');
-    this.load.image('indicadorTurno','assets/hud/IndicadorTurno.png');
-    this.load.image('indicadorTurnoRival','assets/hud/IndicadorTurnoRival.png');
-    this.load.image('fondoBotonCombate','assets/hud/FondoBotonCombate.png');
+   
 }
 create(){
 

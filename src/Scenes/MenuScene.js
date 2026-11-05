@@ -7,15 +7,6 @@ export default class Menu extends Phaser.Scene {
 		//id de la escena unico
 		super({ key: 'menu' }); //seteamos el nobmre de la escena para el SceneManager
 	}
-	
-	/**
-	* Carga de los recursos que vamos a necesitar en la escena
-	*/
-	preload(){
-		this.load.image('fondomenu', 'assets/background/fondo.jpg');
-		this.load.image('logo', 'assets/logos/Logo.png');
-	}
-	
 	/**
 	* Creación de los elementos de la escena principal de juego
 	*/

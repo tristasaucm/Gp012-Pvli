@@ -1,11 +1,17 @@
+import Alegria from '../CharactersOnBattle/Emotions/Alegria.js';
 /**
  * Escena principal.
  * @extends Phaser.Scene
  */
 export default class Selection extends Phaser.Scene {
+
+    /**
+     * @param {Character[]} emotionsQueue - Lista completa de las emociones que van a estar en combate
+     */
 	constructor() {
 		//id de la escena unico
 		super({ key: 'Selection' }); //seteamos el nobmre de la escena para el SceneManager
+        this.emotionsQueue = [];
 	}
 	preload(){
 	}
@@ -62,11 +68,9 @@ export default class Selection extends Phaser.Scene {
         });
 
         // Al pulsar el botón
-        botonJugar2.on("pointerdown", () => {
-            this.scene.start("game");
+        botonJugar2.on("pointerdown", () => 
+        {
+            this.scene.start("game")
         });
-
     }
-      
-
 }

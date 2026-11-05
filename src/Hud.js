@@ -28,27 +28,11 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         BotonDefinitiva.on("pointerover", ()=>{BotonDefinitiva.setScale(1.7);});
         BotonDefinitiva.on("pointerout", ()=>{BotonDefinitiva.setScale(1.5);});
         
-        // Boton de cambio de personaje
-        let botonChange = this.scene.add.image(30, 30, 'botonCambio').setScale(0.7).setScrollFactor(0, 0);
-        botonChange.setInteractive({useHandCursor:true});
-        botonChange.on("pointerover",()=>{botonChange.setScale(0.9);});
-        botonChange.on("pointerout",()=>{botonChange.setScale(0.7);});
-        botonChange.on("pointerdown",()=>
-        {
-            // Cambio de Emocion
-        });
-        
         // Barras con los fondos
         let BarraAlegria = new Barra(this.scene, 10, 60,fondoBarra,barraAlegria,0,0.75);
         let BarraAnsiedad = new Barra(this.scene, 550, 60,fondoBarra,barraAnsiedad,0,0.75);
         let BarraLocura = new Barra(this.scene, 750,270,fondoBarra,barraLocura,270,1);
     
-    }
-    //En el preupdate se actualiza el motor de fisicas solo no hay que llamarlo en la escena
-    preUpdate()
-    {
-        
-
     }
     updateAlegriaHealthBar(newPercentage)
     {

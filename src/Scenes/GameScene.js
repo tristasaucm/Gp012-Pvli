@@ -1,5 +1,5 @@
-import Player from '../Player.js';
-import Ansiedad from '../Ansiedad.js';
+import AnsiedadBattle from '../CharactersOnBattle/Enemies/Basic/AnsiedadBattle.js';
+import Alegria from '../CharactersOnBattle/Emotions/Alegria.js';
 import Hud from '../Hud.js'
 /**
  * Escena principal.
@@ -9,21 +9,29 @@ export default class Game extends Phaser.Scene{
 
     /**
      * @param {Character[]} charactersQueue - Lista completa de los personajes (emociones y enemigos) del combate, ordenada para determinar a quién le toca
+     * @param {Character[]} emotionsQueue - Lista completa de las emociones que van a estar en combate
+     * @param {Character[]} enemiesQueue - Lista completa de los enemigos que van a estar en combate
+     * @param {Bool} waitingSkill - Se esta esperando que el jugador eliga una habilidad
+     * @param {Bool} waitingTarget - Se esta esperando que el jugador eliga un target
+     * @param {Character} selectedEnemy - Enemigo seleccionado
      */
 
-constructor(charactersQueue){
+constructor(){
     super({key: 'game'});
-
-    // Asigna la lista a la que le llega, suponiendo que está ordenada de menor a mayor por "actionValues"; siendo el personaje [0] el que menor valor actual tiene,
-    // y por tanto al que le toca actuar ahora (invariante que se mantendrá durante todo el combate)
-    this.charactersQueue = charactersQueue;
-
+    this.emotionsQueue = [];
+    this.enemiesQueue = [];
+    this.charactersQueue = [];
+    this.waitingSkill = false;
+    this.waitingTarget = false;
 }
-init({posmazX = 100,posmazY = 300}){
+init({posmazX = 100,posmazY = 300,data}){
+    //Posicion actual de la mazmorra
     this.posmazX = posmazX;
     this.posmazY = posmazY;
-    console.log(this.posmazX);
-    console.log(this.posmazY);
+    //console.log(this.posmazX);
+    //console.log(this.posmazY);
+    // Lista de los personajes
+    // this.emotionsQueue = data.emotionsQueue;
 
     this.rndPerc = new Phaser.Math.RandomDataGenerator();  // Generador de números aleatorios de Phaser
 }
@@ -32,23 +40,41 @@ preload(){
 }
 create(){
 
-    this.anims.create({
-        	key: 'ansiedad_idle',
-        	frames: this.anims.generateFrameNumbers('ansiedad', { start: 0, end: 2 }),
-        	frameRate: 1.75,
-        	repeat: -1,
-			yoyo: true
-    	});
+    /* == HUD Y FONDOS == */
+    
+    let hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'barraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
+    
+    // Fondo del juego
+    this.add.image(0,0,'fondojuego').setOrigin(0,0).setDisplaySize(this.scale.width, this.scale.height);
 
-    this.pointer = this.input.activePointer;
-    this.add.image(0,0,'fondojuego').setOrigin(0,0);
+    /* == PERSONAJES EN COMBATE Y TURNOS == */ //(temporal)
+
+    // Creamos los enemigos de la escena
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 80))
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120))
+
+    // Creamos personaje para la escena
+    this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100))
+
+    // Mete todos los enemigos y personajes y ordena segun el action value
+    this.charactersQueue = [...this.emotionsQueue, ...this.enemiesQueue];
+    this.charactersQueue.sort((a, b) => a.getCurrentaV() - b.getCurrentaV());
+
+    // Posicionamos las emociones
+    this.emotionsQueue[0].setPosition(250, 350);
+    this.emotionsQueue[0].setScale(4);
+
+    // Posicionamos los enemigos
+    this.enemiesQueue[0].setPosition(550, 270);
+    this.enemiesQueue[0].setScale(4);
+    this.enemiesQueue[1].setPosition(600, 380);
+    this.enemiesQueue[1].setScale(4);
+
     // Tened en cuenta que con el let la variable solo se puede usar en el 'create', si queremos usarla en más sitios tendremos que poner 'this'
     // (NOTA: cambiado a 'this' para usarlo en 'nextCharactersTurn')
-    this.player = new Player(this, 500,500,200,'personaje',0,this.pointer,'punto');
 
-    this.cameras.main.startFollow(this.player); // hace que la camara siga al objeto indicado
-
-    //botón de vuelta al menu
+    /* == BOTÓN MENU == */
+    this.pointer = this.input.activePointer;
     let botonBackMenu = this.add.text(650, 30 ,"MAZMORRA", 
     {
         fontSize: "32px",
@@ -73,35 +99,40 @@ create(){
         this.scene.start("Dungeon",{posX: this.posmazX,posY: this.posmazY});
     });
 
-    let hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'barraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
-
-    //let ansiedad = new Ansiedad(this, 750, 525);
-    
-    this.nextCharactersTurn();  // Primer turno del combate, le toca actuar al personaje en la posición [0] de 'charactersQueue'
+    this.actualTurn();  // Primer turno del combate, le toca actuar al personaje en la posición [0] de 'charactersQueue'
 }
-preUpdate(){
-    
-}
-
-nextCharactersTurn()
+actualTurn()
 {
-    if (this.charactersQueue[0] instanceof Enemy)  // Vemos si el personaje más rapido es un enemigo (si no, será siempre una emoción)
-        {
-            if (this.player.input.enabled) this.player.disableInteractive();  // Si el input está activado lo desactivamos
-            this.charactersQueue[0].dosomethingAI();  // La IA de combate actúa
-        }
+    console.log (this.charactersQueue);
+    if (this.charactersQueue[0].isEnemy())  // Vemos si el personaje más rapido es un enemigo (si no, será siempre una emoción)
+    {
+        console.log ("[TURNO ENEMIGO]");
+
+        this.charactersQueue[0].doSomethingAI(this.emotionsQueue);  // La IA de combate actúa
+        console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
+        console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
+        console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
+        this.nextCharactersTurn();
+    }
     else
     {
-        if (!this.player.input.enabled) this.player.setInteractive();
-        this.player.dosomethingPlayer();
+        console.log ("[TURNO JUGADOR]");
+        
+        this.waitingSkill = true;
+        this.waitingTarget = false;
+
+        this.showButtonSkills();
     }
 
+}
+// Serie de funciones para calcular el siguiente turno
+nextCharactersTurn()
+{
     this.updateaVs();  // Modificamos los aVs de todos los personajes para que la cola avance "virtualmente" (aún no se cambia ninguna posición)
     this.resortCharactersQueue();  // Ahora sí, se reordena la lista para colocar al que acaba de actuar dónde le toca, y determinar quién actua ahora
-
-    this.nextCharactersTurn();  // Técnicamente es recursivo, pero aquí debería de haber una comprobación previa de si se ha terminado el combate (futura tarea supongo)
+    this.actualTurn();  // Técnicamente es recursivo, pero aquí debería de haber una comprobación previa de si se ha terminado el combate (futura tarea supongo)
 }
-
+// Actualiza el action value de todos los personajes
 updateaVs()
 {
     let sus = this.charactersQueue[0].getCurrentaV();  // aV actual del personaje que acaba de actuar
@@ -111,7 +142,7 @@ updateaVs()
         character.setaV(-sus); // Se le resta el 'sus' de antes al aV de cada personaje
     });
 
-    this.charactersQueue[0].setaV(this.charactersQueue[0].getbaseaV());  // Se reinicia el aV del personaje que acaba de actuar, devolviendo su valor al suyo base
+    this.charactersQueue[0].setaV(this.charactersQueue[0].getBaseAV());  // Se reinicia el aV del personaje que acaba de actuar, devolviendo su valor al suyo base
 }
 
 // Orden de prioridades: aV actual, velocidad actual, enemigo > emoción, y menor nº de acciones en este combate. Si todo esto coincide, se lanza una moneda
@@ -133,9 +164,9 @@ resortCharactersQueue()
             if (first.getCurrentSpeed() > act.getCurrentSpeed()) found = true;  // Compara velocidades...
             else if (first.getCurrentSpeed() == act.getCurrentSpeed())
             {
-                if (first instanceof Enemy)  // Mira si 'first' es 'Enemy' y después compara
+                if (first.isEnemy())  // Mira si 'first' es 'Enemy' y después compara
                 {
-                    if (act instanceof Enemy)
+                    if (act.isEnemy())
                     {
                         if (first.getactionsThisBattle() < act.getactionsThisBattle()) found = true;
                         else if (first.getactionsThisBattle() == act.getactionsThisBattle())
@@ -148,7 +179,7 @@ resortCharactersQueue()
                     else found = true;
                 }
 
-                else if (act instanceof Alegria)  // Si 'first' no es 'Enemy' tiene que ser 'Alegria' (próximamente 'Emotion' o algo así)...
+                else if (!act.isEnemy())  // Si 'first' no es 'Enemy' tiene que ser 'Alegria' (próximamente 'Emotion' o algo así)...
                 {
                     if (first.getactionsThisBattle() < act.getactionsThisBattle()) found = true;  // Compara nº de acciones en este combate...
                     else if (first.getactionsThisBattle() == act.getactionsThisBattle())
@@ -164,6 +195,83 @@ resortCharactersQueue()
     }
 
     Phaser.Utils.Array.MoveTo(this.charactersQueue, first, i);  // Método de Phaser que "inserta" un elemento de un array en una posición (i) de ese mismo array
+}
+showButtonSkills()
+{
+    /* == BOTÓN BÁSICO == */
+    let BotonBasico = this.add.image(290,600,'fondoBotonCombate').setOrigin(1,1).setScale(1.5).setScrollFactor(0, 0);
+        BotonBasico.setInteractive({useHandCursor:true});
+        BotonBasico.on("pointerover", ()=>{BotonBasico.setScale(1.7);});
+        BotonBasico.on("pointerout", ()=>{BotonBasico.setScale(1.5);});
+        BotonBasico.on("pointerdown", ()=>
+        {
+            this.waitingSkill = false;
+            this.waitingTarget = true;
+            this.chooseTarget();
+        });
+    let TextoBasico = this.add.text(270, 560, "Ataque Básico", {
+        fontSize: '20px',
+        color: '#ffffff',
+        fontStyle: 'bold'
+        }).setOrigin(1, 1);
+        
+    /* == BOTÓN HABILIDAD == */
+    let BotonHabilidad = this.add.image(400,600,'fondoBotonCombate').setOrigin(0.5,1).setScale(1.5).setScrollFactor(0, 0);
+        BotonHabilidad.setInteractive({useHandCursor:true});
+        BotonHabilidad.on("pointerover", ()=>{BotonHabilidad.setScale(1.7);});
+        BotonHabilidad.on("pointerout", ()=>{BotonHabilidad.setScale(1.5);});
+        BotonHabilidad.on("pointerdown", ()=>
+        {
+            this.waitingSkill = false;
+            this.waitingTarget = true;
+            this.chooseTarget();
+        });
+    let TextoHabilidad = this.add.text(450, 560, "Habilidad", {
+        fontSize: '20px',
+        color: '#ffffff',
+        fontStyle: 'bold'
+        }).setOrigin(1, 1);
+
+    /* == BOTÓN DEFINITIVA == */
+    let BotonDefinitiva = this.add.image(510,600,'fondoBotonCombate').setOrigin(0,1).setScale(1.5).setScrollFactor(0, 0);
+        BotonDefinitiva.setInteractive({useHandCursor:true});
+        BotonDefinitiva.on("pointerover", ()=>{BotonDefinitiva.setScale(1.7);});
+        BotonDefinitiva.on("pointerout", ()=>{BotonDefinitiva.setScale(1.5);});
+        BotonDefinitiva.on("pointerdown", ()=>
+        {
+            this.waitingSkill = false;
+            this.waitingTarget = true;
+            this.chooseTarget();
+        });
+    let TextoDefinitiva = this.add.text(670, 560, "Definitiva", {
+        fontSize: '20px',
+        color: '#ffffff',
+        fontStyle: 'bold'
+        }).setOrigin(1, 1);
+}
+
+chooseTarget()
+{
+    this.enemiesQueue.forEach(enemy => {
+
+        enemy.setInteractive();
+
+        enemy.once("pointerdown", () => {
+    
+            this.selectedEnemy = enemy;
+            this.waitingTarget = false;
+
+            this.enemiesQueue.forEach(e => {
+                e.disableInteractive();
+            });
+
+            this.charactersQueue[0].doSomethingPlayer(this.selectedEnemy);
+            console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
+            console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
+            console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
+            this.nextCharactersTurn();
+        });
+    });
 }
 
 }

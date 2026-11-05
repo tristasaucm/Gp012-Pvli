@@ -35,6 +35,8 @@ export default class load extends Phaser.Scene {
         //---Personajes---
 
         this.load.image('personaje','assets/Characters/Alegria/Alegria.png');
+        this.load.image('alegria','assets/Characters/Alegria/Alegria.png');
+        this.load.image('ansiedad','assets/Enemies/Ansiedad/Idle/slime-idle-0.png')
         //---HUD del combate---
 
         this.load.image('fondoBarra','assets/hud/Barras/FondoBarras.png');

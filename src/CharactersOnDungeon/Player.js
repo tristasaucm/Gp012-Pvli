@@ -87,11 +87,4 @@ export default class Player extends Phaser.GameObjects.Sprite {
         }
 
     }
-
-    doSomethingPlayer()  // Método auxiliar para comprobar que la lógica de aVs funciona
-    {
-        debug.log("El jugador hace cosas");
-    }
-
-
 }

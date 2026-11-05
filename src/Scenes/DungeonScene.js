@@ -1,6 +1,6 @@
 //Imports
-import Player from '../Player.js';
-import Ansiedad from '../Ansiedad.js';
+import Player from '../CharactersOnDungeon/Player.js';
+import Ansiedad from '../CharactersOnDungeon/Ansiedad.js';
 /**
  * Escena principal.
  * @extends Phaser.Scene

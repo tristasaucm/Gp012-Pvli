@@ -1,5 +1,4 @@
 import Menu from './Scenes/MenuScene.js';
-import Village from './Scenes/VillageScene.js';
 import Credits from './Scenes/CreditsScene.js';
 import Game from './Scenes/GameScene.js';
 import Selection from "./Scenes/SelectionScene.js";
@@ -20,7 +19,7 @@ let config = {
         autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
     },
     // poner aqui las escenas necesarias la primera es la primera que se carga
-    scene: [load,Menu,Village,Credits,Game,Selection,Dungeon], // El juego contiene una escena de la clase Village, que extiende de Phaser.Scene
+    scene: [load,Menu,Credits,Game,Selection,Dungeon], // El juego contiene una escena de la clase Village, que extiende de Phaser.Scene
     physics: { 
         default: 'arcade', 
         arcade: { 

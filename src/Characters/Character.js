@@ -7,16 +7,20 @@ export default class Character extends Phaser.GameObjects.Sprite
 {   
     /**
        === ESCENA ===
-     * @param {Scene} scene Escena en la que aparecerá el player
+     * @param {Scene} scene - Escena en la que aparecerá el player
      * @param {string} imgKey - nombre de la imagen que representa al player
      * === STATS BASE===
      * @param {number} baseHealth - Vida base
      * @param {number} baseAttack - Ataque base
      * @param {number} baseSpeed - Velocidad base
+     * @param {number} baseactionValue - Valor de acción base
      * === STATS ===
-     * @param {number} Health - Vida base
-     * @param {number} Attack - Ataque base
-     * @param {number} Speed - Velocidad base
+     * @param {number} Health - Vida actual
+     * @param {number} Attack - Ataque actual
+     * @param {number} Speed - Velocidad actual
+     * @param {number} actionValue - Valor de acción actual
+     * === CONDICIONES EXTRA ===
+     * @param {number} actionsThisBattle - Nº de veces que ha actuado en el combate actual
 	 */
     constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed)
     {
@@ -29,11 +33,16 @@ export default class Character extends Phaser.GameObjects.Sprite
         this.baseHealth = baseHealth;
         this.baseAttack = baseAttack;
         this.baseSpeed = baseSpeed;
+        this.baseactionValue = 10000 / this.baseSpeed;
 
         /* === STATS === */
-        this.Health = baseHealth;
-        this.Attack = baseAttack;
-        this.Speed = baseSpeed;
+        this.Health = this.baseHealth;
+        this.Attack = this.baseAttack;
+        this.Speed = this.baseSpeed;
+        this.actionValue = 10000 / this.Speed;
+
+        /* === CONDICIONES EXTRA === */
+        this.actionsThisBattle = 0;
     }
 
     /* === RECIBIR DAÑO === */
@@ -72,6 +81,37 @@ export default class Character extends Phaser.GameObjects.Sprite
     isAlive()
     {
         return this.Health < 0
+    }
+
+    getBaseSpeed()
+    {
+        return this.baseSpeed;
+    }
+    getCurrentSpeed()
+    {
+        return this.Speed;
+    }
+
+    getBaseaV()  //  aV = Action Value
+    {
+        return this.baseactionValue;
+    }
+    getCurrentaV()
+    {
+        return this.actionValue;
+    }
+    setaV(amount)
+    {
+        this.actionValue += amount;
+    }
+
+    getactionsThisBattle()
+    {
+        return this.actionsThisBattle;
+    }
+    actionCompleted()
+    {
+        this.actionsThisBattle++;
     }
 
 }

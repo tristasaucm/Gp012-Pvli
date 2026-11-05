@@ -44,5 +44,10 @@ export default class Enemy extends Phaser.GameObjects.Sprite {
 			
 		})
 	}
+
+	doSomethingAI()  // Método auxiliar para comprobar que la lógica de aVs funciona
+	{
+		debug.log("La IA hace cosas");
+	}
 	
 }

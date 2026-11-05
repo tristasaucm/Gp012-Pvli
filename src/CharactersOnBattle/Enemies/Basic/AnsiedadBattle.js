@@ -14,18 +14,13 @@ export default class AnsiedadBattle extends Character
     {
         scene.load.image('ansiedad','assets/Enemies/Ansiedad/Idle/slime-idle-0.png')
     }
-    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed)
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
-        super(scene, imgKey, baseHealth, baseAttack, baseSpeed);
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
     }
     BasicAttack()
     {
         return this.Attack;
-    }
-    preUpdate()
-    {
-        // Preupdate de la clase original
-        super.preUpdate();
     }
     isEnemy()
     {

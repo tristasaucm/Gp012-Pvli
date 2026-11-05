@@ -22,9 +22,9 @@ export default class Character extends Phaser.GameObjects.Sprite
      * @param {number} actionValue - Valor de acción actual
      * === CONDICIONES EXTRA ===
      * @param {number} actionsThisBattle - Nº de veces que ha actuado en el combate actual
-     * @param {Hud} interfaz - Interfaz con las barras de vida
+     * @param {number} startQueueIndex - Indice inicial en el array de personajes (para saber cual es su barra de vida)
 	 */
-    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, hud)
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
         /* === ESCENA === */
         super(scene, 0, 0, imgKey);
@@ -46,8 +46,8 @@ export default class Character extends Phaser.GameObjects.Sprite
         /* === CONDICIONES EXTRA === */
         this.actionsThisBattle = 0;
 
-        /* === HUD === */
-        this.interfaz = this.hud;
+        /* === Indice de enemigo === */
+        this.startQueueIndex = index;
     }
 
     /* === RECIBIR DAÑO === */
@@ -123,5 +123,9 @@ export default class Character extends Phaser.GameObjects.Sprite
     actionCompleted()
     {
         this.actionsThisBattle++;
+    }
+    getIndex()
+    {
+        return this.startQueueIndex;
     }
 }

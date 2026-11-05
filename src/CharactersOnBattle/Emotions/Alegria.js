@@ -15,9 +15,9 @@ export default class Alegria extends Character
     {
         scene.load.image('alegria','assets/Characters/Alegria/Alegria.png')
     }
-    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed)
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
-        super(scene, imgKey, baseHealth, baseAttack, baseSpeed);
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
         this.skills = [
             { nombre: "Ataque básico"}, 
             { nombre: "Habilidad"},
@@ -35,13 +35,6 @@ export default class Alegria extends Character
     Ultimate()
     {
         return this.Attack;
-    }
-    preUpdate()
-    {
-        // Actualizar la barra de vida de alegria para que este constantemente con la vida actual del personaje
-        // this.interfaz.updateAlegriaHealthBar(this.getCurrentHealthPercentage());
-        // Preupdate de la clase original
-        super.preUpdate();
     }
     isEnemy()
     {

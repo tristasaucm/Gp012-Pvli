@@ -27,9 +27,9 @@ export default class Character extends Phaser.GameObjects.Sprite
     constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, hud)
     {
         /* === ESCENA === */
+        super(scene, 0, 0, imgKey);
         this.scene.add.existing(this);
         this.setDisplaySize(100,100);
-        this.body.key = imgKey;
 
         /* === STATS BASE === */
         this.baseHealth = baseHealth;
@@ -96,11 +96,15 @@ export default class Character extends Phaser.GameObjects.Sprite
     {
         return this.Speed;
     }
+    getCurrentHealth()
+    {
+        return this.Health;
+    }
     getCurrentHealthPercentage()
     {
         return this.Health/this.baseHealth
     }
-    getBaseaV()  //  aV = Action Value
+    getBaseAV()  //  AV = Action Value
     {
         return this.baseactionValue;
     }
@@ -112,7 +116,6 @@ export default class Character extends Phaser.GameObjects.Sprite
     {
         this.actionValue += amount;
     }
-
     getactionsThisBattle()
     {
         return this.actionsThisBattle;
@@ -121,5 +124,4 @@ export default class Character extends Phaser.GameObjects.Sprite
     {
         this.actionsThisBattle++;
     }
-
 }

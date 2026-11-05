@@ -45,28 +45,37 @@ preload(){
 }
 create(){
 
-    /* == HUD Y FONDOS == */
-    
-    let hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'barraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
     
     // Fondo del juego
     this.add.image(0,0,'fondojuego').setOrigin(0,0).setDisplaySize(this.scale.width, this.scale.height);
-
+    
+    /* == HUD Y FONDOS == */
+    this.hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'barraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
+    
     /* == PERSONAJES EN COMBATE Y TURNOS == */ //(temporal)
-
+    let enemyIndex = 0;
     // Creamos los enemigos de la escena
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 80))
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120))
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 80, enemyIndex))
+    enemyIndex++;
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120, enemyIndex))
+    enemyIndex++;
+
     this.enemiesQueue[0].play('ansiedad_idle');
     this.enemiesQueue[1].play('ansiedad_idle');
 
+
+
+    let characterIndex = 0;
     // Creamos personaje para la escena
-    this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100))
+    this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100, characterIndex))
+    characterIndex++;
     this.emotionsQueue[0].play('alegria_idle');
 
     // Mete todos los enemigos y personajes y ordena segun el action value
     this.charactersQueue = [...this.emotionsQueue, ...this.enemiesQueue];
     this.charactersQueue.sort((a, b) => a.getCurrentaV() - b.getCurrentaV());
+
+    this.hud.createHealthBars(this.charactersQueue);
 
     // Posicionamos las emociones
     this.emotionsQueue[0].setPosition(250, 350);
@@ -140,6 +149,9 @@ nextCharactersTurn()
 {
     this.updateaVs();  // Modificamos los aVs de todos los personajes para que la cola avance "virtualmente" (aún no se cambia ninguna posición)
     this.resortCharactersQueue();  // Ahora sí, se reordena la lista para colocar al que acaba de actuar dónde le toca, y determinar quién actua ahora
+    if (this.charactersQueue[0].isEnemy()) this.hud.setTurnoRival();
+    else this.hud.setTurnoJugador();
+    this.hud.updateHealthBars(this.charactersQueue);
     this.actualTurn();  // Técnicamente es recursivo, pero aquí debería de haber una comprobación previa de si se ha terminado el combate (futura tarea supongo)
 }
 // Actualiza el action value de todos los personajes
@@ -209,16 +221,11 @@ resortCharactersQueue()
 showButtonSkills()
 {
     /* == BOTÓN BÁSICO == */
-    let BotonBasico = this.add.image(290,600,'fondoBotonCombate').setOrigin(1,1).setScale(1.5).setScrollFactor(0, 0);
-        BotonBasico.setInteractive({useHandCursor:true});
-        BotonBasico.on("pointerover", ()=>{BotonBasico.setScale(1.7);});
-        BotonBasico.on("pointerout", ()=>{BotonBasico.setScale(1.5);});
-        BotonBasico.on("pointerdown", ()=>
-        {
-            this.waitingSkill = false;
-            this.waitingTarget = true;
-            this.chooseTarget();
-        });
+    this.hud.changeBasicButtonFunction(() => {
+        this.waitingSkill = false;
+        this.waitingTarget = true;
+        this.chooseTarget();
+    });
     let TextoBasico = this.add.text(270, 560, "Ataque Básico", {
         fontSize: '20px',
         color: '#ffffff',
@@ -226,16 +233,12 @@ showButtonSkills()
         }).setOrigin(1, 1);
         
     /* == BOTÓN HABILIDAD == */
-    let BotonHabilidad = this.add.image(400,600,'fondoBotonCombate').setOrigin(0.5,1).setScale(1.5).setScrollFactor(0, 0);
-        BotonHabilidad.setInteractive({useHandCursor:true});
-        BotonHabilidad.on("pointerover", ()=>{BotonHabilidad.setScale(1.7);});
-        BotonHabilidad.on("pointerout", ()=>{BotonHabilidad.setScale(1.5);});
-        BotonHabilidad.on("pointerdown", ()=>
-        {
-            this.waitingSkill = false;
-            this.waitingTarget = true;
-            this.chooseTarget();
-        });
+    this.hud.changeHabilityButtonFunction(() => {
+        this.waitingSkill = false;
+        this.waitingTarget = true;
+        this.chooseTarget();
+    });
+    
     let TextoHabilidad = this.add.text(450, 560, "Habilidad", {
         fontSize: '20px',
         color: '#ffffff',
@@ -243,16 +246,11 @@ showButtonSkills()
         }).setOrigin(1, 1);
 
     /* == BOTÓN DEFINITIVA == */
-    let BotonDefinitiva = this.add.image(510,600,'fondoBotonCombate').setOrigin(0,1).setScale(1.5).setScrollFactor(0, 0);
-        BotonDefinitiva.setInteractive({useHandCursor:true});
-        BotonDefinitiva.on("pointerover", ()=>{BotonDefinitiva.setScale(1.7);});
-        BotonDefinitiva.on("pointerout", ()=>{BotonDefinitiva.setScale(1.5);});
-        BotonDefinitiva.on("pointerdown", ()=>
-        {
-            this.waitingSkill = false;
-            this.waitingTarget = true;
-            this.chooseTarget();
-        });
+    this.hud.changeDefinitiveButtonFunction(() => {
+        this.waitingSkill = false;
+        this.waitingTarget = true;
+        this.chooseTarget();
+    });
     let TextoDefinitiva = this.add.text(670, 560, "Definitiva", {
         fontSize: '20px',
         color: '#ffffff',

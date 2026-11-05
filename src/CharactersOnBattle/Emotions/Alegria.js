@@ -15,9 +15,9 @@ export default class Alegria extends Character
     {
         scene.load.image('alegria','assets/Characters/Alegria/Alegria.png')
     }
-    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed)
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
-        super(scene, imgKey, baseHealth, baseAttack, baseSpeed);
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
         this.skills = [
             { nombre: "Ataque básico"}, 
             { nombre: "Habilidad"},

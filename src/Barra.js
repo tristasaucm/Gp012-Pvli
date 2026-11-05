@@ -17,29 +17,14 @@ export default class Barra extends Phaser.GameObjects.Sprite {
 
         // Porcentaje inicial
         this.porcentajeRelleno = 1;
-        
-        this.teclas = scene.input.keyboard.createCursorKeys();
-    
     }
     create()
     {
-        // Capturar las flechas del teclado para bajar y subir los porcentajes de las barras
-        this.teclas = this.scene.input.keyboard.createCursorKeys();
+
     }
     //En el preupdate se actualiza el motor de fisicas solo no hay que llamarlo en la escena
     preUpdate()
     {
-        if (this.teclas.left.isDown) {
-            this.porcentajeRelleno -= 0.1;
-        }
-        if (this.teclas.right.isDown) {
-            this.porcentajeRelleno += 0.1;
-        }
-        // Ajuste de los porcentajes entre 0 y 1
-        this.porcentajeRelleno = Phaser.Math.Clamp(this.porcentajeRelleno, 0, 1);
-
-        // Actualizacion de las imagenes
-        this.rellenoBarra.setCrop(0,0,this.rellenoBarra.width * this.porcentajeRelleno,this.rellenoBarra.height);
 
     }
     updateFillPercentage(newPercentage)

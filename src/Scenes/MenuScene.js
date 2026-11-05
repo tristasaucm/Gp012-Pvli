@@ -7,15 +7,6 @@ export default class Menu extends Phaser.Scene {
 		//id de la escena unico
 		super({ key: 'menu' }); //seteamos el nobmre de la escena para el SceneManager
 	}
-	
-	/**
-	* Carga de los recursos que vamos a necesitar en la escena
-	*/
-	preload(){
-		this.load.image('fondomenu', 'assets/background/fondo.jpg');
-		this.load.image('logo', 'assets/logos/Logo.png');
-	}
-	
 	/**
 	* Creación de los elementos de la escena principal de juego
 	*/
@@ -66,7 +57,7 @@ export default class Menu extends Phaser.Scene {
 
         // Al pulsar el botón
         botonJugar.on("pointerdown", () => {
-            this.scene.start("game");
+            this.scene.start("Selection");
         });
 
 		const botonCreditos = this.add.text(200, 400, "CREDITOS", {
@@ -94,6 +85,33 @@ export default class Menu extends Phaser.Scene {
         // Al pulsar el botón
         botonCreditos.on("pointerdown", () => {
             this.scene.start("credits");
+        });
+        //Boton para pantalla completa
+        const botonPantCompleta = this.add.text(760, 565, "[]", {
+            fontSize: "32px",
+            color: "#ffffff",
+            backgroundColor: "#2266aa",
+            padding: { x: 5, y: 5 }
+        });
+
+        botonPantCompleta.setOrigin(0.5);
+        botonPantCompleta.setInteractive({ useHandCursor: true });
+
+        // Al pasar el ratón por encima
+        botonPantCompleta.on("pointerover", () => {
+            botonPantCompleta.setStyle({ backgroundColor: "#4488dd" });
+            botonPantCompleta.setScale(1.2);
+        });
+
+        // Al retirar el ratón
+        botonPantCompleta.on("pointerout", () => {
+            botonPantCompleta.setStyle({ backgroundColor: "#2266aa" });
+            botonPantCompleta.setScale(1);
+        });
+
+        // Al pulsar el botón
+        botonPantCompleta.on("pointerdown", () => {
+            this.scale.toggleFullscreen();
         });
 	}
 

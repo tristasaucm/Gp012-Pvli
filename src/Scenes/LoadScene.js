@@ -53,8 +53,10 @@ export default class load extends Phaser.Scene {
         this.load.spritesheet('ansiedadIdle', 'assets/Enemies/Ansiedad/Idle/IdleSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadAttack', 'assets/Enemies/Ansiedad/Attack/AttackSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadDie', 'assets/Enemies/Ansiedad/Die/DieSheet.png', { frameWidth: 32, frameHeight: 25 });
+        this.load.spritesheet('ansiedadHurt', 'assets/Enemies/Ansiedad/Hurt/HurtSheet.png', { frameWidth: 32, frameHeight: 25 });
 
         this.load.spritesheet('alegriaIdle', 'assets/Characters/Alegria/Idle/IdleSheet.png', { frameWidth: 48, frameHeight: 48});
+        this.load.spritesheet('alegriaWalk', 'assets/Characters/Alegria/Walk/WalkSheet.png', { frameWidth: 48, frameHeight: 48});
         //Mira cuando la carga a terminado y se carga el menu
          this.load.on('complete', () => {
             loadText.destroy();
@@ -83,12 +85,24 @@ export default class load extends Phaser.Scene {
         	frameRate: 4,
         	repeat: 0,
     	});
+        this.anims.create({
+        	key: 'ansiedad_hurt',
+        	frames: this.anims.generateFrameNumbers('ansiedadHurt', { start: 0, end: 3 }),
+        	frameRate: 4,
+        	repeat: 0,
+    	});
 
         /* == ALEGRIA == */
         this.anims.create({
         	key: 'alegria_idle',
         	frames: this.anims.generateFrameNumbers('alegriaIdle', { start: 0, end: 4 }),
         	frameRate: 5,
+        	repeat: -1,
+    	});
+        this.anims.create({
+        	key: 'alegria_walk',
+        	frames: this.anims.generateFrameNumbers('alegriaWalk', { start: 0, end: 5 }),
+        	frameRate: 10,
         	repeat: -1,
     	});
     }

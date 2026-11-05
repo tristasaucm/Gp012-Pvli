@@ -55,19 +55,17 @@ create(){
     /* == PERSONAJES EN COMBATE Y TURNOS == */ //(temporal)
     let enemyIndex = 0;
     // Creamos los enemigos de la escena
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 80, enemyIndex))
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 20, 80, enemyIndex))
     enemyIndex++;
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120, enemyIndex))
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 20, 120, enemyIndex))
     enemyIndex++;
 
     this.enemiesQueue[0].play('ansiedad_idle');
     this.enemiesQueue[1].play('ansiedad_idle');
 
-
-
     let characterIndex = 0;
     // Creamos personaje para la escena
-    this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100, characterIndex))
+    this.emotionsQueue.push(new Alegria(this, 'alegria', 400, 20, 100, characterIndex))
     characterIndex++;
     this.emotionsQueue[0].play('alegria_idle');
 
@@ -123,15 +121,21 @@ actualTurn()
     console.log (this.charactersQueue);
     if (this.charactersQueue[0].isEnemy())  // Vemos si el personaje más rapido es un enemigo (si no, será siempre una emoción)
     {
+        this.hud.disableSkillButtons();
         console.log ("[TURNO ENEMIGO]");
 
-        this.charactersQueue[0].doSomethingAI(this.emotionsQueue);  // La IA de combate actúa
+        //this.charactersQueue[0].doSomethingAI(this.emotionsQueue);  // La IA de combate actúa
+        this.charactersQueue[0].play('ansiedad_attack');
 
-        console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
-        console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
-        console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
-        
-        this.nextCharactersTurn();
+        this.charactersQueue[0].once('animationcomplete-ansiedad_attack', () => 
+        {
+            this.emotionsQueue[0].takeDamage(this.charactersQueue[0].BasicAttack());
+            this.charactersQueue[0].play('ansiedad_idle');
+            console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
+            console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
+            console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
+            this.nextCharactersTurn();
+        });
     }
     else
     {
@@ -141,6 +145,7 @@ actualTurn()
         this.waitingTarget = false;
 
         this.showButtonSkills();
+        this.hud.enableSkillButtons();
     }
 
 }
@@ -226,41 +231,25 @@ showButtonSkills()
         this.waitingTarget = true;
         this.chooseTarget();
     });
-    let TextoBasico = this.add.text(270, 560, "Ataque Básico", {
-        fontSize: '20px',
-        color: '#ffffff',
-        fontStyle: 'bold'
-        }).setOrigin(1, 1);
-        
     /* == BOTÓN HABILIDAD == */
     this.hud.changeHabilityButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
         this.chooseTarget();
     });
-    
-    let TextoHabilidad = this.add.text(450, 560, "Habilidad", {
-        fontSize: '20px',
-        color: '#ffffff',
-        fontStyle: 'bold'
-        }).setOrigin(1, 1);
-
     /* == BOTÓN DEFINITIVA == */
     this.hud.changeDefinitiveButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
         this.chooseTarget();
     });
-    let TextoDefinitiva = this.add.text(670, 560, "Definitiva", {
-        fontSize: '20px',
-        color: '#ffffff',
-        fontStyle: 'bold'
-        }).setOrigin(1, 1);
 }
 
 chooseTarget()
 {
     this.enemiesQueue.forEach(enemy => {
+
+        enemy.removeAllListeners("pointerdown");
 
         enemy.setInteractive();
 
@@ -271,17 +260,26 @@ chooseTarget()
 
             this.enemiesQueue.forEach(e => {
                 e.disableInteractive();
+                e.removeAllListeners("pointerdown");
             });
 
             this.charactersQueue[0].doSomethingPlayer(this.selectedEnemy);
+            this.selectedEnemy.play('ansiedad_hurt');
 
+            this.selectedEnemy.once('animationcomplete-ansiedad_hurt', () => 
+            {
+                this.selectedEnemy.play('ansiedad_idle');
+                this.hud.disableSkillButtons();
+                this.nextCharactersTurn();
+            });
+            
+            /*
             if (!this.selectedEnemy.isAlive())
             {
                 this.selectedEnemy.dieAnim();
-            }
-            this.nextCharactersTurn();
+            }*/
+            
         });
     });
 }
-
 }

@@ -50,15 +50,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
               
 
         });
-        
+
+        // Animaciones
+        this.play('alegria_idle');
     }
     Create()
     {
 
     }
     //En el preupdate se actualiza el motor de fisicas solo no hay que llamarlo en la escena
-    preUpdate()
+    preUpdate(time, delta)
     {
+        super.preUpdate(time, delta);
         //Actualiza el punto hacia el que se dirige y establece la velocidad
         let xdir = this.pointx -this.body.center.x;
         let ydir = this.pointy -this.body.center.y;
@@ -72,13 +75,29 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocity(0, 0);
             xdir = 0;
             ydir = 0;
+
+            // Animacion de idle
+            if (this.anims.currentAnim?.key !== 'alegria_idle') 
+            {
+                this.play('alegria_idle');
+            }
+
             //para saber la posicion para los muros
             //console.log(this.x);
             //console.log(this.y);
             //Desactivamos el punto hacia el que viajamos para que no se vea
             this.cursor.setVisible(false);
             
-        } 
+        }
+        else
+        {
+            // Animacion de caminar
+            if (this.anims.currentAnim?.key !== 'alegria_walk') 
+            {
+                this.play('alegria_walk');
+            }
+
+        }
         //Rotacion del sprite del personaje
         if(xdir>0){
             this.flipX = false;

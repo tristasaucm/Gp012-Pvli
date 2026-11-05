@@ -17,16 +17,33 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         this.BotonBasico.setInteractive({useHandCursor:true});
         this.BotonBasico.on("pointerover", ()=>{this.BotonBasico.setScale(1.7);});
         this.BotonBasico.on("pointerout", ()=>{this.BotonBasico.setScale(1.5);});
+        this.TextoBasico = this.scene.add.text(270, 560, "Ataque Básico", {
+        fontSize: '20px',
+        color: '#ffffff',
+        fontStyle: 'bold'
+        }).setOrigin(1, 1);
+        
         
         this.BotonHabilidad = this.scene.add.image(400,600,fondoBotonCombate).setOrigin(0.5,1).setScale(1.5).setScrollFactor(0, 0);
         this.BotonHabilidad.setInteractive({useHandCursor:true});
         this.BotonHabilidad.on("pointerover", ()=>{this.BotonHabilidad.setScale(1.7);});
-        this.BotonHabilidad.on("pointerout", ()=>{this.BotonHabilidad.setScale(1.5);});
+        this.BotonHabilidad.on("pointerout", ()=>{this.BotonHabilidad.setScale(1.5);});       
+        this.TextoHabilidad = this.scene.add.text(450, 560, "Habilidad", {
+        fontSize: '20px',
+        color: '#ffffff',
+        fontStyle: 'bold'
+        }).setOrigin(1, 1);
+
         
         this.BotonDefinitiva = this.scene.add.image(510,600,fondoBotonCombate).setOrigin(0,1).setScale(1.5).setScrollFactor(0, 0);
         this.BotonDefinitiva.setInteractive({useHandCursor:true});
         this.BotonDefinitiva.on("pointerover", ()=>{this.BotonDefinitiva.setScale(1.7);});
         this.BotonDefinitiva.on("pointerout", ()=>{this.BotonDefinitiva.setScale(1.5);});
+        this.TextoDefinitiva = this.scene.add.text(670, 560, "Definitiva", {
+        fontSize: '20px',
+        color: '#ffffff',
+        fontStyle: 'bold'
+        }).setOrigin(1, 1);
         
         // Guardamos el fondo y los rellenos de las barras
         this.fondoBarra = fondoBarra;
@@ -101,5 +118,23 @@ export default class Hud extends Phaser.GameObjects.Sprite {
     changeHabilityButtonFunction(callback) 
     {
         this.BotonHabilidad.once("pointerdown", callback);
+    }
+    enableSkillButtons()
+    {
+        this.BotonBasico.setVisible(true);
+        this.BotonHabilidad.setVisible(true);
+        this.BotonDefinitiva.setVisible(true);
+        this.TextoDefinitiva.setVisible(true)
+        this.TextoBasico.setVisible(true)
+        this.TextoHabilidad.setVisible(true)
+    }
+    disableSkillButtons()
+    {
+        this.BotonBasico.setVisible(false);
+        this.BotonHabilidad.setVisible(false);
+        this.BotonDefinitiva.setVisible(false);
+        this.TextoDefinitiva.setVisible(false)
+        this.TextoBasico.setVisible(false)
+        this.TextoHabilidad.setVisible(false)
     }
 }

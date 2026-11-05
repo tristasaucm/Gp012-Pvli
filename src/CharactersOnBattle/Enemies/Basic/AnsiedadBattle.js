@@ -34,10 +34,9 @@ export default class AnsiedadBattle extends Character
     doSomethingAI(emotionsQueue)  // Método auxiliar para comprobar que la lógica de aVs funciona
 	{
         this.play('ansiedad_attack');
-
         emotionsQueue[0].takeDamage(this.BasicAttack());
         
-        this.on('animationcomplete-ansiedad_attack', () => 
+        this.once('animationcomplete-ansiedad_attack', () => 
         {
             this.play('ansiedad_idle');
         });

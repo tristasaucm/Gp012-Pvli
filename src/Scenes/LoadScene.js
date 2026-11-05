@@ -25,12 +25,12 @@ export default class load extends Phaser.Scene {
         //Carga de imagenes
         //---Imagenes de Menus---
 
-        this.load.image('fondomenu', 'assets/background/fondo.jpg');
+        this.load.image('fondomenu', 'assets/Background/fondo.jpg');
         this.load.image('logo', 'assets/logos/Logo.png');
         //---Backgrounds---
 
-        this.load.image('fondomazmorra','assets/background/Fondos-2/Salas/Sala1.png');
-        this.load.image('fondojuego','assets/background/Fondos-2/Combate/ARENA.png');
+        this.load.image('fondomazmorra','assets/Background/Fondos-2/Salas/Sala1.png');
+        this.load.image('fondojuego','assets/Background/Fondos-2/Combate/ARENA.png');
        
         //---Personajes---
 
@@ -50,7 +50,11 @@ export default class load extends Phaser.Scene {
         this.load.image('punto','assets/objects/punto.png');
         //----Carga de spriteshets----
 
-        this.load.spritesheet('ansiedad', 'assets/Enemies/Ansiedad/slime-Sheet.png', { frameWidth: 32, frameHeight: 25 });
+        this.load.spritesheet('ansiedadIdle', 'assets/Enemies/Ansiedad/Idle/IdleSheet.png', { frameWidth: 32, frameHeight: 25 });
+        this.load.spritesheet('ansiedadAttack', 'assets/Enemies/Ansiedad/Attack/AttackSheet.png', { frameWidth: 32, frameHeight: 25 });
+        this.load.spritesheet('ansiedadDie', 'assets/Enemies/Ansiedad/Die/DieSheet.png', { frameWidth: 32, frameHeight: 25 });
+
+        this.load.spritesheet('alegriaIdle', 'assets/Characters/Alegria/Idle/IdleSheet.png', { frameWidth: 48, frameHeight: 48});
         //Mira cuando la carga a terminado y se carga el menu
          this.load.on('complete', () => {
             loadText.destroy();
@@ -60,12 +64,32 @@ export default class load extends Phaser.Scene {
     }
     create()
     { //Aqui se crean las animaciones
+        /* == ANSIEDAD == */
         this.anims.create({
         	key: 'ansiedad_idle',
-        	frames: this.anims.generateFrameNumbers('ansiedad', { start: 0, end: 2 }),
-        	frameRate: 1.75,
+        	frames: this.anims.generateFrameNumbers('ansiedadIdle', { start: 0, end: 3 }),
+        	frameRate: 4,
         	repeat: -1,
-			yoyo: true
+    	});
+        this.anims.create({
+        	key: 'ansiedad_attack',
+        	frames: this.anims.generateFrameNumbers('ansiedadAttack', { start: 0, end: 4 }),
+        	frameRate: 4,
+        	repeat: 0,
+    	});
+        this.anims.create({
+        	key: 'ansiedad_die',
+        	frames: this.anims.generateFrameNumbers('ansiedadDie', { start: 0, end: 3 }),
+        	frameRate: 4,
+        	repeat: 0,
+    	});
+
+        /* == ALEGRIA == */
+        this.anims.create({
+        	key: 'alegria_idle',
+        	frames: this.anims.generateFrameNumbers('alegriaIdle', { start: 0, end: 4 }),
+        	frameRate: 5,
+        	repeat: -1,
     	});
     }
    

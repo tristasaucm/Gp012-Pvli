@@ -92,14 +92,14 @@ export default class Hud extends Phaser.GameObjects.Sprite {
     }
     changeBasicButtonFunction(callback) 
     {
-        this.BotonBasico.on("pointerdown", callback);
+        this.BotonBasico.once("pointerdown", callback);
     }
     changeDefinitiveButtonFunction(callback) 
     {
-        this.BotonDefinitiva.on("pointerdown", callback);
+        this.BotonDefinitiva.once("pointerdown", callback);
     }
     changeHabilityButtonFunction(callback) 
     {
-        this.BotonHabilidad.on("pointerdown", callback);
+        this.BotonHabilidad.once("pointerdown", callback);
     }
 }

@@ -32,6 +32,11 @@ init({posmazX = 100,posmazY = 300,data}){
     //console.log(this.posmazY);
     // Lista de los personajes
     // this.emotionsQueue = data.emotionsQueue;
+    this.emotionsQueue = [];
+    this.enemiesQueue = [];
+    this.charactersQueue = [];
+    this.waitingSkill = false;
+    this.waitingTarget = false;
 
     this.rndPerc = new Phaser.Math.RandomDataGenerator();  // Generador de números aleatorios de Phaser
 }
@@ -55,9 +60,16 @@ create(){
     this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120, enemyIndex))
     enemyIndex++;
 
+    this.enemiesQueue[0].play('ansiedad_idle');
+    this.enemiesQueue[1].play('ansiedad_idle');
+
+
+
     let characterIndex = 0;
     // Creamos personaje para la escena
     this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100, characterIndex))
+    characterIndex++;
+    this.emotionsQueue[0].play('alegria_idle');
 
     // Mete todos los enemigos y personajes y ordena segun el action value
     this.charactersQueue = [...this.emotionsQueue, ...this.enemiesQueue];
@@ -114,9 +126,11 @@ actualTurn()
         console.log ("[TURNO ENEMIGO]");
 
         this.charactersQueue[0].doSomethingAI(this.emotionsQueue);  // La IA de combate actúa
+
         console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
         console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
         console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
+        
         this.nextCharactersTurn();
     }
     else
@@ -260,9 +274,11 @@ chooseTarget()
             });
 
             this.charactersQueue[0].doSomethingPlayer(this.selectedEnemy);
-            console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
-            console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
-            console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
+
+            if (!this.selectedEnemy.isAlive())
+            {
+                this.selectedEnemy.dieAnim();
+            }
             this.nextCharactersTurn();
         });
     });

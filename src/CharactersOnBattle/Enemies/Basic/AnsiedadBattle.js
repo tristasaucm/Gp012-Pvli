@@ -22,12 +22,32 @@ export default class AnsiedadBattle extends Character
     {
         return this.Attack;
     }
+    preUpdate(time, delta)
+    {
+        // Preupdate de la clase original
+        super.preUpdate(time, delta);
+    }
     isEnemy()
     {
         return true;
     }
     doSomethingAI(emotionsQueue)  // Método auxiliar para comprobar que la lógica de aVs funciona
 	{
-		emotionsQueue[0].takeDamage(this.BasicAttack());
+        this.play('ansiedad_attack');
+
+        emotionsQueue[0].takeDamage(this.BasicAttack());
+        
+        this.on('animationcomplete-ansiedad_attack', () => 
+        {
+            this.play('ansiedad_idle');
+        });
 	}
+    dieAnim()
+    {
+        this.play('ansiedad_die');
+        this.on('animationcomplete-ansiedad_die', () => 
+        {
+            
+        });
+    }
 }

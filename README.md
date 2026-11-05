@@ -31,6 +31,15 @@ Los géneros del juego son: Exploración de mazmorras, combate por turnos, estra
 
 <div align="center">
 
+## Capturas Del juego
+
+![Menu de juego](assets/images/FotoMenu.png)
+
+![Sala de Exploracion](assets/images/FotoMazmorra.png)
+
+![Sala de combate](assets/images/FotoCombate.png)
+
+
 ## Enlace a la página web
 [Juego](https://tristasaucm.github.io/Gp012-Pvli/)
 

@@ -50,14 +50,14 @@ create(){
     /* == PERSONAJES EN COMBATE Y TURNOS == */ //(temporal)
     let enemyIndex = 0;
     // Creamos los enemigos de la escena
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 80, this.hud, enemyIndex))
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 80, enemyIndex))
     enemyIndex++;
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120, this.hud, enemyIndex))
+    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 10, 120, enemyIndex))
     enemyIndex++;
 
     let characterIndex = 0;
     // Creamos personaje para la escena
-    this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100, this.hud, characterIndex))
+    this.emotionsQueue.push(new Alegria(this, 'alegria', 100, 10, 100, characterIndex))
 
     // Mete todos los enemigos y personajes y ordena segun el action value
     this.charactersQueue = [...this.emotionsQueue, ...this.enemiesQueue];

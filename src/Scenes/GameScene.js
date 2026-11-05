@@ -18,13 +18,6 @@ constructor(charactersQueue){
     // y por tanto al que le toca actuar ahora (invariante que se mantendrá durante todo el combate)
     this.charactersQueue = charactersQueue;
 
-    this.anims.create({
-        	key: 'ansiedad_idle',
-        	frames: this.anims.generateFrameNumbers('ansiedad', { start: 0, end: 2 }),
-        	frameRate: 1.75,
-        	repeat: -1,
-			yoyo: true
-    	});
 }
 init({posmazX = 100,posmazY = 300}){
     this.posmazX = posmazX;
@@ -32,7 +25,7 @@ init({posmazX = 100,posmazY = 300}){
     console.log(this.posmazX);
     console.log(this.posmazY);
 
-    this.rndPerc = new RandomDataGenerator();  // Generador de números aleatorios de Phaser
+    this.rndPerc = new Phaser.Math.RandomDataGenerator();  // Generador de números aleatorios de Phaser
 }
 preload(){
     //Cargamos el fondo y el personaje
@@ -50,13 +43,22 @@ preload(){
     this.load.image('fondoBotonCombate','assets/hud/FondoBotonCombate.png');
 }
 create(){
+
+    this.anims.create({
+        	key: 'ansiedad_idle',
+        	frames: this.anims.generateFrameNumbers('ansiedad', { start: 0, end: 2 }),
+        	frameRate: 1.75,
+        	repeat: -1,
+			yoyo: true
+    	});
+
     this.pointer = this.input.activePointer;
     this.add.image(0,0,'fondojuego').setOrigin(0,0);
     // Tened en cuenta que con el let la variable solo se puede usar en el 'create', si queremos usarla en más sitios tendremos que poner 'this'
     // (NOTA: cambiado a 'this' para usarlo en 'nextCharactersTurn')
     this.player = new Player(this, 500,500,200,'personaje',0,this.pointer,'punto');
 
-    this.cameras.main.startFollow(player); // hace que la camara siga al objeto indicado
+    this.cameras.main.startFollow(this.player); // hace que la camara siga al objeto indicado
 
     //botón de vuelta al menu
     let botonBackMenu = this.add.text(650, 30 ,"MAZMORRA", 

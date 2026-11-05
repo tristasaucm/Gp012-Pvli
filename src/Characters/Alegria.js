@@ -31,5 +31,11 @@ export default class Alegria extends Character
             return damage = this.Attack;
         }
     }
-
+    preUpdate()
+    {
+        // Actualizar la barra de vida de alegria para que este constantemente con la vida actual del personaje
+        this.interfaz.updateAlegriaHealthBar(this.getCurrentHealthPercentage());
+        // Preupdate de la clase original
+        super.preUpdate();
+    }
 }

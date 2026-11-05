@@ -42,4 +42,8 @@ export default class Barra extends Phaser.GameObjects.Sprite {
         this.rellenoBarra.setCrop(0,0,this.rellenoBarra.width * this.porcentajeRelleno,this.rellenoBarra.height);
 
     }
+    updateFillPercentage(newPercentage)
+    {
+        this.rellenoBarra.setCrop(0,0,this.rellenoBarra.width * newPercentage,this.rellenoBarra.height);
+    }
 }

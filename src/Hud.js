@@ -50,4 +50,12 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         
 
     }
+    updateAlegriaHealthBar(newPercentage)
+    {
+        BarraAlegria.updateFillPercentage(newPercentage);
+    }
+    updateAnsiedadealthBar(newPercentage)
+    {
+        BarraAnsiedad.updateFillPercentage(newPercentage);
+    }
 }

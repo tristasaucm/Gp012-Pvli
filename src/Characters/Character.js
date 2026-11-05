@@ -1,3 +1,4 @@
+import Hud from '../Hud.js'
 /**
  * Clase que representa un personaje
  * @extends Phaser.GameObjects.Sprite
@@ -21,8 +22,9 @@ export default class Character extends Phaser.GameObjects.Sprite
      * @param {number} actionValue - Valor de acción actual
      * === CONDICIONES EXTRA ===
      * @param {number} actionsThisBattle - Nº de veces que ha actuado en el combate actual
+     * @param {Hud} interfaz - Interfaz con las barras de vida
 	 */
-    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed)
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, hud)
     {
         /* === ESCENA === */
         this.scene.add.existing(this);
@@ -43,6 +45,9 @@ export default class Character extends Phaser.GameObjects.Sprite
 
         /* === CONDICIONES EXTRA === */
         this.actionsThisBattle = 0;
+
+        /* === HUD === */
+        this.interfaz = this.hud;
     }
 
     /* === RECIBIR DAÑO === */
@@ -91,7 +96,10 @@ export default class Character extends Phaser.GameObjects.Sprite
     {
         return this.Speed;
     }
-
+    getCurrentHealthPercentage()
+    {
+        return this.Health/this.baseHealth
+    }
     getBaseaV()  //  aV = Action Value
     {
         return this.baseactionValue;

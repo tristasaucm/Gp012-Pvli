@@ -50,6 +50,11 @@ export default class Character extends Phaser.GameObjects.Sprite
         this.interfaz = this.hud;
     }
 
+preUpdate(time, delta) 
+{
+    super.preUpdate(time, delta);
+}
+
     /* === RECIBIR DAÑO === */
 
     // Pierde vida en relación a un porcentaje
@@ -85,7 +90,7 @@ export default class Character extends Phaser.GameObjects.Sprite
     // Devuelve si el personaje sigo vivo o no
     isAlive()
     {
-        return this.Health < 0
+        return this.Health > 0
     }
 
     getBaseSpeed()

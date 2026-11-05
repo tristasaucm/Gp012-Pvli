@@ -29,10 +29,12 @@ export default class Selection extends Phaser.Scene {
         //Tener en cuenta que con el let la variable solo se puede usar en el create si queremos usarla en mas sitios usar el this.player
         let player = new Player(this, this.posX,this.posY,200,'personaje',0,this.pointer,'punto');
         this.cameras.main.startFollow(player); // hace que la camara siga al objeto indicado
-        //Muros
+        
+        /*Muros
         const muro = this.add.zone(600, 300, 200, 50);
         this.physics.add.existing(muro,true);
         this.physics.add.collider(player, muro);
+        */
         const CambioSala = this.add.zone(1400, 500, 200, 50);
         this.physics.add.existing(CambioSala,true);
         this.physics.add.overlap(player, CambioSala,()=>{

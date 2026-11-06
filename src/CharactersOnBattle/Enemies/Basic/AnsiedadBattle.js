@@ -17,6 +17,10 @@ export default class AnsiedadBattle extends Character
     constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
         super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
+        this.idleAnim = 'ansiedad_idle';
+        this.hurtAnim = 'ansiedad_hurt';
+        this.attackAnim = 'ansiedad_attack';
+        this.dieAnim = 'ansiedad_die';
     }
     BasicAttack()
     {
@@ -33,14 +37,12 @@ export default class AnsiedadBattle extends Character
     }
     doSomethingAI(emotionsQueue)  // Método auxiliar para comprobar que la lógica de aVs funciona
 	{
-        this.play('ansiedad_attack');
         emotionsQueue[0].takeDamage(this.BasicAttack());
-        
-        this.once('animationcomplete-ansiedad_attack', () => 
-        {
-            this.play('ansiedad_idle');
-        });
 	}
+    getHurtAnim()
+    {
+        this.play('ansiedad_hurt');
+    }
     dieAnim()
     {
         this.play('ansiedad_die');

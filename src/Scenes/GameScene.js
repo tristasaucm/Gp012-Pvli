@@ -131,10 +131,7 @@ actualTurn()
             this.charactersQueue[0].play(this.charactersQueue[0].idleAnim);
             this.charactersQueue[0].doSomethingAI(this.emotionsQueue);
             // Avanzar el turno después
-            this.time.delayedCall(0, () => 
-            {
-                this.nextCharactersTurn();
-            });
+            this.nextCharactersTurn();
         });
         this.charactersQueue[0].play(this.charactersQueue[0].attackAnim);
     }
@@ -269,13 +266,8 @@ chooseTarget()
 
             enemy1.once('animationcomplete', () =>
             {
-                // Volver a idle según el enemigo
                 enemy1.play(enemy1.idleAnim);
-                // Avanzar el turno después
-                this.time.delayedCall(0, () => 
-                {
-                    this.nextCharactersTurn();
-                });
+                this.nextCharactersTurn();
             });
             this.charactersQueue[0].doSomethingPlayer(enemy1);
             enemy1.play(enemy1.hurtAnim);

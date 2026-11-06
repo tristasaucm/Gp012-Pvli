@@ -37,6 +37,7 @@ export default class load extends Phaser.Scene {
         this.load.image('personaje','assets/Characters/Alegria/Alegria.png');
         this.load.image('alegria','assets/Characters/Alegria/Alegria.png');
         this.load.image('ansiedad','assets/Enemies/Ansiedad/Idle/slime-idle-0.png')
+        this.load.image('trauma','assets/Enemies/Trauma/Idle/oculothorax-idle-00.png')
         //---HUD del combate---
 
         this.load.image('fondoBarra','assets/hud/Barras/FondoBarras.png');
@@ -50,13 +51,22 @@ export default class load extends Phaser.Scene {
         this.load.image('punto','assets/objects/punto.png');
         //----Carga de spriteshets----
 
+        /* === ANSIEDAD === */
         this.load.spritesheet('ansiedadIdle', 'assets/Enemies/Ansiedad/Idle/IdleSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadAttack', 'assets/Enemies/Ansiedad/Attack/AttackSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadDie', 'assets/Enemies/Ansiedad/Die/DieSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadHurt', 'assets/Enemies/Ansiedad/Hurt/HurtSheet.png', { frameWidth: 32, frameHeight: 25 });
 
+        /* === TRAUMA === */
+        this.load.spritesheet('traumaIdle', 'assets/Enemies/Trauma/Idle/IdleSheet.png', { frameWidth: 40, frameHeight: 40 });
+        this.load.spritesheet('traumaAttack', 'assets/Enemies/Trauma/Attack/AttackSheet.png', { frameWidth: 40, frameHeight: 40 });
+        this.load.spritesheet('traumaDie', 'assets/Enemies/Trauma/Die/DieSheet.png', { frameWidth: 40, frameHeight: 40 });
+        this.load.spritesheet('traumaHurt', 'assets/Enemies/Trauma/Hurt/HurtSheet.png', { frameWidth: 40, frameHeight: 40 });
+
+        /* === ALEGRIA === */
         this.load.spritesheet('alegriaIdle', 'assets/Characters/Alegria/Idle/IdleSheet.png', { frameWidth: 48, frameHeight: 48});
         this.load.spritesheet('alegriaWalk', 'assets/Characters/Alegria/Walk/WalkSheet.png', { frameWidth: 48, frameHeight: 48});
+        
         //Mira cuando la carga a terminado y se carga el menu
          this.load.on('complete', () => {
             loadText.destroy();
@@ -70,13 +80,13 @@ export default class load extends Phaser.Scene {
         this.anims.create({
         	key: 'ansiedad_idle',
         	frames: this.anims.generateFrameNumbers('ansiedadIdle', { start: 0, end: 3 }),
-        	frameRate: 4,
+        	frameRate: 8,
         	repeat: -1,
     	});
         this.anims.create({
         	key: 'ansiedad_attack',
         	frames: this.anims.generateFrameNumbers('ansiedadAttack', { start: 0, end: 4 }),
-        	frameRate: 4,
+        	frameRate: 6,
         	repeat: 0,
     	});
         this.anims.create({
@@ -88,7 +98,33 @@ export default class load extends Phaser.Scene {
         this.anims.create({
         	key: 'ansiedad_hurt',
         	frames: this.anims.generateFrameNumbers('ansiedadHurt', { start: 0, end: 3 }),
-        	frameRate: 4,
+        	frameRate: 6,
+        	repeat: 0,
+    	});
+
+        /* == TRAUMA == */
+        this.anims.create({
+        	key: 'trauma_idle',
+        	frames: this.anims.generateFrameNumbers('traumaIdle', { start: 0, end: 3 }),
+        	frameRate: 8,
+        	repeat: -1,
+    	});
+        this.anims.create({
+        	key: 'trauma_attack',
+        	frames: this.anims.generateFrameNumbers('traumaAttack', { start: 0, end: 8 }),
+        	frameRate: 8,
+        	repeat: 0,
+    	});
+        this.anims.create({
+        	key: 'trauma_die',
+        	frames: this.anims.generateFrameNumbers('traumaDie', { start: 0, end: 7 }),
+        	frameRate: 5,
+        	repeat: 0,
+    	});
+        this.anims.create({
+        	key: 'trauma_hurt',
+        	frames: this.anims.generateFrameNumbers('traumaHurt', { start: 0, end: 3 }),
+        	frameRate: 6,
         	repeat: 0,
     	});
 
@@ -96,7 +132,7 @@ export default class load extends Phaser.Scene {
         this.anims.create({
         	key: 'alegria_idle',
         	frames: this.anims.generateFrameNumbers('alegriaIdle', { start: 0, end: 4 }),
-        	frameRate: 5,
+        	frameRate: 6,
         	repeat: -1,
     	});
         this.anims.create({

@@ -68,9 +68,46 @@ preUpdate(time, delta)
     takeDamage (damage)
     {
         this.Health -= damage;
-        
+        this.flashRed();
+        this.showDamage(damage);
+
         if (this.Health < 0) this.Health = 0;
     }
+    // El personaje se pone rojo por un instante al recibir daño
+    flashRed() 
+    {
+        this.setTint(0xff0000);
+        this.scene.time.delayedCall(150, () => {this.clearTint();});
+    }
+    // Enseña el daño recibido
+    showDamage(damage) 
+    {
+        let damageText = this.scene.add.text
+        (
+            this.x,
+            this.y - 50,
+            `-${damage}`,
+            {
+            fontSize: '24px',
+            color: '#ff3333',
+            fontStyle: 'bold',
+            stroke: '#000000',
+            strokeThickness: 4
+            }
+        );
+
+        damageText.setOrigin(0.5);
+
+        this.scene.tweens.add
+        ({
+            targets: damageText,
+            y: damageText.y - 60,
+            alpha: 0,
+            duration: 800,
+        });
+
+        onComplete: () => {damageText.destroy();}
+    };
 
     /* === AUMENTO DE VIDA === */
 

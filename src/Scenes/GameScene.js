@@ -1,4 +1,5 @@
 import AnsiedadBattle from '../CharactersOnBattle/Enemies/Basic/AnsiedadBattle.js';
+import TraumaBattle from '../CharactersOnBattle/Enemies/Basic/TraumaBattle.js';
 import Alegria from '../CharactersOnBattle/Emotions/Alegria.js';
 import Hud from '../Hud.js'
 /**
@@ -57,11 +58,11 @@ create(){
     // Creamos los enemigos de la escena
     this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 20, 80, enemyIndex))
     enemyIndex++;
-    this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 20, 120, enemyIndex))
+    this.enemiesQueue.push(new TraumaBattle(this, 'trauma', 100, 20, 120, enemyIndex))
     enemyIndex++;
 
     this.enemiesQueue[0].play('ansiedad_idle');
-    this.enemiesQueue[1].play('ansiedad_idle');
+    this.enemiesQueue[1].play('trauma_idle');
 
     let characterIndex = 0;
     // Creamos personaje para la escena
@@ -121,21 +122,18 @@ actualTurn()
     console.log (this.charactersQueue);
     if (this.charactersQueue[0].isEnemy())  // Vemos si el personaje más rapido es un enemigo (si no, será siempre una emoción)
     {
-        this.hud.disableSkillButtons();
         console.log ("[TURNO ENEMIGO]");
 
-        //this.charactersQueue[0].doSomethingAI(this.emotionsQueue);  // La IA de combate actúa
-        this.charactersQueue[0].play('ansiedad_attack');
-
-        this.charactersQueue[0].once('animationcomplete-ansiedad_attack', () => 
+        this.hud.disableSkillButtons();
+        this.charactersQueue[0].once('animationcomplete', () =>
         {
-            this.emotionsQueue[0].takeDamage(this.charactersQueue[0].BasicAttack());
-            this.charactersQueue[0].play('ansiedad_idle');
-            console.log("Player health: " + this.emotionsQueue[0].getCurrentHealth());
-            console.log("Enemy 1 health: " + this.enemiesQueue[0].getCurrentHealth());
-            console.log("Enemy 2 health: " + this.enemiesQueue[1].getCurrentHealth());
+            // Volver a idle según el enemigo
+            this.charactersQueue[0].play(this.charactersQueue[0].idleAnim);
+            this.charactersQueue[0].doSomethingAI(this.emotionsQueue);
+            // Avanzar el turno después
             this.nextCharactersTurn();
         });
+        this.charactersQueue[0].play(this.charactersQueue[0].attackAnim);
     }
     else
     {
@@ -250,11 +248,10 @@ chooseTarget()
     this.enemiesQueue.forEach(enemy => {
 
         enemy.removeAllListeners("pointerdown");
-
         enemy.setInteractive();
 
-        enemy.once("pointerdown", () => {
-    
+        enemy.once("pointerdown", () => 
+        {
             this.selectedEnemy = enemy;
             this.waitingTarget = false;
 
@@ -263,16 +260,17 @@ chooseTarget()
                 e.removeAllListeners("pointerdown");
             });
 
-            this.charactersQueue[0].doSomethingPlayer(this.selectedEnemy);
-            this.selectedEnemy.play('ansiedad_hurt');
+            this.hud.disableSkillButtons();
 
-            this.selectedEnemy.once('animationcomplete-ansiedad_hurt', () => 
+            const enemy1 = this.selectedEnemy;
+
+            enemy1.once('animationcomplete', () =>
             {
-                this.selectedEnemy.play('ansiedad_idle');
-                this.hud.disableSkillButtons();
+                enemy1.play(enemy1.idleAnim);
                 this.nextCharactersTurn();
             });
-            
+            this.charactersQueue[0].doSomethingPlayer(enemy1);
+            enemy1.play(enemy1.hurtAnim);
             /*
             if (!this.selectedEnemy.isAlive())
             {

@@ -58,7 +58,7 @@ create(){
     // Creamos los enemigos de la escena
     this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 20, 80, enemyIndex))
     enemyIndex++;
-    this.enemiesQueue.push(new TraumaBattle(this, 'trauma', 100, 20, 120, enemyIndex))
+    this.enemiesQueue.push(new TraumaBattle(this, 'trauma', 100, 15, 120, enemyIndex))
     enemyIndex++;
 
     this.enemiesQueue[0].play('ansiedad_idle');
@@ -66,7 +66,7 @@ create(){
 
     let characterIndex = 0;
     // Creamos personaje para la escena
-    this.emotionsQueue.push(new Alegria(this, 'alegria', 400, 20, 100, characterIndex))
+    this.emotionsQueue.push(new Alegria(this, 'alegria', 400, 30, 100, characterIndex))
     characterIndex++;
     this.emotionsQueue[0].play('alegria_idle');
 

@@ -88,11 +88,10 @@ preUpdate(time, delta)
             this.y - 50,
             `-${damage}`,
             {
-            fontSize: '24px',
-            color: '#ff3333',
-            fontStyle: 'bold',
-            stroke: '#000000',
-            strokeThickness: 4
+                fontSize: '24px',
+                color: '#ff3333',
+                stroke: '#000000',
+                strokeThickness: 4
             }
         );
 

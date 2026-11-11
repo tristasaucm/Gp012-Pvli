@@ -22,6 +22,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         
 		this.scene.add.existing(this);//Añadimos el player a la escena
         this.setDisplaySize(100,100);//Establecemos el tamaño de la imagen
+        
         this.scene.physics.add.existing(this);//Añadimos las fisicas
         this.speed = speed; //Guardamos la velocidad
         this.body.key = imgKey; //Ponemos la imagen de como se ve el player
@@ -33,6 +34,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
         //Añadimos la imagen del cursor y la hacemos invisible
         this.cursor =  this.scene.add.image(this.pointx,this.pointy,imgPunt);
         this.cursor.setVisible(false);
+        this.body.setSize(10, 10);
         //Establecemos el margen de error
         this.margenError = 2;
         //Detecion del click del raton

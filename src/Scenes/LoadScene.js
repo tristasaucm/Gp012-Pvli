@@ -49,6 +49,9 @@ export default class load extends Phaser.Scene {
         this.load.image('indicadorTurnoRival','assets/hud/IndicadorTurnoRival.png');
         this.load.image('fondoBotonCombate','assets/hud/FondoBotonCombate.png');
         this.load.image('punto','assets/objects/punto.png');
+        //Carga del tilemap
+        this.load.image('Tiles','assets/Tilemap/TilemapSalas.png');
+        this.load.tilemapTiledJSON('Tilemapjson','assets/Tilemap/TilemapSalas.json');
         //----Carga de spriteshets----
 
         /* === ANSIEDAD === */

@@ -153,7 +153,7 @@ preUpdate(time, delta)
     {
         return this.actionValue;
     }
-    setaV(amount)
+    gainaV(amount)
     {
         this.actionValue += amount;
     }

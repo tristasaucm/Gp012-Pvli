@@ -75,6 +75,9 @@ export default class load extends Phaser.Scene {
             loadText.destroy();
             this.scene.start('menu');
          });
+
+        // Objetos
+        this.load.image('objeto','assets/objects/fly_neuron.png');
         
     }
     create()

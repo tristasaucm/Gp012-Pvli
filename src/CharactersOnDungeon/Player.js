@@ -14,7 +14,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 	 * @param {number} pointx - punto al que se dirije el player en x
 	 * @param {number} pointy - punto al que se dirije el player en y
 	 * @param {number} margenError - margen de error de la llegada al punto del jugador
-     * 
+     * @param {Object[]} inventory - Inventario de objetos del jugador
 	 */
 	constructor(scene, x, y, speed, imgKey,dt,pointer,imgPunt)
     {
@@ -55,6 +55,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
         // Animaciones
         this.play('alegria_idle');
+
+        this.inventory = [];
     }
     Create()
     {
@@ -107,5 +109,10 @@ export default class Player extends Phaser.GameObjects.Sprite {
              this.flipX = true;
         }
 
+    }
+
+    addObject(object)
+    {
+        this.inventory.push(object);
     }
 }

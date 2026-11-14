@@ -1,11 +1,13 @@
 //Imports
 import Player from '../CharactersOnDungeon/Player.js';
 import Ansiedad from '../CharactersOnDungeon/Ansiedad.js';
+import Object from '../Object.js';
 /**
  * Escena principal.
  * @extends Phaser.Scene
  */
 export default class Selection extends Phaser.Scene {
+
 	constructor() {
 		//id de la escena unico
 		super({ key: 'Dungeon' }); //seteamos el nobmre de la escena para el SceneManager
@@ -34,9 +36,9 @@ export default class Selection extends Phaser.Scene {
         this.pointer = this.input.activePointer;
         //this.add.image(0,0,'fondomazmorra').setOrigin(0,0);
         //Tener en cuenta que con el let la variable solo se puede usar en el create si queremos usarla en mas sitios usar el this.player
-        let player = new Player(this, this.posX,this.posY,200,'personaje',0,this.pointer,'punto');
-        this.cameras.main.startFollow(player); // hace que la camara siga al objeto indicado
-        this.physics.add.collider(player,suelo);
+        this.player = new Player(this, this.posX,this.posY,200,'personaje',0,this.pointer,'punto');
+        this.cameras.main.startFollow(this.player); // hace que la camara siga al objeto indicado
+        this.physics.add.collider(this.player,suelo);
         /*Muros
         const muro = this.add.zone(600, 300, 200, 50);
         this.physics.add.existing(muro,true);
@@ -44,8 +46,8 @@ export default class Selection extends Phaser.Scene {
         */
         const CambioSala = this.add.zone(730, 280, 20, 100);
         this.physics.add.existing(CambioSala,true);
-        this.physics.add.overlap(player, CambioSala,()=>{
-            this.scene.start("game",{posmazX: player.x,posmazY: player.y});
+        this.physics.add.overlap(this.player, CambioSala,()=>{
+            this.scene.start("game",{posmazX: this.player.x,posmazY: this.player.y});
         });
         let botonBackMenu = this.add.text(650, 30 ,"MENU", 
     {
@@ -70,6 +72,9 @@ export default class Selection extends Phaser.Scene {
     botonBackMenu.on("pointerdown",()=>{
         this.scene.start("menu");
     });
+
+        const objeto = new Object(this, this.player, 'objeto', 625, 450);
+        this.physics.add.collider(objeto, suelo);
     }
 
 }

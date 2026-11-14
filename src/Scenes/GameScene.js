@@ -186,10 +186,10 @@ updateaVs()
 
     this.charactersQueue.forEach((character) =>  // forEach: por cada 'character' en 'charactersQueue'...
     {
-        character.setaV(-sus); // Se le resta el 'sus' de antes al aV de cada personaje
+        character.gainaV(-sus); // Se le resta el 'sus' de antes al aV de cada personaje
     });
 
-    this.charactersQueue[0].setaV(this.charactersQueue[0].getBaseAV());  // Se reinicia el aV del personaje que acaba de actuar, devolviendo su valor al suyo base
+    this.charactersQueue[0].gainaV(this.charactersQueue[0].getBaseAV());  // Se reinicia el aV del personaje que acaba de actuar, devolviendo su valor al suyo base
 }
 
 // Orden de prioridades: aV actual, velocidad actual, enemigo > emoción, y menor nº de acciones en este combate. Si todo esto coincide, se lanza una moneda

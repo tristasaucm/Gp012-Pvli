@@ -150,12 +150,34 @@ actualTurn()
 // Serie de funciones para calcular el siguiente turno
 nextCharactersTurn()
 {
+    this.cleanDeadCharacters(); // Eliminamos los personajes que esten muertos
     this.updateaVs();  // Modificamos los aVs de todos los personajes para que la cola avance "virtualmente" (aún no se cambia ninguna posición)
     this.resortCharactersQueue();  // Ahora sí, se reordena la lista para colocar al que acaba de actuar dónde le toca, y determinar quién actua ahora
     if (this.charactersQueue[0].isEnemy()) this.hud.setTurnoRival();
     else this.hud.setTurnoJugador();
     this.hud.updateHealthBars(this.charactersQueue);
     this.actualTurn();  // Técnicamente es recursivo, pero aquí debería de haber una comprobación previa de si se ha terminado el combate (futura tarea supongo)
+}
+cleanDeadCharacters() {
+    // Funcion auxiliar para procesar cualquier array de personajes
+    const processQueue = (queue) => {
+        return queue.filter(character => {
+            if (!character.isAlive()) {
+                this.hud.updateHealthBars(this.charactersQueue);
+                // Destruye el sprite / objeto visual en Phaser para que desaparezca
+                if (character.active) {
+                    character.destroy();
+                }
+                return false; // Lo elimina del array
+            }
+            return true; // Lo mantiene en el array si sigue vivo
+        });
+    };
+
+    // Aplicamos la limpieza a todas las colas
+    this.enemiesQueue = processQueue(this.enemiesQueue);
+    this.emotionsQueue = processQueue(this.emotionsQueue);
+    this.charactersQueue = processQueue(this.charactersQueue);
 }
 // Actualiza el action value de todos los personajes
 updateaVs()

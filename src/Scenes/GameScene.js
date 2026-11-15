@@ -249,22 +249,19 @@ showButtonSkills()
     this.hud.changeBasicButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
-        this.chooseTarget();
     });
     /* == BOTÓN HABILIDAD == */
     this.hud.changeHabilityButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
-        this.chooseTarget();
     });
     /* == BOTÓN DEFINITIVA == */
     this.hud.changeDefinitiveButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
-        this.chooseTarget();
     });
 }
-
+/*
 chooseTarget()
 {
     this.enemiesQueue.forEach(enemy => {
@@ -293,13 +290,54 @@ chooseTarget()
             });
             this.charactersQueue[0].doSomethingPlayer(enemy1);
             enemy1.play(enemy1.hurtAnim);
-            /*
+
+            return enemy1;
+            
             if (!this.selectedEnemy.isAlive())
             {
                 this.selectedEnemy.dieAnim();
-            }*/
+            }
             
         });
     });
+} 
+*/
+
+chooseEnemy()
+{
+    scene.enemiesQueue.forEach(enemy => {
+
+        enemy.removeAllListeners("pointerdown");
+        enemy.setInteractive();
+
+        enemy.once("pointerdown", () => {
+            const selectedEnemy = enemy;
+            scene.enemiesQueue.forEach(e => {
+                e.disableInteractive();
+                e.removeAllListeners("pointerdown");
+            });
+            return enemy;
+        });
+    });
+
+    return selectedEnemy;
+}
+chooseAlly()
+{
+    scene.emotionsQueue.forEach(emotion => {
+
+        emotion.removeAllListeners("pointerdown");
+        emotion.setInteractive();
+
+        emotion.once("pointerdown", () => {
+            const selectedEmotion = emotion;
+            scene.emotionsQueue.forEach(e => {
+                e.disableInteractive();
+                e.removeAllListeners("pointerdown");
+            });
+        });
+    });
+
+    return selectedEmotion;
 }
 }

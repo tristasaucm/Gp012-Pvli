@@ -1,4 +1,5 @@
 import Hud from '../Hud.js'
+import State from './States.js'
 /**
  * Clase que representa un personaje
  * @extends Phaser.GameObjects.Sprite
@@ -21,6 +22,9 @@ export default class Character extends Phaser.GameObjects.Sprite
      * @param {number} Speed - Velocidad actual
      * @param {number} actionValue - Valor de acción actual
      * === CONDICIONES EXTRA ===
+     * @param {number} positiveQueue - Array de estados positivos/buffs
+     * @param {number} negativeQueue - Array de estados negativos/debuffs
+     * === CONDICIONES EXTRA ===
      * @param {number} actionsThisBattle - Nº de veces que ha actuado en el combate actual
      * @param {number} startQueueIndex - Indice inicial en el array de personajes (para saber cual es su barra de vida)
 	 */
@@ -42,6 +46,10 @@ export default class Character extends Phaser.GameObjects.Sprite
         this.Attack = this.baseAttack;
         this.Speed = this.baseSpeed;
         this.actionValue = 10000 / this.Speed;
+
+        /* === ESTADOS === */
+        this.positiveQueue = [];
+        this.negativeQueue = [];
 
         /* === CONDICIONES EXTRA === */
         this.actionsThisBattle = 0;
@@ -120,7 +128,132 @@ preUpdate(time, delta)
     {
         this.Health += amount;
     }
+    /* === AUMENTO/DECREMENTO DAÑO === */
 
+    // Gana daño en relación a un porcentaje
+    gainDamagePercentage (amount)
+    {
+        this.Attack += this.baseAttack * amount/100; // De momento solo se aumenta su ataque actual (a lo mejor sea mas conveniente tener una variable de daño)
+    }
+    // Gana daño en relación a un porcentaje
+    loseDamagePercentage (amount)
+    {
+        this.Attack -= this.baseAttack * amount/100; // De momento solo se aumenta su ataque actual (a lo mejor sea mas conveniente tener una variable de daño)
+    }
+
+    /* === ESTADOS NEGATIVOS/POSITIVOS === */
+    addNegativeState(state) // Añadir un estado negativo
+    {
+        let i = 0;
+        while (i < this.negativeQueue.length && this.negativeQueue[i].id != state.id)
+        {
+            i++;
+        }
+        if (i == this.negativeQueue.length)
+        {
+            this.negativeQueue.push(state);
+        }
+    }
+    removeNegativeState(state) // Eliminar un estado negativo específico
+    {
+        let i = 0;
+        while (i < this.negativeQueue.length && this.negativeQueue[i].id != state.id)
+        {
+            i++;
+        }
+        if (i != this.negativeQueue.length)
+        {
+            this.negativeQueue.splice(i, 1);
+        }
+    }
+    removeAllNegativeState() // Eliminar todo los estados negativos
+    {
+        this.negativeQueue.splice(0, this.negativeQueue.length);
+    }
+    addPositiveState(state) // Añadir un estado positivo
+    {
+        let i = 0;
+        while (i < this.positiveQueue.length && this.positiveQueue[i].id != state.id)
+        {
+            i++;
+        }
+        if (i == this.positiveQueue.length)
+        {
+            this.positiveQueue.push(state);
+        }
+    }
+    removePositiveState() // Eliminar un estado positivo
+    {
+        let i = 0;
+        while (i < this.positiveQueue.length && this.positiveQueue[i].id != state.id)
+        {
+            i++;
+        }
+        if (i != this.positiveQueue.length)
+        {
+            this.positiveQueue.splice(i, 1);
+        }
+    }
+    removeAllPositiveState() // Eliminar todos los estados positivos
+    {
+        this.positiveQueue.splice(0, this.negativeQueue.length);
+    }
+    removeAllStates() // Eliminar todos los estados
+    {
+        this.removeAllNegativeState();
+        this.removeAllPositiveState();
+    }
+    findNegativeState(id)
+    {
+        const found = false;
+        let i = 0;
+
+        while (i < this.negativeQueue.length && !found)
+        {
+            if (this.negativeQueue[i].id == id) found = true;
+            else i++;
+        }
+
+        return found;
+    }
+    findPositiveState(id)
+    {
+        const found = false;
+        let i = 0;
+
+        while (i < this.positiveQueue.length && !found)
+        {
+            if (this.positiveQueue[i].id == id) found = true;
+            else i++;
+        }
+
+        return found;
+    }
+    applyStates()
+    {
+        this.positiveQueue.array.forEach(positiveState => 
+        {
+            if(!positiveState.isApplied())
+            {
+                if (positiveState.stat == "Attack")
+                {
+                    this.gainDamagePercentage(positiveState.amount);
+                    positiveState.setApplied(true);
+                }
+            }
+        });
+        this.negativeQueue.array.forEach(negativeState => 
+        {
+            if(!negativeState.isApplied())
+            {
+                if (negativeState.stat == "Attack")
+                {
+                    this.loseDamagePercentage(negativeState.amount);
+                    negativeState.setApplied(true);
+                }
+            }
+        });
+    }
     /* === ESTADO DEL PERSONAJE === */
 
     // Devuelve si el personaje sigo vivo o no
@@ -128,7 +261,6 @@ preUpdate(time, delta)
     {
         return this.Health > 0
     }
-
     getBaseSpeed()
     {
         return this.baseSpeed;
@@ -149,13 +281,13 @@ preUpdate(time, delta)
     {
         return this.baseactionValue;
     }
-    getCurrentaV()
+    getCurrentAV()
     {
         return this.actionValue;
     }
-    gainaV(amount)
+    setAV(amount)
     {
-        this.actionValue += amount;
+        if(amount >= 0) this.actionValue = amount;
     }
     getactionsThisBattle()
     {

@@ -33,15 +33,19 @@ export default class Alegria extends Character
     // Inflige daño a un enemigo. (Baja la barra de “locura”)
     BasicAttack(scene)
     {
-        const enemy = scene.chooseEnemy();
-        enemy.takeDamage(this.Attack);
+        scene.chooseEnemy(enemy => {
+            enemy.takeDamage(this.Attack);
+            scene.nextCharactersTurn();
+        });
     }
     // Cura a un aliado y elimina los estados negativos que tenga. (Sube la barra de “locura”)
     Skill(scene)
     {
-        const ally = scene.chooseAlly();
-        ally.gainHealth(this.healing);
-        ally.removeAllNegativeState();
+        scene.chooseAlly(ally => {
+            ally.gainHealthFlat(this.healing);
+            ally.removeAllNegativeState();
+            scene.nextCharactersTurn();
+        });
     }
     // Adelanta la acción de todos los aliados y les aplica “felicidad” aumentando el daño que hacen.  (Sube la barra de “locura”)
     Ultimate(scene)
@@ -50,6 +54,7 @@ export default class Alegria extends Character
         scene.emotionsQueue.forEach(emotion => {
             emotion.setAV(0);
             emotion.addPositiveState(this.felicidad);
+            scene.nextCharactersTurn();
         })
     }
     preUpdate(time, delta)

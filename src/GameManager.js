@@ -4,5 +4,5 @@ import Hud from '../Hud.js'
 
 export default class GameManager
 {
-
+    
 }

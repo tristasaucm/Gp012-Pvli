@@ -26,24 +26,26 @@ export default class Tristeza extends Character
     }
     BasicAttack(scene)
     {
-        const enemy = scene.chooseEnemy();
+        scene.chooseEnemy(enemy => {
+            if (enemy.findNegativeState('Depresion'))
+            {
+                scene.enemiesQueue.forEach(enemy1 => {
+                    enemy1.takeDamage(this.Attack);
+                })
+            }   
+            else
+            {
+                enemy.takeDamage(this.Attack);
+            }
+        });
 
-        if (enemy.findNegativeState('Depresion'))
-        {
-            scene.enemiesQueue.forEach(enemy1 => {
-                enemy1.takeDamage(this.Attack);
-            })
-        }
-        else
-        {
-            enemy.takeDamage(this.Attack);
-        }
     }
     Skill(scene)
     {
-        const enemy = scene.chooseEnemy();
-        this.depresion = new State('Depresion', 'Attack', 20, 3);
-        enemy.addNegativeState(this.depresion);
+        scene.chooseEnemy(enemy => {
+            this.depresion = new State('Depresion', 'Attack', 20, 3);
+            enemy.addNegativeState(this.depresion);
+        });
     }
     Ultimate(scene)
     {

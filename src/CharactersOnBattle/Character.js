@@ -121,13 +121,47 @@ preUpdate(time, delta)
     // Gana vida en relación a un porcentaje
     gainHealthPercentage (amount)
     {
+        const actHealth = this.Health;
         this.Health += this.baseHealth * amount/100;
+        if (this.Health > this.baseHealth) this.Health = this.baseHealth;
+        this.showHeal(this.Health - actHealth);
     }
     // Gana vida en relación a una cantidad fija
     gainHealthFlat (amount)
     {
+        const actHealth = this.Health;
         this.Health += amount;
+        if (this.Health > this.baseHealth) this.Health = this.baseHealth;
+        this.showHeal(this.Health - actHealth);
     }
+    // Enseña la curación recibida
+    showHeal(heal) 
+    {
+        let healText = this.scene.add.text
+        (
+            this.x,
+            this.y - 50,
+            `+${heal}`,
+            {
+                fontSize: '24px',
+                color: '#3aff33',
+                stroke: '#000000',
+                strokeThickness: 4
+            }
+        );
+
+        healText.setOrigin(0.5);
+
+        this.scene.tweens.add
+        ({
+            targets: healText,
+            y: healText.y - 60,
+            alpha: 0,
+            duration: 800,
+        });
+
+        onComplete: () => {healText.destroy();}
+    };
     /* === AUMENTO/DECREMENTO DAÑO === */
 
     // Gana daño en relación a un porcentaje

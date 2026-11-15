@@ -58,7 +58,7 @@ create(){
     // Creamos los enemigos de la escena
     this.enemiesQueue.push(new AnsiedadBattle(this, 'ansiedad', 100, 20, 80, enemyIndex))
     enemyIndex++;
-    this.enemiesQueue.push(new TraumaBattle(this, 'trauma', 100, 15, 120, enemyIndex))
+    this.enemiesQueue.push(new TraumaBattle(this, 'trauma', 100, 15, 90, enemyIndex))
     enemyIndex++;
 
     this.enemiesQueue[0].play('ansiedad_idle');
@@ -72,7 +72,7 @@ create(){
 
     // Mete todos los enemigos y personajes y ordena segun el action value
     this.charactersQueue = [...this.emotionsQueue, ...this.enemiesQueue];
-    this.charactersQueue.sort((a, b) => a.getCurrentaV() - b.getCurrentaV());
+    this.charactersQueue.sort((a, b) => a.getCurrentAV() - b.getCurrentAV());
 
     this.hud.createHealthBars(this.charactersQueue);
 
@@ -160,14 +160,14 @@ nextCharactersTurn()
 // Actualiza el action value de todos los personajes
 updateaVs()
 {
-    let sus = this.charactersQueue[0].getCurrentaV();  // aV actual del personaje que acaba de actuar
-
+    let sus = this.charactersQueue[0].getCurrentAV();  // aV actual del personaje que acaba de actuar
+    
     this.charactersQueue.forEach((character) =>  // forEach: por cada 'character' en 'charactersQueue'...
     {
-        character.setaV(-sus); // Se le resta el 'sus' de antes al aV de cada personaje
+        character.setAV(-sus); // Se le resta el 'sus' de antes al aV de cada personaje
     });
 
-    this.charactersQueue[0].setaV(this.charactersQueue[0].getBaseAV());  // Se reinicia el aV del personaje que acaba de actuar, devolviendo su valor al suyo base
+    this.charactersQueue[0].setAV(this.charactersQueue[0].getBaseAV());  // Se reinicia el aV del personaje que acaba de actuar, devolviendo su valor al suyo base
 }
 
 // Orden de prioridades: aV actual, velocidad actual, enemigo > emoción, y menor nº de acciones en este combate. Si todo esto coincide, se lanza una moneda
@@ -182,9 +182,9 @@ resortCharactersQueue()
     {
         let act = this.charactersQueue[i + 1];
 
-        if (first.getCurrentaV() < act.getCurrentaV()) found = true;  // Compara aVs...
+        if (first.getCurrentAV() < act.getCurrentAV()) found = true;  // Compara aVs...
         
-        else if (first.getCurrentaV() == act.getCurrentaV())
+        else if (first.getCurrentAV() == act.getCurrentAV())
         {
             if (first.getCurrentSpeed() > act.getCurrentSpeed()) found = true;  // Compara velocidades...
             else if (first.getCurrentSpeed() == act.getCurrentSpeed())
@@ -227,16 +227,19 @@ showButtonSkills()
     this.hud.changeBasicButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
+        this.charactersQueue[0].BasicAttack(this);
     });
     /* == BOTÓN HABILIDAD == */
     this.hud.changeHabilityButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
+        this.charactersQueue[0].Skill(this);
     });
     /* == BOTÓN DEFINITIVA == */
     this.hud.changeDefinitiveButtonFunction(() => {
         this.waitingSkill = false;
         this.waitingTarget = true;
+        this.charactersQueue[0].Ultimate(this);
     });
 }
 /*
@@ -281,41 +284,38 @@ chooseTarget()
 } 
 */
 
-chooseEnemy()
+chooseEnemy(callback)
 {
-    scene.enemiesQueue.forEach(enemy => {
+    this.enemiesQueue.forEach(enemy => {
 
         enemy.removeAllListeners("pointerdown");
         enemy.setInteractive();
 
         enemy.once("pointerdown", () => {
-            const selectedEnemy = enemy;
-            scene.enemiesQueue.forEach(e => {
+            this.enemiesQueue.forEach(e => {
                 e.disableInteractive();
                 e.removeAllListeners("pointerdown");
             });
-            return enemy;
+
+            callback(enemy);
         });
     });
-
-    return selectedEnemy;
 }
-chooseAlly()
+chooseAlly(callback)
 {
-    scene.emotionsQueue.forEach(emotion => {
+    this.emotionsQueue.forEach(emotion => {
 
         emotion.removeAllListeners("pointerdown");
         emotion.setInteractive();
 
         emotion.once("pointerdown", () => {
-            const selectedEmotion = emotion;
-            scene.emotionsQueue.forEach(e => {
+            this.emotionsQueue.forEach(e => {
                 e.disableInteractive();
                 e.removeAllListeners("pointerdown");
             });
+
+            callback(emotion);
         });
     });
-
-    return selectedEmotion;
 }
 }

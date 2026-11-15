@@ -1,0 +1,58 @@
+import Character from '../Character.js';
+/**
+ * Clase que representa un personaje Ira
+ * @extends Character
+ */
+
+export default class Ira extends Character
+{   
+    /**
+	 * Constructor de Ira
+     * @param {nombre} skills // Habilidades del personaje
+	 */
+
+    preload(scene) 
+    {
+        scene.load.image()
+    }
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
+    {
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
+        this.skills = [
+            { nombre: "Ataque básico"}, 
+            { nombre: "Habilidad"},
+            { nombre: "Definitiva"}
+        ]
+    }
+    BasicAttack()
+    {
+        return this.Attack;
+    }
+    Skill()
+    {
+        return this.Attack;
+    }
+    Ultimate()
+    {
+        return this.Attack;
+    }
+    preUpdate(time, delta)
+    {
+        // Actualizar la barra de vida de alegria para que este constantemente con la vida actual del personaje
+        // this.interfaz.updateAlegriaHealthBar(this.getCurrentHealthPercentage());
+        // Preupdate de la clase original
+        super.preUpdate(time, delta);
+    }
+    isEnemy()
+    {
+        return false;
+    }
+    getSkills()
+    {
+        return this.skills;
+    }
+    doSomethingPlayer(enemy)  // Método auxiliar para comprobar que la lógica de aVs funciona
+	{
+		enemy.takeDamage(this.BasicAttack());
+	}
+}

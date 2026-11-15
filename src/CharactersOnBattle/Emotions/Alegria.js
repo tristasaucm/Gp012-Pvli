@@ -1,6 +1,7 @@
 import Character from '../Character.js';
+import State from '../States.js'
 /**
- * Clase que representa un enemigo goblin
+ * Clase que representa un personaje Alegria
  * @extends Character
  */
 
@@ -9,6 +10,9 @@ export default class Alegria extends Character
     /**
 	 * Constructor de Alegría
      * @param {nombre} skills // Habilidades del personaje
+     * 
+     * === ESTADOS QUE APLICA EL PERSONAJE ===
+     * @param {state} felicidad // Estado positivo que aumenta daño
 	 */
 
     preload(scene) 
@@ -23,18 +27,30 @@ export default class Alegria extends Character
             { nombre: "Habilidad"},
             { nombre: "Definitiva"}
         ]
+
+        this.healing = baseHealth * 0.20;
     }
-    BasicAttack()
+    // Inflige daño a un enemigo. (Baja la barra de “locura”)
+    BasicAttack(scene)
     {
-        return this.Attack;
+        const enemy = scene.chooseEnemy();
+        enemy.takeDamage(this.Attack);
     }
-    Skill()
+    // Cura a un aliado y elimina los estados negativos que tenga. (Sube la barra de “locura”)
+    Skill(scene)
     {
-        return this.Attack;
+        const ally = scene.chooseAlly();
+        ally.gainHealth(this.healing);
+        ally.removeAllNegativeState();
     }
-    Ultimate()
+    // Adelanta la acción de todos los aliados y les aplica “felicidad” aumentando el daño que hacen.  (Sube la barra de “locura”)
+    Ultimate(scene)
     {
-        return this.Attack;
+        this.felicidad = new State('Felicidad', 'Attack', 20, 3);
+        scene.emotionsQueue.forEach(emotion => {
+            emotion.setAV(0);
+            emotion.addPositiveState(this.felicidad);
+        })
     }
     preUpdate(time, delta)
     {

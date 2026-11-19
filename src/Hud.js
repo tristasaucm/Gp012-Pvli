@@ -50,6 +50,8 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         this.botonCambio.on("pointerover", ()=>{this.botonCambio.setScale(0.8);});
         this.botonCambio.on("pointerout", ()=>{this.botonCambio.setScale(0.6);});
 
+        this.fondosBarras = ['fondoBarra', 'fondoBarraAnsiedad', 'fondoBarraTrauma'];
+        this.rellenosBarras = ['barraAlegria', 'barraAnsiedad', 'barraTrauma'];
 
         // Almacenarán las referencias a las barras visuales
         this.emotionBars = [];
@@ -65,12 +67,12 @@ export default class Hud extends Phaser.GameObjects.Sprite {
             if (character.isEnemy()) {
                 // Es enemigo -> Creamos barra en el lado de la ansiedad
                 let posY = 60 + (this.enemyBars.length * 40);
-                let bar = new Barra(this.scene, 550, posY, 'fondoBarraAnsiedad', 'barraAnsiedad', 0, 1.4, 43, 0);
+                let bar = new Barra(this.scene, 550, posY, this.fondosBarras[character.getCodedType()], this.rellenosBarras[character.getCodedType()], 0, 1.4, 43, 0);
                 this.enemyBars.push(bar);
             } else {
                 // Es emoción -> Creamos barra en el lado de la alegría
                 let posY = 60 + (this.emotionBars.length * 40);
-                let bar = new Barra(this.scene, 10, posY, 'fondoBarra', 'barraAlegria', 0, 0.75, 0, 0);
+                let bar = new Barra(this.scene, 10, posY, this.fondosBarras[character.getCodedType()], this.rellenosBarras[character.getCodedType()], 0, 0.75, 0, 0);
                 this.emotionBars.push(bar);
             }
         });

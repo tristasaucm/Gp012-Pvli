@@ -44,6 +44,8 @@ export default class load extends Phaser.Scene {
         this.load.image('barraAlegria','assets/hud/Barras/BarraAlegria.png');
         this.load.image('barraAnsiedad','assets/hud/Barras Vida (UI)/BarraAnsiedad.png');
         this.load.image('fondoBarraAnsiedad','assets/hud/Barras Vida (UI)/FondoBarraAnsiedad.png');
+        this.load.image('barraTrauma','assets/hud/Barras Vida (UI)/BarraTrauma.png');
+        this.load.image('fondoBarraTrauma','assets/hud/Barras Vida (UI)/FondoBarraTrauma.png');
         this.load.image('barraLocura','assets/hud/Barras Vida (UI)/BarraLocura.png');
         this.load.image('fondoBarraLocura','assets/hud/Barras Vida (UI)/FondoBarraLocura.png');
         this.load.image('botonCambio','assets/hud/BotonCambio.png');

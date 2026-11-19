@@ -16,7 +16,7 @@ export default class AnsiedadBattle extends Character
     }
     constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
-        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index, 1);
         this.idleAnim = 'ansiedad_idle';
         this.hurtAnim = 'ansiedad_hurt';
         this.attackAnim = 'ansiedad_attack';

@@ -12,7 +12,7 @@ export default class TraumaBattle extends Character
 	 */
     constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
-        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index, 2);
         this.idleAnim = 'trauma_idle';
         this.hurtAnim = 'trauma_hurt';
         this.attackAnim = 'trauma_attack';

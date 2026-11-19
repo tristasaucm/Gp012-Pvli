@@ -70,11 +70,14 @@ create(){
     characterIndex++;
     this.emotionsQueue[0].play('alegria_idle');
 
-    // Mete todos los enemigos y personajes y ordena segun el action value
+    // Mete todos los enemigos y personajes
     this.charactersQueue = [...this.emotionsQueue, ...this.enemiesQueue];
-    this.charactersQueue.sort((a, b) => a.getCurrentAV() - b.getCurrentAV());
 
+    // Crea las barras de vida
     this.hud.createHealthBars(this.charactersQueue);
+
+    // Reordena segun el action value
+    this.charactersQueue.sort((a, b) => a.getCurrentAV() - b.getCurrentAV());
 
     // Posicionamos las emociones
     this.emotionsQueue[0].setPosition(250, 350);

@@ -21,7 +21,7 @@ export default class Alegria extends Character
     }
     constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
     {
-        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index);
+        super(scene, imgKey, baseHealth, baseAttack, baseSpeed, index, 0);
         this.skills = [
             { nombre: "Ataque básico"}, 
             { nombre: "Habilidad"},

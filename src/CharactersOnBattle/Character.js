@@ -27,8 +27,9 @@ export default class Character extends Phaser.GameObjects.Sprite
      * === CONDICIONES EXTRA ===
      * @param {number} actionsThisBattle - Nº de veces que ha actuado en el combate actual
      * @param {number} startQueueIndex - Indice inicial en el array de personajes (para saber cual es su barra de vida)
+     * @param {number} codedType - Tipo de enemigo codificado: 0-alegria, 1-ansiedad, 2-trauma, etc.
 	 */
-    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index)
+    constructor (scene, imgKey, baseHealth, baseAttack, baseSpeed, index, CodedType)
     {
         /* === ESCENA === */
         super(scene, 0, 0, imgKey);
@@ -56,6 +57,9 @@ export default class Character extends Phaser.GameObjects.Sprite
 
         /* === Indice de enemigo === */
         this.startQueueIndex = index;
+
+        /* === Tipo de enemigo codificado === */
+        this.codedType = CodedType;
     }
 
 preUpdate(time, delta) 
@@ -334,5 +338,9 @@ preUpdate(time, delta)
     getIndex()
     {
         return this.startQueueIndex;
+    }
+    getCodedType()
+    {
+        return this.codedType;
     }
 }

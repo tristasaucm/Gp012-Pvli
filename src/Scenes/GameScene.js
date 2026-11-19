@@ -156,7 +156,9 @@ nextCharactersTurn()
     if (this.charactersQueue[0].isEnemy()) this.hud.setTurnoRival();
     else this.hud.setTurnoJugador();
     this.hud.updateHealthBars(this.charactersQueue);
-    this.actualTurn();  // Técnicamente es recursivo, pero aquí debería de haber una comprobación previa de si se ha terminado el combate (futura tarea supongo)
+    
+    if (!this.enemiesQueue.length == 0 && !this.emotionsQueue.length == 0) this.actualTurn();
+    else  this.scene.start("Dungeon",{posX: this.posmazX,posY: this.posmazY});
 }
 cleanDeadCharacters() {
     // Funcion auxiliar para procesar cualquier array de personajes
@@ -311,11 +313,11 @@ chooseEnemy(callback)
     this.enemiesQueue.forEach(enemy => {
 
         enemy.removeAllListeners("pointerdown");
-        enemy.setInteractive();
+        enemy.setInteractive({useHandCursor:true});
 
         enemy.once("pointerdown", () => {
             this.enemiesQueue.forEach(e => {
-                e.disableInteractive();
+                e.disableInteractive({useHandCursor:false});
                 e.removeAllListeners("pointerdown");
             });
 
@@ -328,11 +330,11 @@ chooseAlly(callback)
     this.emotionsQueue.forEach(emotion => {
 
         emotion.removeAllListeners("pointerdown");
-        emotion.setInteractive();
+        emotion.setInteractive({useHandCursor:true});
 
         emotion.once("pointerdown", () => {
             this.emotionsQueue.forEach(e => {
-                e.disableInteractive();
+                e.disableInteractive({useHandCursor:false});
                 e.removeAllListeners("pointerdown");
             });
 

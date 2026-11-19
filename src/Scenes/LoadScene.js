@@ -42,8 +42,10 @@ export default class load extends Phaser.Scene {
 
         this.load.image('fondoBarra','assets/hud/Barras/FondoBarras.png');
         this.load.image('barraAlegria','assets/hud/Barras/BarraAlegria.png');
-        this.load.image('barraAnsiedad','assets/hud/Barras/BarraAnsiedad.png');
-        this.load.image('barraLocura','assets/hud/Barras/BarraLocura.png');
+        this.load.image('barraAnsiedad','assets/hud/Barras Vida (UI)/BarraAnsiedad.png');
+        this.load.image('fondoBarraAnsiedad','assets/hud/Barras Vida (UI)/FondoBarraAnsiedad.png');
+        this.load.image('barraLocura','assets/hud/Barras Vida (UI)/BarraLocura.png');
+        this.load.image('fondoBarraLocura','assets/hud/Barras Vida (UI)/FondoBarraLocura.png');
         this.load.image('botonCambio','assets/hud/BotonCambio.png');
         this.load.image('indicadorTurno','assets/hud/IndicadorTurno.png');
         this.load.image('indicadorTurnoRival','assets/hud/IndicadorTurnoRival.png');
@@ -55,13 +57,13 @@ export default class load extends Phaser.Scene {
         //----Carga de spriteshets----
 
         /* === ANSIEDAD === */
-        this.load.spritesheet('ansiedadIdle', 'assets/Enemies/Ansiedad/Idle/IdleSheet.png', { frameWidth: 32, frameHeight: 25 });
+        this.load.spritesheet('ansiedadIdle', 'assets/Enemies/Ansiedad/Idle/IdleSheet.png', { frameWidth: 32, frameHeight: 16 });
         this.load.spritesheet('ansiedadAttack', 'assets/Enemies/Ansiedad/Attack/AttackSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadDie', 'assets/Enemies/Ansiedad/Die/DieSheet.png', { frameWidth: 32, frameHeight: 25 });
         this.load.spritesheet('ansiedadHurt', 'assets/Enemies/Ansiedad/Hurt/HurtSheet.png', { frameWidth: 32, frameHeight: 25 });
 
         /* === TRAUMA === */
-        this.load.spritesheet('traumaIdle', 'assets/Enemies/Trauma/Idle/IdleSheet.png', { frameWidth: 40, frameHeight: 40 });
+        this.load.spritesheet('traumaIdle', 'assets/Enemies/Trauma/Idle/IdleSheet.png', { frameWidth: 40, frameHeight: 22 });
         this.load.spritesheet('traumaAttack', 'assets/Enemies/Trauma/Attack/AttackSheet.png', { frameWidth: 40, frameHeight: 40 });
         this.load.spritesheet('traumaDie', 'assets/Enemies/Trauma/Die/DieSheet.png', { frameWidth: 40, frameHeight: 40 });
         this.load.spritesheet('traumaHurt', 'assets/Enemies/Trauma/Hurt/HurtSheet.png', { frameWidth: 40, frameHeight: 40 });

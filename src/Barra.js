@@ -3,14 +3,14 @@
  * @extends Phaser.GameObjects.Sprite
  */
 export default class Barra extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, fondo, relleno, angle, scale)
+    constructor(scene, x, y, fondo, relleno, angle, scale, offsetRellenoX, offsetRellenoY)
     {
         super(scene, x, y);
        
         this.scene.add.existing(this);
         // Agregarlos a la escena
         this.fondoBarra = this.scene.add.image(x, y, fondo).setOrigin(0, 0).setAngle(angle).setScale(scale);
-        this.rellenoBarra = this.scene.add.image(x, y, relleno).setOrigin(0, 0).setAngle(angle).setScale(scale);
+        this.rellenoBarra = this.scene.add.image(x + offsetRellenoX, y + offsetRellenoY, relleno).setOrigin(0, 0).setAngle(angle).setScale(scale);
         // Para que se queden fijos en la camara
         this.fondoBarra.setScrollFactor(0, 0);
         this.rellenoBarra.setScrollFactor(0, 0);

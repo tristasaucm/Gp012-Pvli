@@ -51,7 +51,7 @@ create(){
     this.add.image(0,0,'fondojuego').setOrigin(0,0).setDisplaySize(this.scale.width, this.scale.height);
     
     /* == HUD Y FONDOS == */
-    this.hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'barraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
+    this.hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'fondoBarraLocura', 'barraAnsiedad', 'fondoBarraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
     
     /* == PERSONAJES EN COMBATE Y TURNOS == */ //(temporal)
     let enemyIndex = 0;

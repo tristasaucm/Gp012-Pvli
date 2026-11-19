@@ -4,7 +4,7 @@ import Barra from './Barra.js';
  * @extends Phaser.GameObjects.Sprite
  */
 export default class Hud extends Phaser.GameObjects.Sprite {
-    constructor(scene, botonCambio, fondoBotonCombate, fondoBarra, barraAlegria, barraLocura, barraAnsiedad, indicadorTurno, indicadorTurnoRival)
+    constructor(scene, botonCambio, fondoBotonCombate, fondoBarra, barraAlegria, barraLocura, fondoBarraLocura, barraAnsiedad, fondoBarraAnsiedad, indicadorTurno, indicadorTurnoRival)
     {
         super(scene);
         this.scene.add.existing(this);
@@ -49,11 +49,12 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         this.fondoBarra = fondoBarra;
         this.barraAlegria = barraAlegria;
         this.barraAnsiedad = barraAnsiedad;
+        this.fondoBarraAnsiedad = fondoBarraAnsiedad;
 
         // Almacenarán las referencias a las barras visuales
         this.emotionBars = [];
         this.enemyBars = [];
-        this.BarraLocura = new Barra(this.scene, 750,270,fondoBarra,barraLocura,270,1);
+        this.BarraLocura = new Barra(this.scene, 750,270,fondoBarraLocura,barraLocura,270,2,0,-18);
     
     }
     createHealthBars(charactersQueue) {
@@ -64,12 +65,12 @@ export default class Hud extends Phaser.GameObjects.Sprite {
             if (character.isEnemy()) {
                 // Es enemigo -> Creamos barra en el lado de la ansiedad
                 let posY = 60 + (this.enemyBars.length * 40);
-                let bar = new Barra(this.scene, 550, posY, this.fondoBarra, this.barraAnsiedad, 0, 0.75);
+                let bar = new Barra(this.scene, 550, posY, this.fondoBarraAnsiedad, this.barraAnsiedad, 0, 1.4, 43, 0);
                 this.enemyBars.push(bar);
             } else {
                 // Es emoción -> Creamos barra en el lado de la alegría
                 let posY = 60 + (this.emotionBars.length * 40);
-                let bar = new Barra(this.scene, 10, posY, this.fondoBarra, this.barraAlegria, 0, 0.75);
+                let bar = new Barra(this.scene, 10, posY, this.fondoBarra, this.barraAlegria, 0, 0.75, 0, 0);
                 this.emotionBars.push(bar);
             }
         });

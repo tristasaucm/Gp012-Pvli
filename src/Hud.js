@@ -4,16 +4,17 @@ import Barra from './Barra.js';
  * @extends Phaser.GameObjects.Sprite
  */
 export default class Hud extends Phaser.GameObjects.Sprite {
-    constructor(scene, botonCambio, fondoBotonCombate, fondoBarra, barraAlegria, barraLocura, fondoBarraLocura, barraAnsiedad, fondoBarraAnsiedad, indicadorTurno, indicadorTurnoRival)
+    constructor(scene)
     {
         super(scene);
         this.scene.add.existing(this);
 
         // Indicadores Turno
-        this.Turno = this.scene.add.image(400,0,indicadorTurno).setOrigin(1,0).setScale(0.7).setScrollFactor(0, 0);
-        this.TurnoRival = this.scene.add.image(400,0,indicadorTurnoRival).setOrigin(0,0).setScale(0.7).setScrollFactor(0, 0);
+        this.Turno = this.scene.add.image(400,0,'indicadorTurno').setOrigin(1,0).setScale(0.7).setScrollFactor(0, 0);
+        this.TurnoRival = this.scene.add.image(400,0,'indicadorTurnoRival').setOrigin(0,0).setScale(0.7).setScrollFactor(0, 0);
 
-        this.BotonBasico = this.scene.add.image(290,600,fondoBotonCombate).setOrigin(1,1).setScale(1.5).setScrollFactor(0, 0);
+        // Botones de accion del jugador
+        this.BotonBasico = this.scene.add.image(290,600,'fondoBotonCombate').setOrigin(1,1).setScale(1.5).setScrollFactor(0, 0);
         this.BotonBasico.setInteractive({useHandCursor:true});
         this.BotonBasico.on("pointerover", ()=>{this.BotonBasico.setScale(1.7); this.TextoBasico.setScale(1.2);});
         this.BotonBasico.on("pointerout", ()=>{this.BotonBasico.setScale(1.5); this.TextoBasico.setScale(1);});
@@ -23,8 +24,7 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         fontStyle: 'bold'
         }).setOrigin(1, 1);
         
-        
-        this.BotonHabilidad = this.scene.add.image(400,600,fondoBotonCombate).setOrigin(0.5,1).setScale(1.5).setScrollFactor(0, 0);
+        this.BotonHabilidad = this.scene.add.image(400,600,'fondoBotonCombate').setOrigin(0.5,1).setScale(1.5).setScrollFactor(0, 0);
         this.BotonHabilidad.setInteractive({useHandCursor:true});
         this.BotonHabilidad.on("pointerover", ()=>{this.BotonHabilidad.setScale(1.7); this.TextoHabilidad.setScale(1.2);});
         this.BotonHabilidad.on("pointerout", ()=>{this.BotonHabilidad.setScale(1.5); this.TextoHabilidad.setScale(1);});       
@@ -34,8 +34,7 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         fontStyle: 'bold'
         }).setOrigin(0.5, 1);
 
-        
-        this.BotonDefinitiva = this.scene.add.image(510,600,fondoBotonCombate).setOrigin(0,1).setScale(1.5).setScrollFactor(0, 0);
+        this.BotonDefinitiva = this.scene.add.image(510,600,'fondoBotonCombate').setOrigin(0,1).setScale(1.5).setScrollFactor(0, 0);
         this.BotonDefinitiva.setInteractive({useHandCursor:true});
         this.BotonDefinitiva.on("pointerover", ()=>{this.BotonDefinitiva.setScale(1.7); this.TextoDefinitiva.setScale(1.2);});
         this.BotonDefinitiva.on("pointerout", ()=>{this.BotonDefinitiva.setScale(1.5); this.TextoDefinitiva.setScale(1);});
@@ -44,17 +43,18 @@ export default class Hud extends Phaser.GameObjects.Sprite {
         color: '#ffffff',
         fontStyle: 'bold'
         }).setOrigin(0, 1);
-        
-        // Guardamos el fondo y los rellenos de las barras
-        this.fondoBarra = fondoBarra;
-        this.barraAlegria = barraAlegria;
-        this.barraAnsiedad = barraAnsiedad;
-        this.fondoBarraAnsiedad = fondoBarraAnsiedad;
+
+        // Boton de cambio de personajes
+        this.botonCambio = this.scene.add.image(30,30,'botonCambio').setOrigin(0.5,0.5).setScale(0.6).setScrollFactor(0, 0);
+        this.botonCambio.setInteractive({useHandCursor:true});
+        this.botonCambio.on("pointerover", ()=>{this.botonCambio.setScale(0.8);});
+        this.botonCambio.on("pointerout", ()=>{this.botonCambio.setScale(0.6);});
+
 
         // Almacenarán las referencias a las barras visuales
         this.emotionBars = [];
         this.enemyBars = [];
-        this.BarraLocura = new Barra(this.scene, 750,270,fondoBarraLocura,barraLocura,270,2,0,-18);
+        this.BarraLocura = new Barra(this.scene, 750,270,'fondoBarraLocura','barraLocura',270,2,0,-18);
     
     }
     createHealthBars(charactersQueue) {
@@ -65,12 +65,12 @@ export default class Hud extends Phaser.GameObjects.Sprite {
             if (character.isEnemy()) {
                 // Es enemigo -> Creamos barra en el lado de la ansiedad
                 let posY = 60 + (this.enemyBars.length * 40);
-                let bar = new Barra(this.scene, 550, posY, this.fondoBarraAnsiedad, this.barraAnsiedad, 0, 1.4, 43, 0);
+                let bar = new Barra(this.scene, 550, posY, 'fondoBarraAnsiedad', 'barraAnsiedad', 0, 1.4, 43, 0);
                 this.enemyBars.push(bar);
             } else {
                 // Es emoción -> Creamos barra en el lado de la alegría
                 let posY = 60 + (this.emotionBars.length * 40);
-                let bar = new Barra(this.scene, 10, posY, this.fondoBarra, this.barraAlegria, 0, 0.75, 0, 0);
+                let bar = new Barra(this.scene, 10, posY, 'fondoBarra', 'barraAlegria', 0, 0.75, 0, 0);
                 this.emotionBars.push(bar);
             }
         });
@@ -89,14 +89,6 @@ export default class Hud extends Phaser.GameObjects.Sprite {
                 this.emotionBars[characterIndex].updateFillPercentage(percentage);
             }
         });
-    }
-    updateAlegriaHealthBar(newPercentage)
-    {
-        this.BarraAlegria.updateFillPercentage(newPercentage);
-    }
-    updateAnsiedadealthBar(newPercentage)
-    {
-        this.BarraAnsiedad.updateFillPercentage(newPercentage);
     }
     setTurnoRival()
     {

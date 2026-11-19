@@ -51,7 +51,7 @@ create(){
     this.add.image(0,0,'fondojuego').setOrigin(0,0).setDisplaySize(this.scale.width, this.scale.height);
     
     /* == HUD Y FONDOS == */
-    this.hud = new Hud(this, 'botonCambio', 'fondoBotonCombate', 'fondoBarra', 'barraAlegria', 'barraLocura', 'fondoBarraLocura', 'barraAnsiedad', 'fondoBarraAnsiedad', 'indicadorTurno', 'indicadorTurnoRival');
+    this.hud = new Hud(this);
     
     /* == PERSONAJES EN COMBATE Y TURNOS == */ //(temporal)
     let enemyIndex = 0;
@@ -158,7 +158,10 @@ nextCharactersTurn()
     this.hud.updateHealthBars(this.charactersQueue);
     
     if (!this.enemiesQueue.length == 0 && !this.emotionsQueue.length == 0) this.actualTurn();
-    else  this.scene.start("Dungeon",{posX: this.posmazX,posY: this.posmazY});
+    else{
+        if(this.enemiesQueue.length == 0) this.addVictoryPanel();
+        else this.addLosePanel();
+    }
 }
 cleanDeadCharacters() {
     // Funcion auxiliar para procesar cualquier array de personajes
@@ -168,7 +171,11 @@ cleanDeadCharacters() {
                 this.hud.updateHealthBars(this.charactersQueue);
                 // Destruye el sprite / objeto visual en Phaser para que desaparezca
                 if (character.active) {
-                    character.destroy();
+                    character.play(character.dieAnim);
+                    character.once('animationcomplete', () =>
+                    {
+                        character.destroy();
+                    });
                 }
                 return false; // Lo elimina del array
             }
@@ -340,6 +347,105 @@ chooseAlly(callback)
 
             callback(emotion);
         });
+    });
+}
+
+addVictoryPanel(){
+    this.hud.disableSkillButtons();
+    this.add.image(400,300,'fondomenu').setOrigin(0.5,0.5).setScale(0.1).setScrollFactor(0, 0);
+    this.add.text(400, 250 ,"Victoria", 
+    {
+        fontSize: "64px",
+        color: "#005f15",
+        fontStyle: 'bold'
+    }).setOrigin(0.5,0.5);
+    let botonReturnMenu = this.add.text(500, 350 ,"MENU", 
+    {
+        fontSize: "32px",
+        color: "#ffffff",
+        backgroundColor: "#2266aa",
+        padding: { x: 20, y: 10 },
+        fontStyle: 'bold'
+    });
+    botonReturnMenu.setScale(0.8).setOrigin(0.5,0.5).setScrollFactor(0,0);
+    botonReturnMenu.setInteractive({ useHandCursor: true })
+    botonReturnMenu.on("pointerover",()=>{ 
+        botonReturnMenu.setScale(1).setStyle({ backgroundColor: "#4488dd" });
+    });
+    botonReturnMenu.on("pointerout",()=>{ 
+        botonReturnMenu.setScale(0.8).setStyle({ backgroundColor: "#2266aa" });
+    });
+    botonReturnMenu.on("pointerdown",()=>{
+        this.scene.start("menu");
+    });
+
+    let botonReturnDungeon = this.add.text(325, 350 ,"Avanzar", 
+    {
+        fontSize: "32px",
+        color: "#ffffff",
+        backgroundColor: "#2266aa",
+        padding: { x: 20, y: 10 },
+        fontStyle: 'bold'
+    });
+    botonReturnDungeon.setScale(0.8).setOrigin(0.5,0.5).setScrollFactor(0,0);
+    botonReturnDungeon.setInteractive({ useHandCursor: true })
+    botonReturnDungeon.on("pointerover",()=>{ 
+        botonReturnDungeon.setScale(1).setStyle({ backgroundColor: "#4488dd" });
+    });
+    botonReturnDungeon.on("pointerout",()=>{ 
+        botonReturnDungeon.setScale(0.8).setStyle({ backgroundColor: "#2266aa" });
+    });
+    botonReturnDungeon.on("pointerdown",()=>{
+          this.scene.start("Dungeon",{posX: this.posmazX,posY: this.posmazY});
+    });
+}
+addLosePanel(){
+    this.hud.disableSkillButtons();
+    this.add.image(400,300,'fondomenu').setOrigin(0.5,0.5).setScale(0.1).setScrollFactor(0, 0);
+    this.add.text(400, 250 ,"Derrota", 
+    {
+        fontSize: "64px",
+        color: "#5f0000",
+        fontStyle: 'bold'
+    }).setOrigin(0.5,0.5);
+    let botonReturnMenu = this.add.text(500, 350 ,"MENU", 
+    {
+        fontSize: "32px",
+        color: "#ffffff",
+        backgroundColor: "#2266aa",
+        padding: { x: 20, y: 10 },
+        fontStyle: 'bold'
+    });
+    botonReturnMenu.setScale(0.8).setOrigin(0.5,0.5).setScrollFactor(0,0);
+    botonReturnMenu.setInteractive({ useHandCursor: true })
+    botonReturnMenu.on("pointerover",()=>{ 
+        botonReturnMenu.setScale(1).setStyle({ backgroundColor: "#4488dd" });
+    });
+    botonReturnMenu.on("pointerout",()=>{ 
+        botonReturnMenu.setScale(0.8).setStyle({ backgroundColor: "#2266aa" });
+    });
+    botonReturnMenu.on("pointerdown",()=>{
+        this.scene.start("menu");
+    });
+
+    let botonReturnDungeon = this.add.text(325, 350 ,"Avanzar", 
+    {
+        fontSize: "32px",
+        color: "#ffffff",
+        backgroundColor: "#2266aa",
+        padding: { x: 20, y: 10 },
+        fontStyle: 'bold'
+    });
+    botonReturnDungeon.setScale(0.8).setOrigin(0.5,0.5).setScrollFactor(0,0);
+    botonReturnDungeon.setInteractive({ useHandCursor: true })
+    botonReturnDungeon.on("pointerover",()=>{ 
+        botonReturnDungeon.setScale(1).setStyle({ backgroundColor: "#4488dd" });
+    });
+    botonReturnDungeon.on("pointerout",()=>{ 
+        botonReturnDungeon.setScale(0.8).setStyle({ backgroundColor: "#2266aa" });
+    });
+    botonReturnDungeon.on("pointerdown",()=>{
+          this.scene.start("Dungeon",{posX: this.posmazX,posY: this.posmazY});
     });
 }
 }

@@ -11,14 +11,16 @@ export default class Selection extends Phaser.Scene {
 	constructor() {
 		//id de la escena unico
 		super({ key: 'Dungeon' }); //seteamos el nobmre de la escena para el SceneManager
-       
+        
+        this.posX = 0;
+        this.posY = 0;
 	}
-    init({posX=350,posY=250}){
+    init({posX=0,posY=0}){
         this.posX = posX;
         this.posY = posY;
         //console.log(this.posX);
         //console.log(this.posY);
-
+       
     }
     preload()
     {
@@ -26,31 +28,54 @@ export default class Selection extends Phaser.Scene {
        
     }
     create(){
+        //--- Constantes---
+        const globalScale = 2.5;
+        // #region --- Tilemap---
         //creamos el mapa 
-        const map = this.make.tilemap({ key: 'Tilemapjson'});
-        const tileset = map.addTilesetImage('TilemapSalas', 'Tiles');
-        const suelo = map.createLayer('Capa de patrones 1', tileset, 0, 0);
-        suelo.setCollisionByProperty({ colision: true });
-        suelo.setScale(2.5);
-        suelo.setOrigin(0.5);
+        const map = this.make.tilemap({
+            key: 'Sala1',
+            tileheight: 32,
+            tilewidth: 32
+        });
+        const tileset = map.addTilesetImage('Tilemap', 'Tiled');//Añadimos la imagen al tilemap
+        //Creamos las diferentes Capas
+        const suelo = map.createLayer('Suelo', tileset, 0, 0);
+        const paredes = map.createLayer('Paredes',tileset,0,0);
+        //Establecemos las escalas
+        paredes.setScale(globalScale);
+        suelo.setScale(globalScale);
+        //Definimos las collisiones para todos los bloques de la capa
+        paredes.setCollisionByExclusion([-1]);
+        //TODO:mirar como hacer que pases por detras de cosas
+        // #endregion --- Tilemap---
+        //Miramos donde esta el player Spawn
+        const PlayerSpawn = map.findObject('Objetos', (obj) => obj.name === 'Player');
+        //Si no esta en la posicion 0 es decir esta inicializado de antes
+        if(this.posY == 0 && this.posX == 0){
+            this.posX = PlayerSpawn.x*globalScale ;
+            this.posY = PlayerSpawn.y*globalScale;
+        }
+        //Puntero del raton activo
         this.pointer = this.input.activePointer;
-        //this.add.image(0,0,'fondomazmorra').setOrigin(0,0);
-        //Tener en cuenta que con el let la variable solo se puede usar en el create si queremos usarla en mas sitios usar el this.player
+        //Creamos el player
         let player = new Player(this, this.posX,this.posY,200,'personaje',0,this.pointer,'punto');
+        //Camara de la escena
         var camera = this.cameras.main;
-        camera.startFollow(player); // hace que la camara siga al objeto indicado
-        camera.setBounds(-100,-100, 1000,1000);
-        this.physics.add.collider(player,suelo);
+        camera.startFollow(player); // hacemos que la camara siga al objeto indicado
+        camera.setBounds(300,400, 900,900);//Limites de la camara
+        this.physics.add.collider(player,paredes); //Fisicas de collisiones con las paredes
+        const Salida = map.findObject('Objetos', (obj) => obj.name === 'Salida');
+        const CambioSala = this.add.zone(Salida.x * globalScale,Salida.y * globalScale, Salida.width * globalScale, Salida.height * globalScale);
+        CambioSala.setOrigin(0);
+       this.physics.add.existing(CambioSala,true);
+       this.physics.add.overlap(player, CambioSala,()=>{
+           this.scene.start("game",{posmazX: player.x,posmazY: player.y});
+       });
         /*Muros
         const muro = this.add.zone(600, 300, 200, 50);
         this.physics.add.existing(muro,true);
         this.physics.add.collider(player, muro);
         */
-       const CambioSala = this.add.zone(730, 280, 20, 100);
-       this.physics.add.existing(CambioSala,true);
-       this.physics.add.overlap(player, CambioSala,()=>{
-           this.scene.start("game",{posmazX: player.x,posmazY: player.y});
-       });
         let botonBackMenu = this.add.text(650, 30 ,"MENU", 
     {
         fontSize: "32px",
@@ -75,7 +100,7 @@ export default class Selection extends Phaser.Scene {
         this.scene.start("menu");
     });
 
-        const objeto = new Object(this, player, 'objeto', 625, 450);
+        const objeto = new Object(this, player, 'objeto', 800, 600);
         this.physics.add.collider(objeto, suelo);
     }
 

@@ -55,7 +55,10 @@ export default class load extends Phaser.Scene {
         this.load.image('punto','assets/objects/punto.png');
         //Carga del tilemap
         this.load.image('Tiles','assets/Tilemap/TilemapSalas.png');
+        this.load.image('Tiled','assets/Tilemap/Tilemap.png');
         this.load.tilemapTiledJSON('Tilemapjson','assets/Tilemap/TilemapSalas.json');
+        this.load.tilemapTiledJSON('Sala1','assets/Tilemap/Sala1.json');
+
         //----Carga de spriteshets----
 
         /* === ANSIEDAD === */

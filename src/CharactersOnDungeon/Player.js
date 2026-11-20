@@ -13,6 +13,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 	 * @param {string} imgPunt - nombre de la imagen que representa al punto al que viaja
 	 * @param {number} pointx - punto al que se dirije el player en x
 	 * @param {number} pointy - punto al que se dirije el player en y
+	 * @param {number} prePosX - punto del frame anterior en x del player
+	 * @param {number} prePosY - punto del frame anterior en y del player
 	 * @param {number} margenError - margen de error de la llegada al punto del jugador
      * @param {Object[]} inventory - Inventario de objetos del jugador
 	 */
@@ -22,12 +24,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
         
 		this.scene.add.existing(this);//Añadimos el player a la escena
         this.setDisplaySize(100,100);//Establecemos el tamaño de la imagen
-        
+        this.prePosX = 0;
+        this.prePosY = 0;
         this.scene.physics.add.existing(this);//Añadimos las fisicas
         this.speed = speed; //Guardamos la velocidad
         this.body.key = imgKey; //Ponemos la imagen de como se ve el player
         this.body.setVelocity(0, 0); //Se estavlece la velocidad Inicial
-        this.keys = scene.input.keyboard.addKeys('W,A,S,D');//Se guarda el input para luego usarlo
+       // this.keys = scene.input.keyboard.addKeys('W,A,S,D');//Se guarda el input para luego usarlo
         //Guardamos el punto iniciales del player
         this.pointx = this.x;
         this.pointy = this.y;
@@ -35,6 +38,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
         this.cursor =  this.scene.add.image(this.pointx,this.pointy,imgPunt);
         this.cursor.setVisible(false);
         this.body.setSize(10, 10);
+        this.body.setOffset(20,35);
+        //this.body.setPosition()
         //Establecemos el margen de error
         this.margenError = 2;
         //Detecion del click del raton
@@ -79,6 +84,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocity(0, 0);
             xdir = 0;
             ydir = 0;
+            mag = 0;
 
             // Animacion de idle
             if (this.anims.currentAnim?.key !== 'alegria_idle') 
@@ -91,6 +97,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
             //console.log(this.y);
             //Desactivamos el punto hacia el que viajamos para que no se vea
             this.cursor.setVisible(false);
+            //Miramos si estamos intentando movernos pero no podemos
             
         }
         else
@@ -100,7 +107,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
             {
                 this.play('alegria_walk');
             }
-
+            if(this.prePosX == this.body.center.x && this.prePosY == this.body.center.y)
+            {
+                this.body.setVelocity(0, 0);
+                xdir = 0;
+                ydir = 0;
+                mag = 0;
+            }
+            if(this.body.Velocity >=0){
+            this.prePosX =this.body.center.x;
+            this.prePosY = this.body.center.y;
+            }
+           
         }
         //Rotacion del sprite del personaje
         if(xdir>0){
